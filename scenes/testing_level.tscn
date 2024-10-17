@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ni36pcsoifxl"]
+
+[ext_resource type="PackedScene" uid="uid://qtmkkfrfxjpf" path="res://scenes/default_floor.tscn" id="1_w485c"]
+[ext_resource type="PackedScene" uid="uid://cbtdfceqeab6k" path="res://scenes/character.tscn" id="2_g3hog"]
+
+[node name="Testing level" type="Node"]
+
+[node name="default_floor" parent="." instance=ExtResource("1_w485c")]
+
+[node name="Node3D" parent="default_floor" instance=ExtResource("2_g3hog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.904, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.857167, 0.515038, 0, -0.515038, -0.857167, 3.14564, 7.67005, -8.16822)
+light_energy = 0.7
