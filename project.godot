@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Under angels skin"
-run/main_scene="res://scenes/testing_level.tscn"
+run/main_scene="res://scenes/places/dungeon/testing_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Under angels skin"
+
+[global_group]
+
+player=""
 
 [input]
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ni36pcsoifxl"]
+
+[ext_resource type="PackedScene" uid="uid://qtmkkfrfxjpf" path="res://scenes/places/default_floor.tscn" id="1_6qe7s"]
+[ext_resource type="PackedScene" uid="uid://cbtdfceqeab6k" path="res://scenes/entities/players/character.tscn" id="2_21dlo"]
+[ext_resource type="PackedScene" uid="uid://u3rq862qt0we" path="res://scenes/entities/enemies/test_enemy.tscn" id="3_0b26w"]
+
+[node name="Testing level" type="Node"]
+
+[node name="default_floor" parent="." instance=ExtResource("1_6qe7s")]
+
+[node name="Player" parent="default_floor" instance=ExtResource("2_21dlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.904, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.857167, 0.515038, 0, -0.515038, -0.857167, 3.14564, 7.67005, -8.16822)
+light_energy = 0.7
+
+[node name="TestEnemy" parent="." instance=ExtResource("3_0b26w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18909, 3.86676, 0)
