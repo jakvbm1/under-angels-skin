@@ -3,15 +3,16 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_y6x5d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ecto4"]
-size = Vector3(1.98278, 0.53894, 2.01965)
+size = Vector3(1.98278, 0.298736, 2.01965)
 
 [node name="default_floor" type="RigidBody3D"]
+mass = 1000.0
 freeze = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 mesh = SubResource("PlaneMesh_y6x5d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.0581884, -2.7315, 0.0519226)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.0581884, -14.7417, 0.0519226)
 shape = SubResource("BoxShape3D_ecto4")
