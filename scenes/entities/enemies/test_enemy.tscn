@@ -7,6 +7,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynk4q"]
 albedo_color = Color(0.561133, 0.0416903, 0.0960523, 1)
 metallic = 0.75
+emission_enabled = true
+emission = Color(0.752941, 0.0745098, 0.0117647, 1)
+emission_energy_multiplier = 6.75
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_log6p"]
 
