@@ -11,7 +11,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 5
-	print(player.position)
-	print(position)
-	position.x = position.x + (player.position.x - position.x)*0.5*delta
-	position.z = position.z + (player.position.z - position.z)*0.5*delta
+
+	if player.position.distance_to(position) < 5:
+		print('a')
+		
+	else:
+		print(position)
