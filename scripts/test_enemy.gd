@@ -3,17 +3,24 @@ var player
 
 
 
-const SPEED = 3
+const SPEED = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta * 5
+		velocity += get_gravity() * delta
 
-	if player.position.distance_to(position) < 5:
-		print('a')
+	var distance = player.position.distance_to(position)
+
+	if distance < 10 and is_on_floor() and distance > 2:
+		print('gonie cie')
+		position.x = move_toward(position.x, player.position.x, delta)
+		position.z = move_toward(position.z, player.position.z, delta)
+		move_and_slide()
+		print(player.position)
 		
 	else:
-		print(position)
+		print('nie gonie')
+	move_and_slide()

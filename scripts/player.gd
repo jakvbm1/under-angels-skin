@@ -25,7 +25,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			spot_light_3d.rotation.x = clamp(spot_light_3d.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func dash():
-	velocity =  (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI
+	var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI
+	velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
