@@ -2,7 +2,6 @@ extends CharacterBody3D
 var player
 
 
-
 const SPEED = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +10,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
+	self.rotation_degrees.x = 0
+	self.rotation_degrees.z = 0
 
 	var distance = player.position.distance_to(position)
 
