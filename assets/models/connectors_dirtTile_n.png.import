@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y33cpl58oa0a"
-path.s3tc="res://.godot/imported/tilesDirt2_dirtTile_n.png-a418615a8556c06bd75a4495112af0ca.s3tc.ctex"
+uid="uid://cmyi84g2jlfnh"
+path.s3tc="res://.godot/imported/connectors_dirtTile_n.png-f4e69444bf688b47a0275b81d5c6991b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/models/tilesDirt2_dirtTile_n.png"
-dest_files=["res://.godot/imported/tilesDirt2_dirtTile_n.png-a418615a8556c06bd75a4495112af0ca.s3tc.ctex"]
+source_file="res://assets/models/connectors_dirtTile_n.png"
+dest_files=["res://.godot/imported/connectors_dirtTile_n.png-f4e69444bf688b47a0275b81d5c6991b.s3tc.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://assets/models/tilesDirt2_dirtTile_n.png"
+roughness/src_normal="res://assets/models/connectors_dirtTile_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
