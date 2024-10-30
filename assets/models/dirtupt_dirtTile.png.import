@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dig5khhg80q6q"
+uid="uid://dntshybw0pl2i"
 path.s3tc="res://.godot/imported/dirtupt_dirtTile.png-eb17a23ae0494c06326209c55a8f86d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "a52a626b1c69e8f293e34eb82ceeda6e"
 }
 
 [deps]

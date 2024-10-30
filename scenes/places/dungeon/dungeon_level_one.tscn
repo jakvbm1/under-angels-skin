@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfoiosfbfqusm"]
 
 [ext_resource type="MeshLibrary" uid="uid://6xgmq753mewm" path="res://assets/tiles/LevelOneTileset.tres" id="1_fssn0"]
-[ext_resource type="PackedScene" uid="uid://u3rq862qt0we" path="res://scenes/entities/enemies/test_enemy.tscn" id="2_m4p5b"]
+[ext_resource type="PackedScene" uid="uid://clyxr3hc5w666" path="res://scenes/entities/enemies/test_enemy.tscn" id="2_m4p5b"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="3_rrahl"]
 
 [sub_resource type="Environment" id="Environment_nids0"]
