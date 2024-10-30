@@ -10,9 +10,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
-	self.rotation_degrees.x = 0
-	self.rotation_degrees.z = 0
 
 	var distance = player.position.distance_to(position)
 
@@ -21,6 +18,9 @@ func _physics_process(delta: float) -> void:
 		position.x = move_toward(position.x, player.position.x, delta)
 		position.z = move_toward(position.z, player.position.z, delta)
 		move_and_slide()
+		look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
+		self.rotation_degrees.x = 0
+		self.rotation_degrees.z = 0
 		#print(player.position)
 		
 	#else:

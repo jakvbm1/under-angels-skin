@@ -30,7 +30,6 @@ project/assembly_name="Under angels skin"
 [global_group]
 
 player=""
-enemy=""
 
 [input]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfoiosfbfqusm"]
 
 [ext_resource type="MeshLibrary" uid="uid://bn1r4ldwwx2tn" path="res://assets/tiles/DirtTileset.tres" id="1_kkcmd"]
-[ext_resource type="PackedScene" uid="uid://u3rq862qt0we" path="res://scenes/entities/enemies/test_enemy.tscn" id="2_u5i3h"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="3_l41py"]
+[ext_resource type="PackedScene" uid="uid://clyxr3hc5w666" path="res://scenes/entities/enemies/test_enemy.tscn" id="4_fjp5q"]
 
 [sub_resource type="Environment" id="Environment_nids0"]
 ambient_light_source = 3
@@ -28,8 +28,8 @@ data = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nids0")
 
-[node name="TestEnemy" parent="." instance=ExtResource("2_u5i3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03119, 3.85059)
-
 [node name="Player" parent="." instance=ExtResource("3_l41py")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51005, 12.762)
+
+[node name="Skeleton" parent="." instance=ExtResource("4_fjp5q")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.62147, 0)
