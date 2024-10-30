@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxxhlh2gj5ex8"
-path.s3tc="res://.godot/imported/corridor1_696.jpg-1268312fdee5766da5903a8f3ef14706.s3tc.ctex"
+uid="uid://djui7bjurofpf"
+path.s3tc="res://.godot/imported/connector_dirtTile_n.png-fe405a8b0aa6b172bcfaea824776a2d7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "79c814c6f26d73d6688e7cfa92637ccf"
+"md5": "9a5fba01cf1bc6aa6c794b1a96755e88"
 }
 
 [deps]
 
-source_file="res://assets/models/corridor1_696.jpg"
-dest_files=["res://.godot/imported/corridor1_696.jpg-1268312fdee5766da5903a8f3ef14706.s3tc.ctex"]
+source_file="res://assets/models/connector_dirtTile_n.png"
+dest_files=["res://.godot/imported/connector_dirtTile_n.png-fe405a8b0aa6b172bcfaea824776a2d7.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/models/connector_dirtTile_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

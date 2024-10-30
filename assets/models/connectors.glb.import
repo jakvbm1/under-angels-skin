@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://55baitsngexo"
-path="res://.godot/imported/corridor1.glb-8cdca1a76ac5bb8f5b4f056b9e660b4b.scn"
+uid="uid://bgag78hmaeudg"
+path="res://.godot/imported/connectors.glb-b5c910b5975ef35df39ffd979eacbe3d.scn"
 
 [deps]
 
-source_file="res://assets/models/corridor1.glb"
-dest_files=["res://.godot/imported/corridor1.glb-8cdca1a76ac5bb8f5b4f056b9e660b4b.scn"]
+source_file="res://assets/models/connectors.glb"
+dest_files=["res://.godot/imported/connectors.glb-b5c910b5975ef35df39ffd979eacbe3d.scn"]
 
 [params]
 
