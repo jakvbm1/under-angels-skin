@@ -60,11 +60,14 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		animation_player.play("attack")
 		hitbox.monitoring = true
+
+# after attack animation
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		animation_player.play("idle")
 		hitbox.monitoring = false
 
+# when attack animation enters an enemy hitbox
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
 		print("szkielecik dostal")

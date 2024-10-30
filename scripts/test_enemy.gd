@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 		position.x = move_toward(position.x, player.position.x, delta)
 		position.z = move_toward(position.z, player.position.z, delta)
 		move_and_slide()
+		# enemy looking at player constantly
 		look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
 		self.rotation_degrees.x = 0
 		self.rotation_degrees.z = 0
