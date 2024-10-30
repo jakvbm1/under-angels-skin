@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-
+var enemy
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DASH_MULTI = 50
@@ -8,6 +8,12 @@ const DASH_MULTI = 50
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var sprite_3d: Sprite3D = $Neck/Camera3D/Sprite3D
 @onready var spot_light_3d: SpotLight3D = $Neck/SpotLight3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hitbox: Area3D = $Neck/Camera3D/Weapon/WeaponMesh/Hitbox
+
+func _ready() -> void:
+	animation_player.play("idle")
+	enemy = get_tree().get_first_node_in_group("enemy")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -54,3 +60,13 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		animation_player.play("attack")
+		hitbox.monitoring = true
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "attack":
+		animation_player.play("idle")
+		hitbox.monitoring = false

@@ -17,12 +17,12 @@ func _physics_process(delta: float) -> void:
 	var distance = player.position.distance_to(position)
 
 	if distance < 10 and is_on_floor() and distance > 2:
-		print('gonie cie')
+		#print('gonie cie')
 		position.x = move_toward(position.x, player.position.x, delta)
 		position.z = move_toward(position.z, player.position.z, delta)
 		move_and_slide()
-		print(player.position)
+		#print(player.position)
 		
-	else:
-		print('nie gonie')
+	#else:
+		#print('nie gonie')
 	move_and_slide()
