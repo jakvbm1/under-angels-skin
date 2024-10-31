@@ -1,11 +1,14 @@
 extends CharacterBody3D
+
 var player
 
-
+@onready var hp_label = $Label3D
+var hp = 200
 const SPEED = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	hp_label.text = "HP: %s" % hp
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -26,4 +29,12 @@ func _physics_process(delta: float) -> void:
 		
 	#else:
 		#print('nie gonie')
+		
 	move_and_slide()
+
+func takeDamage(damage: int) -> void:
+	hp -= damage
+	if hp > 0:
+		hp_label.text = "HP: %s" % hp
+	else:
+		queue_free()

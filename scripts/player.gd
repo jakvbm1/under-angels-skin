@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+var enemy
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DASH_MULTI = 50
@@ -9,6 +10,9 @@ const DASH_MULTI = 50
 @onready var spot_light_3d: SpotLight3D = $Neck/SpotLight3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Area3D = $Neck/Camera3D/Weapon/WeaponMesh/Hitbox
+
+func _ready() -> void:
+	enemy = get_tree().get_first_node_in_group("enemy")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -71,3 +75,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
 		print("szkielecik dostal")
+		enemy.takeDamage(25)
