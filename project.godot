@@ -75,3 +75,8 @@ attack={
 3d_physics/layer_2="npcs(enemies included)"
 3d_physics/layer_3="interactable objects(chests etc)"
 3d_physics/layer_4="environment"
+
+[physics]
+
+common/physics_ticks_per_second=240
+3d/physics_engine="JoltPhysics3D"
