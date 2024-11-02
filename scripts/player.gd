@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		print('dash')
 		dash()
 	
-	elif direction:
+	elif direction and last_dash > 0.1:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
