@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=11 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
+[ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_l8dfm"]
 
@@ -185,6 +186,8 @@ mesh = SubResource("CapsuleMesh_5ooqb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_3gttk")
+
+[node name="PlayersUi" parent="." instance=ExtResource("2_ca8kw")]
 
 [connection signal="body_entered" from="Neck/Camera3D/Weapon/WeaponMesh/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

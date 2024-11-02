@@ -4,6 +4,14 @@ var enemy
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const DASH_MULTI = 50
+const REGEN = 2
+const DASH_COOLDOWN = 3
+
+var max_hp = 100.0
+var current_hp = 10.0
+var last_dash = 0.0
+
+
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var sprite_3d: Sprite3D = $Neck/Camera3D/Sprite3D
@@ -30,8 +38,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			spot_light_3d.rotation.x = clamp(spot_light_3d.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func dash():
-	var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI
-	velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
+	if last_dash >= DASH_COOLDOWN:
+		var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI
+		velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
+		last_dash = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -51,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		print('dash')
 		dash()
 	
-	if direction:
+	elif direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
@@ -61,6 +71,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
+	
+	if last_dash < DASH_COOLDOWN:
+		last_dash += _delta
+	
+	if current_hp < max_hp:
+		current_hp += REGEN * _delta
+	
 	if Input.is_action_just_pressed("attack"):
 		animation_player.play("attack")
 		hitbox.monitoring = true
