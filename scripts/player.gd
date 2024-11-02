@@ -3,7 +3,7 @@ extends CharacterBody3D
 var enemy
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const DASH_MULTI = 50
+const DASH_MULTI = 100
 const REGEN = 2
 const DASH_COOLDOWN = 3
 
@@ -40,7 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func dash():
 	if last_dash >= DASH_COOLDOWN:
 		var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI
-		velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
+		#velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
+		velocity = velocity.lerp(Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z), 0.5)
 		last_dash = 0
 
 func _physics_process(delta: float) -> void:
