@@ -3,6 +3,7 @@ extends CharacterBody3D
 var player
 
 @onready var hp_label = $Label3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var hp = 200
 const SPEED = 100
 # Called when the node enters the scene tree for the first time.
@@ -21,14 +22,16 @@ func _physics_process(delta: float) -> void:
 		position.x = move_toward(position.x, player.position.x, delta)
 		position.z = move_toward(position.z, player.position.z, delta)
 		move_and_slide()
+		animation_player.play("walk")
 		# enemy looking at player constantly
 		look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
 		self.rotation_degrees.x = 0
 		self.rotation_degrees.z = 0
 		#print(player.position)
-		
-	#else:
-		#print('nie gonie')
+	elif distance < 2:
+		animation_player.play("idle")
+	else:
+		animation_player.play("idle")
 		
 	move_and_slide()
 

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c058it6686r3x"]
+
+[ext_resource type="PackedScene" uid="uid://cox4y7h7xxcy6" path="res://assets/weapons/Power Gun.glb" id="1_sw487"]
+
+[node name="Power Gun" instance=ExtResource("1_sw487")]
