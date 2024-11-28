@@ -32,7 +32,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 environment = SubResource("Environment_nids0")
 
 [node name="TestEnemy" parent="." instance=ExtResource("2_m4p5b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.031, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0832679, 3.031, 40)
 
 [node name="Player" parent="." instance=ExtResource("3_rrahl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51005, -0.238)
