@@ -38,10 +38,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			spot_light_3d.rotation.x = clamp(spot_light_3d.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func dash():
-	if last_dash >= DASH_COOLDOWN:
-		var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI
+	if last_dash > 0 :
+		var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI * last_dash / 3
 		#velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
-		velocity = velocity.lerp(Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z), 0.5)
+		velocity = velocity.lerp(Vector3(dash_vector.x, dash_vector.y * 0.17, dash_vector.z), 0.5)
 		last_dash = 0
 
 func _physics_process(delta: float) -> void:
