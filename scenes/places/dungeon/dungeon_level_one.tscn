@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfoiosfbfqusm"]
+[gd_scene load_steps=6 format=3 uid="uid://dfoiosfbfqusm"]
 
 [ext_resource type="MeshLibrary" uid="uid://6xgmq753mewm" path="res://assets/tiles/LevelOneTileset.tres" id="1_fssn0"]
 [ext_resource type="PackedScene" uid="uid://clyxr3hc5w666" path="res://scenes/entities/enemies/test_enemy.tscn" id="2_m4p5b"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="3_rrahl"]
+[ext_resource type="PackedScene" uid="uid://8c3pbgsh832e" path="res://scenes/entities/enemies/test_enemy_gun.tscn" id="5_3ihtu"]
 
 [sub_resource type="Environment" id="Environment_nids0"]
 ambient_light_source = 3
@@ -38,3 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0832679, 3.031, 40)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51005, -0.238)
 platform_floor_layers = 4294967048
 platform_wall_layers = 8
+
+[node name="test_enemy_gun" parent="." instance=ExtResource("5_3ihtu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115467, 2.45323, 14.1869)
