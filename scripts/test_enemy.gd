@@ -56,4 +56,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		player.takeDamage(15)
+		player.takeDamage(20)

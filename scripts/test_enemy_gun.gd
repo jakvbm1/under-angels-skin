@@ -4,7 +4,7 @@ var player
 
 @onready var hp_label = $Label3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var gun_anim = $PowerGun/AnimationPlayer
+#@onready var gun_anim = $PowerGun/AnimationPlayer
 @onready var gun_barrel = $PowerGun/RayCast3D
 
 var bullet = load("res://scenes/weapons/bullet.tscn")
@@ -28,23 +28,22 @@ func _physics_process(delta: float) -> void:
 	
 	if !isAttacking:
 		if distance < 10 and is_on_floor() and distance >= 1.5:
+			animation_player.play("walk")
 			#print('gonie cie')
 			position.x = move_toward(position.x, player.position.x, delta)
 			position.z = move_toward(position.z, player.position.z, delta)
-			move_and_slide()
-			animation_player.play("walk")
 			# enemy looking at player constantly
 			look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
 			self.rotation_degrees.x = 0
 			self.rotation_degrees.z = 0
-			#print(player.position)
-		if distance <= 5 and cooldown > 5:
-			animation_player.play("gun_aim")
-			cooldown = 0
-			isAttacking = true
+			move_and_slide()
+			if (cooldown > 2.5):
+				cooldown = 0
+				isAttacking = true
+				animation_player.play("gun_aim")
 		else:
 			animation_player.play("idle")
-		
+			
 		move_and_slide()
 
 func takeDamage(damage: int) -> void:
@@ -63,4 +62,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		get_parent().add_child(instance)
 		
 		animation_player.play("gun_down")
+	
+	if anim_name == "gun_down":
 		isAttacking = false
+		

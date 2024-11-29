@@ -325,6 +325,98 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector3(-0.4421, -0.0293721, 0.163394)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PowerGun:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.108751, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_47al1"]
+resource_name = "gun_aim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.5001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.227566, 0.510647, 0.296164), Vector3(0.244072, 0.54802, 0.436271)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("right arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.5001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.29275, 0.459842, 0), Vector3(-1.29275, 0.396853, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerGun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.5001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.4421, -0.0293721, 0.163394), Vector3(-0.10383, 0.602467, 0.726152), Vector3(-0.106637, 0.626837, 0.819466)]
+}
+
+[sub_resource type="Animation" id="Animation_i5a0e"]
+resource_name = "gun_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.000100017, 0, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.227566, 0.510647, 0.296164), Vector3(0.244072, 0.54802, 0.436271), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("right arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.000100017, 0, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.29275, 0.459842, 0), Vector3(-1.29275, 0.396853, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerGun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.000100017, 0, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.10383, 0.602467, 0.726152), Vector3(-0.106637, 0.626837, 0.819466), Vector3(-0.4421, -0.0293721, 0.163394)]
+}
 
 [sub_resource type="Animation" id="Animation_q863o"]
 resource_name = "idle"
@@ -377,6 +469,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.27475, 0, 0), Vector3(0, 0, 0), Vector3(-0.222983, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PowerGun:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.4421, -0.0293721, 0.163394), Vector3(-0.4421, -0.00653434, 0.309408), Vector3(-0.4421, -0.0293721, 0.163394), Vector3(-0.4421, -0.0758116, 0.0164036)]
 }
 
 [sub_resource type="Animation" id="Animation_4mp1t"]
@@ -479,85 +583,29 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.279811, 0, 0), Vector3(0, 0, 0), Vector3(0.405859, 0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_47al1"]
-resource_name = "gun_aim"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("right arm:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.5001),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PowerGun:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.227566, 0.510647, 0.296164), Vector3(0.244072, 0.54802, 0.436271)]
+"values": [Vector3(-0.4421, -0.038747, 0.133721), Vector3(-0.4421, 0.0694357, 0.350807), Vector3(-0.4421, -0.038747, 0.133721), Vector3(-0.4421, -0.107155, -0.168118)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("right arm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.5001),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PowerGun:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.29275, 0.459842, 0), Vector3(-1.29275, 0.396853, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PowerGun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.5001),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.4421, -0.0293721, 0.163394), Vector3(-0.10383, 0.602467, 0.726152), Vector3(-0.106637, 0.626837, 0.819466)]
-}
-
-[sub_resource type="Animation" id="Animation_i5a0e"]
-resource_name = "gun_down"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("right arm:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.000100017, 0, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.227566, 0.510647, 0.296164), Vector3(0.244072, 0.54802, 0.436271), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("right arm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-0.000100017, 0, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.29275, 0.459842, 0), Vector3(-1.29275, 0.396853, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PowerGun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(-0.000100017, 0, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.10383, 0.602467, 0.726152), Vector3(-0.106637, 0.626837, 0.819466), Vector3(-0.4421, -0.0293721, 0.163394)]
+"values": [Vector3(0, 0, 0), Vector3(-0.108751, 0, 0), Vector3(0, 0, 0), Vector3(0.181549, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_na2se"]
@@ -1065,6 +1113,6 @@ mesh = SubResource("ArrayMesh_4skk1")
 skeleton = NodePath("")
 
 [node name="PowerGun" parent="." instance=ExtResource("2_q0j0i")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4421, -0.0293721, 0.163394)
+transform = Transform3D(0.5, 0, 0, 0, 0.497046, 0.0542686, 0, -0.0542686, 0.497046, -0.4421, -0.0293721, 0.163394)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
