@@ -6,11 +6,14 @@ const JUMP_VELOCITY = 4.5
 const DASH_MULTI = 100
 const REGEN = 2
 const DASH_COOLDOWN = 3
+const ATTACK_DAMAGE = 25
 
 var max_hp = 100.0
 var current_hp = 10.0
 var last_dash = 0.0
 
+# signal for red color on the camera
+signal player_hit
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -83,6 +86,11 @@ func _process(_delta: float) -> void:
 		animation_player.play("attack")
 		hitbox.monitoring = true
 
+func takeDamage(damage: int) -> void:
+	emit_signal("player_hit")
+	if current_hp > 0:
+		current_hp -= damage
+
 # after attack animation
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
@@ -92,5 +100,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 # when attack animation enters an enemy hitbox
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
-		print("szkielecik dostal")
-		enemy.takeDamage(25)
+		body.takeDamage(ATTACK_DAMAGE)

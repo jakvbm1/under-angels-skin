@@ -5,17 +5,22 @@ var state_machine
 
 @onready var hp_label = $Label3D
 @onready var anim_tree = $AnimationTree
-@onready var hitbox = $axe/Hitbox
+@onready var gun_barrel = $PowerGun/RayCast3D
 @onready var nav_agent = $NavigationAgent3D
 
-const SPEED = 2.5
-const ATTACK_COOLDOWN = 1.0 # in seconds
+const SPEED = 2.0
+const ATTACK_COOLDOWN = 3.0 # in seconds
 const WALK_RANGE = 10.0
-const ATTACK_RANGE = 1.2
-const ATTACK_DAMAGE = 15
+const ATTACK_RANGE = 5.0
+const ATTACK_DAMAGE = 10
 
-var HP = 200
+var HP = 150
 var cooldown = 0.0
+
+# for projectiles
+var bullet = load("res://scenes/weapons/bullet.tscn")
+var instance
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +29,9 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	hp_label.text = "HP: %s" % HP
 
-func _physics_process(delta: float) -> void:
+
+func _process(delta: float) -> void:
+	# enemy behaviour at every animation state
 	match state_machine.get_current_node():
 		"walk":
 			var current_location = global_transform.origin
@@ -39,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			# apply enemy movement
 			move_and_slide()
 		
-		"attack_melee":
+		"gun_aim":
 			# to be rotated at player's direction
 			look_at(Vector3(player.global_position.x, global_position.y,
 				player.global_position.z), Vector3.UP, true)
@@ -49,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	if cooldown < ATTACK_COOLDOWN:
 		cooldown += delta
-		
+
 
 func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
@@ -69,10 +76,10 @@ func update_animation_parameters():
 		anim_tree["parameters/conditions/walk"] = false
 		anim_tree["parameters/conditions/idle"] = true
 
-
 # get player location from the map
 func update_target_location(target_location):
 	nav_agent.target_position = target_location
+
 
 func takeDamage(damage: int) -> void:
 	HP -= damage
@@ -81,18 +88,15 @@ func takeDamage(damage: int) -> void:
 	else:
 		queue_free()
 
+
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack_melee":
-		# turn on weapon hitbox
-		hitbox.monitoring = true
-	if anim_name == "attack_melee_2":
-		#turn off weapon hitbox
-		hitbox.monitoring = false
+	# shoot a projectile when aiming animation is finished
+	if anim_name == "gun_aim":
+		# bullet creation
+		instance = bullet.instantiate()
+		instance.position = gun_barrel.global_position
+		instance.transform.basis = gun_barrel.global_transform.basis
+		get_parent().add_child(instance)
 		
 		# attack cooldown reset
 		cooldown = 0.0
-
-# to check if attack hit player
-func _on_hitbox_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		body.takeDamage(ATTACK_DAMAGE)
