@@ -1,71 +1,84 @@
 extends CharacterBody3D
 
 var player
+var state_machine
 
 @onready var hp_label = $Label3D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var anim_tree = $AnimationTree
 @onready var gun_barrel = $PowerGun/RayCast3D
 @onready var nav_agent = $NavigationAgent3D
 
+const SPEED = 2.0
+const ATTACK_COOLDOWN = 3.0 # in seconds
+const WALK_RANGE = 10.0
+const ATTACK_RANGE = 5.0
+
 var HP = 200
-const SPEED = 2
-var isAttacking = false
 var cooldown = 0.0
 
 # for projectiles
 var bullet = load("res://scenes/weapons/bullet.tscn")
 var instance
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	anim_tree.active = true
 	player = get_tree().get_first_node_in_group("player")
 	hp_label.text = "HP: %s" % HP
+	state_machine = anim_tree.get("parameters/playback")
 
-func _physics_process(delta: float) -> void:
-	var distance = player.position.distance_to(position)
-	
-	if distance < 10 and !isAttacking:
-		# dancing, walking, rearranging furniture
-		animation_player.play("walk")
-		var current_location = global_transform.origin
-		var next_location = nav_agent.get_next_path_position()
-		var new_velocity = (next_location - current_location).normalized() * SPEED
-		
-		velocity = velocity.move_toward(new_velocity, 0.25)
-		
-		# enemy looking at player constantly
-		look_at(Vector3(player.global_transform.origin.x, 0, player.global_transform.origin.z), Vector3.UP, true)
-		self.rotation_degrees.x = 0
-		self.rotation_degrees.z = 0
-		
-		move_and_slide()
-	
-	cooldown += delta
 
+func _process(delta: float) -> void:
+	# enemy behaviour at every animation state
+	match state_machine.get_current_node():
+		"walk":
+			var current_location = global_transform.origin
+			var next_location = nav_agent.get_next_path_position()
+			var new_velocity = (next_location - current_location).normalized() * SPEED
+			velocity = velocity.move_toward(new_velocity, 0.25)
+			
+			# to be rotated at walking direction
+			look_at(Vector3(player.global_position.x + velocity.x, global_position.y,
+				player.global_position.z + velocity.z), Vector3.UP, true)
+			
+			# apply enemy movement
+			move_and_slide()
+		
+		"gun_aim":
+			# to be rotated at player's direction
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
+	
+	# animation conditions
+	update_animation_parameters()
+	
+	if cooldown < ATTACK_COOLDOWN:
+		cooldown += delta
+
+
+func update_animation_parameters():
+	var distance = global_position.distance_to(player.global_position)
+	
+	if distance < ATTACK_RANGE and cooldown >= ATTACK_COOLDOWN:
+		anim_tree["parameters/conditions/attack"] = true
+		anim_tree["parameters/conditions/walk"] = false
+		anim_tree["parameters/conditions/idle"] = false
+	
+	elif distance < WALK_RANGE:
+		anim_tree["parameters/conditions/attack"] = false
+		anim_tree["parameters/conditions/walk"] = true
+		anim_tree["parameters/conditions/idle"] = false
+	
+	else:
+		anim_tree["parameters/conditions/attack"] = false
+		anim_tree["parameters/conditions/walk"] = false
+		anim_tree["parameters/conditions/idle"] = true
+
+# get player location from the map
 func update_target_location(target_location):
 	nav_agent.target_position = target_location
 
-# if player is near (Target Desired Distance value in NavigationAgent properties)
-func _on_navigation_agent_3d_target_reached() -> void:
-	if (cooldown > 3):
-		isAttacking = true
-		cooldown = 0
-		animation_player.play("gun_aim")
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	# when enemy finishes aiming, then shoot a projectile
-	if anim_name == "gun_aim":
-		#bullet creation
-		instance = bullet.instantiate()
-		instance.position = gun_barrel.global_position
-		instance.transform.basis = gun_barrel.global_transform.basis
-		get_parent().add_child(instance)
-		
-		animation_player.play("gun_down")
-	
-	# to start walking after an attack
-	if anim_name == "gun_down":
-		isAttacking = false
 
 func takeDamage(damage: int) -> void:
 	HP -= damage
@@ -73,3 +86,15 @@ func takeDamage(damage: int) -> void:
 		hp_label.text = "HP: %s" % HP
 	else:
 		queue_free()
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	# shoot a projectile when aiming animation is finished
+	if anim_name == "gun_aim":
+		# bullet creation
+		instance = bullet.instantiate()
+		instance.position = gun_barrel.global_position
+		instance.transform.basis = gun_barrel.global_transform.basis
+		get_parent().add_child(instance)
+		
+		cooldown = 0.0
