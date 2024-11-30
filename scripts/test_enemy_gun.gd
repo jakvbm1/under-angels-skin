@@ -12,8 +12,9 @@ const SPEED = 2.0
 const ATTACK_COOLDOWN = 3.0 # in seconds
 const WALK_RANGE = 10.0
 const ATTACK_RANGE = 5.0
+const ATTACK_DAMAGE = 10
 
-var HP = 200
+var HP = 150
 var cooldown = 0.0
 
 # for projectiles
@@ -24,9 +25,9 @@ var instance
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	anim_tree.active = true
+	state_machine = anim_tree.get("parameters/playback")
 	player = get_tree().get_first_node_in_group("player")
 	hp_label.text = "HP: %s" % HP
-	state_machine = anim_tree.get("parameters/playback")
 
 
 func _process(delta: float) -> void:
@@ -97,4 +98,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		instance.transform.basis = gun_barrel.global_transform.basis
 		get_parent().add_child(instance)
 		
+		# attack cooldown reset
 		cooldown = 0.0

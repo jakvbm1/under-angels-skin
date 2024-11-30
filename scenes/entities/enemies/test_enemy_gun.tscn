@@ -1133,7 +1133,6 @@ mesh = SubResource("ArrayMesh_fhq1g")
 skeleton = NodePath("")
 
 [node name="right arm" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="1-P" type="MeshInstance3D" parent="right arm"]
 transform = Transform3D(0.53488, -1.92715, 0, 1.92715, 0.53488, 0, 0, 0, 2, 0.340849, 0.695349, 0)
@@ -1203,6 +1202,4 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4skk1")
 skeleton = NodePath("")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
