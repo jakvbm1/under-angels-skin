@@ -1,7 +1,9 @@
-[gd_scene load_steps=59 format=4 uid="uid://clyxr3hc5w666"]
+[gd_scene load_steps=61 format=4 uid="uid://clyxr3hc5w666"]
 
 [ext_resource type="Script" path="res://scripts/test_enemy.gd" id="1_birs1"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="2_btxxd"]
 [ext_resource type="PackedScene" uid="uid://xt338ot87idi" path="res://scenes/weapons/axe.tscn" id="2_ynq8a"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hitbox.gd" id="4_3i858"]
 
 [sub_resource type="Animation" id="Animation_v4xq0"]
 length = 0.001
@@ -75,7 +77,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.279811, 0, 0)]
+"values": [Vector3(0.0251678, 0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -99,7 +101,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.385596, 0, 0)]
+"values": [Vector3(0.0514702, 0, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -124,6 +126,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.138591, -1.40713, -0.696608)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("axe/EnemyHitbox/CollisionShape3D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_xyvva"]
@@ -228,6 +242,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.127556, -1.39978, 0.634818), Vector3(0.0736202, -1.42866, -0.475641), Vector3(0.153877, -1.42297, -0.799871)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("axe/EnemyHitbox/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_q863o"]
@@ -504,13 +530,13 @@ states/idle/position = Vector2(235, 198)
 states/walk/node = SubResource("AnimationNodeAnimation_vjyky")
 states/walk/position = Vector2(686, 198)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_mb7u0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_gsr6p"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_dgdah"), "idle", "attack_melee", SubResource("AnimationNodeStateMachineTransition_eiwib"), "walk", "attack_melee", SubResource("AnimationNodeStateMachineTransition_hhc7f"), "attack_melee", "attack_melee_2", SubResource("AnimationNodeStateMachineTransition_yot20"), "attack_melee_2", "idle", SubResource("AnimationNodeStateMachineTransition_mbxvg"), "attack_melee_2", "walk", SubResource("AnimationNodeStateMachineTransition_uyq3q")]
+graph_offset = Vector2(0, -5.66777)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_47ana"]
-radius = 0.453815
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_srxfy"]
+radius = 0.235677
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioovt"]
-radius = 0.148027
-height = 1.04973
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2osc1"]
+height = 1.36515
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rpij"]
 resource_name = "mat21"
@@ -1127,23 +1153,30 @@ parameters/conditions/walk = false
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 2.0
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_srxfy")
+
+[node name="EnemyHurtbox" type="Area3D" parent="."]
+script = ExtResource("2_btxxd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHurtbox"]
+shape = SubResource("CapsuleShape3D_srxfy")
+
 [node name="axe" parent="." instance=ExtResource("2_ynq8a")]
 transform = Transform3D(0.106215, -1.5758e-06, -0.488588, -0.317734, 0.379834, -0.0690739, 0.371166, 0.325155, 0.0806871, -0.41226, 0.0926389, 0.396601)
 
-[node name="Hitbox" type="Area3D" parent="axe"]
-monitoring = false
+[node name="EnemyHitbox" type="Area3D" parent="axe"]
+script = ExtResource("4_3i858")
+damage = 15
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="axe/Hitbox"]
-transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0.331088, 0.593422, 0.0716042)
-shape = SubResource("SphereShape3D_47ana")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="axe/EnemyHitbox"]
+transform = Transform3D(1, -1.19209e-07, -1.49012e-08, 2.98023e-08, 1, 1.04308e-07, 0, 8.19564e-08, 1, 0.154337, 0.43144, 0.0285084)
+shape = SubResource("CapsuleShape3D_2osc1")
+disabled = true
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19197, 0)
 text = "HP: "
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0101405, 0)
-shape = SubResource("CapsuleShape3D_ioovt")
 
 [node name="group2088735744" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -1200,7 +1233,7 @@ mesh = SubResource("ArrayMesh_wey12")
 skeleton = NodePath("")
 
 [node name="left leg" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.961108, 0.276174, 0, -0.276174, 0.961108, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999684, -0.0251652, 0, 0.0251652, 0.999684, 0, 0, 0)
 
 [node name="1" type="MeshInstance3D" parent="left leg"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -1218,7 +1251,7 @@ mesh = SubResource("ArrayMesh_53j82")
 skeleton = NodePath("")
 
 [node name="right leg" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.926574, -0.376111, 0, 0.376111, 0.926574, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998675, -0.0514474, 0, 0.0514474, 0.998675, 0, 0, 0)
 
 [node name="1" type="MeshInstance3D" parent="right leg"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -1236,4 +1269,3 @@ mesh = SubResource("ArrayMesh_4skk1")
 skeleton = NodePath("")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="body_entered" from="axe/Hitbox" to="." method="_on_hitbox_body_entered"]

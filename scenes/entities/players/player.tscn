@@ -1,12 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=14 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
+[ext_resource type="Script" path="res://scripts/components/player_hurtbox.gd" id="2_e75ks"]
+[ext_resource type="Script" path="res://scripts/components/player_hitbox.gd" id="3_uh2po"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hhcsc"]
+radius = 0.372213
+height = 1.90151
 
 [sub_resource type="BoxMesh" id="BoxMesh_l8dfm"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ocmfu"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1uig0"]
+size = Vector3(2.13149, 1.13287, 2.21739)
 
 [sub_resource type="Animation" id="Animation_j8s0f"]
 length = 0.001
@@ -20,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 2.10499, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -45,6 +51,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.196499, 0.157188, 0.033247)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh/PlayerHitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_yw0on"]
@@ -85,6 +103,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 2.10499, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh/PlayerHitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ai8po"]
@@ -144,6 +174,12 @@ physics_interpolation_mode = 1
 collision_mask = 15
 script = ExtResource("1_pueir")
 
+[node name="PlayerHurtbox" type="Area3D" parent="."]
+script = ExtResource("2_e75ks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerHurtbox"]
+shape = SubResource("CapsuleShape3D_hhcsc")
+
 [node name="Neck" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
@@ -154,19 +190,20 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.722329)
 
 [node name="Weapon" type="Node3D" parent="Neck/Camera3D"]
-transform = Transform3D(-0.509147, 0, 0.86068, 0, 1, 0, -0.86068, 0, -0.509147, 0, 0, 0)
 
 [node name="WeaponMesh" type="MeshInstance3D" parent="Neck/Camera3D/Weapon"]
 transform = Transform3D(0.098611, -0.0633768, 0.0153529, 0.00326012, 0.980214, 0.0195237, -0.0162865, -0.18752, 0.0968665, 0.535923, -0.48845, -0.652102)
 mesh = SubResource("BoxMesh_l8dfm")
 
-[node name="Hitbox" type="Area3D" parent="Neck/Camera3D/Weapon/WeaponMesh"]
-transform = Transform3D(-0.693113, 0.0229706, -0.853854, -0.0110479, 1.09927, 0.0385409, 0.854092, 0.0328605, -0.692422, 0, 0, 0)
-monitoring = false
+[node name="PlayerHitbox" type="Area3D" parent="Neck/Camera3D/Weapon/WeaponMesh"]
+transform = Transform3D(1, -2.98023e-08, -1.49012e-08, -4.65661e-10, 1, -1.86265e-09, 0, 0, 1, 0, 0, 0)
+script = ExtResource("3_uh2po")
+damage = 25
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Camera3D/Weapon/WeaponMesh/Hitbox"]
-transform = Transform3D(-0.630102, -0.0100435, 0.776447, 0.0208824, 0.999336, 0.0298731, -0.776231, 0.0350373, -0.629474, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_ocmfu")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Camera3D/Weapon/WeaponMesh/PlayerHitbox"]
+transform = Transform3D(0.999995, 1.43051e-06, -2.38419e-07, -8.14907e-08, 0.999999, 0, -1.13249e-06, -1.43051e-06, 1, 0.00546741, 0.0544736, -0.00572777)
+shape = SubResource("BoxShape3D_1uig0")
+disabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615297, -0.195678)
@@ -189,5 +226,4 @@ shape = SubResource("CapsuleShape3D_3gttk")
 
 [node name="PlayersUi" parent="." instance=ExtResource("2_ca8kw")]
 
-[connection signal="body_entered" from="Neck/Camera3D/Weapon/WeaponMesh/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

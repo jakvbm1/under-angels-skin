@@ -35,7 +35,7 @@ platform_floor_layers = 4294967048
 platform_wall_layers = 8
 
 [node name="test_enemy_gun" parent="." instance=ExtResource("5_3ihtu")]
-transform = Transform3D(-0.998566, 0, 0.0535386, 0, 1, 0, -0.0535386, 0, -0.998566, 0.115467, 1.08525, 14.1869)
+transform = Transform3D(-0.998566, 0, 0.0535386, 0, 1, 0, -0.0535386, 0, -0.998566, 0.122894, 1.03514, 14.1869)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_efmxh")
@@ -54,10 +54,8 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="HitScreen" type="ColorRect" parent="."]
 visible = false
-offset_left = -65.0
-offset_top = -41.0
-offset_right = 546.0
-offset_bottom = 370.0
+offset_right = 480.0
+offset_bottom = 320.0
 color = Color(1, 0, 0, 0.27451)
 
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]

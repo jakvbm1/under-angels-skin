@@ -1,7 +1,8 @@
-[gd_scene load_steps=58 format=4 uid="uid://8c3pbgsh832e"]
+[gd_scene load_steps=59 format=4 uid="uid://8c3pbgsh832e"]
 
 [ext_resource type="Script" path="res://scripts/test_enemy_gun.gd" id="1_1qg7w"]
 [ext_resource type="PackedScene" uid="uid://c058it6686r3x" path="res://scenes/weapons/power_gun.tscn" id="2_q0j0i"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="3_aak5o"]
 
 [sub_resource type="Animation" id="Animation_v4xq0"]
 length = 0.001
@@ -75,7 +76,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.279811, 0, 0)]
+"values": [Vector3(0.0464435, 0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -99,7 +100,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.385596, 0, 0)]
+"values": [Vector3(0.0543325, 0, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -1112,6 +1113,13 @@ text = "HP: "
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0101405, 0)
 shape = SubResource("CapsuleShape3D_ioovt")
 
+[node name="MyHurtbox" type="Area3D" parent="."]
+script = ExtResource("3_aak5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MyHurtbox"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0101405, 0)
+shape = SubResource("CapsuleShape3D_ioovt")
+
 [node name="group2088735744" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_r5pjs")
@@ -1167,7 +1175,7 @@ mesh = SubResource("ArrayMesh_wey12")
 skeleton = NodePath("")
 
 [node name="left leg" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.961108, 0.276174, 0, -0.276174, 0.961108, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998922, -0.0464268, 0, 0.0464268, 0.998922, 0, 0, 0)
 
 [node name="1" type="MeshInstance3D" parent="left leg"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -1185,7 +1193,7 @@ mesh = SubResource("ArrayMesh_53j82")
 skeleton = NodePath("")
 
 [node name="right leg" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.926574, -0.376111, 0, 0.376111, 0.926574, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998524, -0.0543057, 0, 0.0543057, 0.998524, 0, 0, 0)
 
 [node name="1" type="MeshInstance3D" parent="right leg"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

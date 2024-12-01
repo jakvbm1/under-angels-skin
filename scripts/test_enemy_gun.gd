@@ -45,11 +45,6 @@ func _process(delta: float) -> void:
 			
 			# apply enemy movement
 			move_and_slide()
-		
-		"gun_aim":
-			# to be rotated at player's direction
-			look_at(Vector3(player.global_position.x, global_position.y,
-				player.global_position.z), Vector3.UP, true)
 	
 	# animation conditions
 	update_animation_parameters()
@@ -81,7 +76,7 @@ func update_target_location(target_location):
 	nav_agent.target_position = target_location
 
 
-func takeDamage(damage: int) -> void:
+func take_damage(damage: int) -> void:
 	HP -= damage
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP

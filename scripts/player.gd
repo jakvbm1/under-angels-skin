@@ -20,7 +20,6 @@ signal player_hit
 @onready var sprite_3d: Sprite3D = $Neck/Camera3D/Sprite3D
 @onready var spot_light_3d: SpotLight3D = $Neck/SpotLight3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var hitbox: Area3D = $Neck/Camera3D/Weapon/WeaponMesh/Hitbox
 
 func _ready() -> void:
 	enemy = get_tree().get_first_node_in_group("enemy")
@@ -61,8 +60,10 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (neck.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	if Input.is_action_just_pressed("attack"):
+		animation_player.play("attack")
+	
 	if Input.is_action_just_pressed("dash"):
-		print('dash')
 		dash()
 	
 	elif direction and last_dash > 0.1:
@@ -74,19 +75,15 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	if last_dash < DASH_COOLDOWN:
-		last_dash += _delta
+		last_dash += delta
 	
 	if current_hp < max_hp:
-		current_hp += REGEN * _delta
-	
-	if Input.is_action_just_pressed("attack"):
-		animation_player.play("attack")
-		hitbox.monitoring = true
+		current_hp += REGEN * delta
 
-func takeDamage(damage: int) -> void:
+func take_damage(damage: int) -> void:
 	emit_signal("player_hit")
 	if current_hp > 0:
 		current_hp -= damage
@@ -95,9 +92,3 @@ func takeDamage(damage: int) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		animation_player.play("idle")
-		hitbox.monitoring = false
-
-# when attack animation enters an enemy hitbox
-func _on_hitbox_body_entered(body: Node3D) -> void:
-	if body.is_in_group("enemy"):
-		body.takeDamage(ATTACK_DAMAGE)

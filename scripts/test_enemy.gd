@@ -5,11 +5,10 @@ var state_machine
 
 @onready var hp_label = $Label3D
 @onready var anim_tree = $AnimationTree
-@onready var hitbox = $axe/Hitbox
 @onready var nav_agent = $NavigationAgent3D
 
 const SPEED = 2.5
-const ATTACK_COOLDOWN = 1.0 # in seconds
+const ATTACK_COOLDOWN = 1.5 # in seconds
 const WALK_RANGE = 10.0
 const ATTACK_RANGE = 1.2
 const ATTACK_DAMAGE = 15
@@ -74,7 +73,7 @@ func update_animation_parameters():
 func update_target_location(target_location):
 	nav_agent.target_position = target_location
 
-func takeDamage(damage: int) -> void:
+func take_damage(damage: int) -> void:
 	HP -= damage
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP
@@ -82,17 +81,12 @@ func takeDamage(damage: int) -> void:
 		queue_free()
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack_melee":
+	#if anim_name == "attack_melee":
 		# turn on weapon hitbox
-		hitbox.monitoring = true
+		#hitbox.monitoring = true
 	if anim_name == "attack_melee_2":
 		#turn off weapon hitbox
-		hitbox.monitoring = false
+		#hitbox.monitoring = false
 		
 		# attack cooldown reset
 		cooldown = 0.0
-
-# to check if attack hit player
-func _on_hitbox_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		body.takeDamage(ATTACK_DAMAGE)
