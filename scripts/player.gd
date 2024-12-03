@@ -1,7 +1,10 @@
+class_name Player
 extends CharacterBody3D
 
 var enemy
 const SPEED = 5.0
+const ACCELERATION = 0.1
+const DECELERATION = 0.25
 const JUMP_VELOCITY = 4.5
 const DASH_MULTI = 100
 const REGEN = 2
@@ -22,7 +25,7 @@ signal player_hit
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	enemy = get_tree().get_first_node_in_group("enemy")
+	Global.player = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -54,25 +57,28 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "forward", "back")
-	var direction := (neck.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	if Input.is_action_just_pressed("attack"):
-		animation_player.play("attack")
+	#if Input.is_action_just_pressed("attack"):
+		#animation_player.play("attack")
 	
 	if Input.is_action_just_pressed("dash"):
 		dash()
-	
-	elif direction and last_dash > 0.1:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+func update_gravity(delta) -> void:
+	velocity += get_gravity() * delta
+
+func update_input(speed: float, acceleration: float, deceleration: float) -> void:
+	var input_dir := Input.get_vector("left", "right", "forward", "back")
+	var direction := (neck.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if direction:
+		velocity.x = lerp(velocity.x, direction.x * speed, acceleration)
+		velocity.z = lerp(velocity.z, direction.z * speed, acceleration)
+	else:
+		velocity.x = move_toward(velocity.x, 0, deceleration)
+		velocity.z = move_toward(velocity.z, 0, deceleration)
+
+func update_velocity() -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
