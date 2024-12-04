@@ -23,6 +23,7 @@ signal player_hit
 @onready var sprite_3d: Sprite3D = $Neck/Camera3D/Sprite3D
 @onready var spot_light_3d: SpotLight3D = $Neck/SpotLight3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hit_rect = $PlayersUi/HitScreen
 
 func _ready() -> void:
 	Global.player = self
@@ -58,9 +59,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	#if Input.is_action_just_pressed("attack"):
-		#animation_player.play("attack")
-	
 	if Input.is_action_just_pressed("dash"):
 		dash()
 
@@ -90,11 +88,10 @@ func _process(delta: float) -> void:
 		current_hp += REGEN * delta
 
 func take_damage(damage: int) -> void:
-	emit_signal("player_hit")
+	# for red screen
+	hit_rect.visible = true
+	await get_tree().create_timer(0.2).timeout
+	hit_rect.visible = false
+	
 	if current_hp > 0:
 		current_hp -= damage
-
-# after attack animation
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack":
-		animation_player.play("idle")

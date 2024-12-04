@@ -7,17 +7,17 @@ extends PlayerMovementState
 @export var TOP_ANIM_SPEED: float = 2.2
 
 func enter():
-	ANIMATION.play("walking", -1.0, 1.0)
+	ANIMATION.play("walking")
 
 func update(delta):
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
 	
-	set_animation_speed(PLAYER.velocity.length())
+	#set_animation_speed(PLAYER.velocity.length())
 	
 	if Input.is_action_just_pressed("attack"):
-		ANIMATION.play("attack")
+		transition.emit("AttackPlayerState")
 	
 	if PLAYER.velocity.length() == 0.0:
 		transition.emit("IdlePlayerState")

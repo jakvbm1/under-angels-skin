@@ -52,10 +52,4 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="HitScreen" type="ColorRect" parent="."]
-visible = false
-offset_right = 480.0
-offset_bottom = 320.0
-color = Color(1, 0, 0, 0.27451)
-
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
