@@ -8,10 +8,15 @@ extends PlayerMovementState
 func enter():
 	ANIMATION.play("attack")
 	await ANIMATION.animation_finished
-	ANIMATION.play("idle")
 	transition.emit("IdlePlayerState")
 
 func update(delta):
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
+	
+	if Input.is_action_just_pressed("jump"):
+		transition.emit("JumpPlayerState")
+
+func exit():
+	ANIMATION.play("idle")

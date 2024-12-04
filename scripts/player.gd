@@ -2,21 +2,13 @@ class_name Player
 extends CharacterBody3D
 
 var enemy
-const SPEED = 5.0
-const ACCELERATION = 0.1
-const DECELERATION = 0.25
-const JUMP_VELOCITY = 4.5
-const DASH_MULTI = 100
 const REGEN = 2
 const DASH_COOLDOWN = 3
-const ATTACK_DAMAGE = 25
 
 var max_hp = 100.0
 var current_hp = 10.0
 var last_dash = 0.0
-
-# signal for red color on the camera
-signal player_hit
+var gravity = 12.0
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -43,27 +35,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			spot_light_3d.rotate_x(-event.relative.y * 0.006)
 			spot_light_3d.rotation.x = clamp(spot_light_3d.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
-func dash():
-	if last_dash > 0 :
-		var dash_vector = (sprite_3d.global_transform.origin - camera.global_transform.origin).normalized()*DASH_MULTI * last_dash / 3
-		#velocity =  Vector3(dash_vector.x, dash_vector.y * 0.25, dash_vector.z)
-		velocity = velocity.lerp(Vector3(dash_vector.x, dash_vector.y * 0.17, dash_vector.z), 0.5)
-		last_dash = 0
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
-	if Input.is_action_just_pressed("dash"):
-		dash()
-
 func update_gravity(delta) -> void:
-	velocity += get_gravity() * delta
+	velocity.y -= gravity * delta
 
 func update_input(speed: float, acceleration: float, deceleration: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
@@ -80,6 +53,7 @@ func update_velocity() -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	Global.debug.add_property("Velocity", "%.2f" % velocity.length(), 1)
 	
 	if last_dash < DASH_COOLDOWN:
 		last_dash += delta

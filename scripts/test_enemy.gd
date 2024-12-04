@@ -81,12 +81,5 @@ func take_damage(damage: int) -> void:
 		queue_free()
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	#if anim_name == "attack_melee":
-		# turn on weapon hitbox
-		#hitbox.monitoring = true
 	if anim_name == "attack_melee_2":
-		#turn off weapon hitbox
-		#hitbox.monitoring = false
-		
-		# attack cooldown reset
 		cooldown = 0.0

@@ -3,114 +3,63 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
 [ext_resource type="Script" path="res://scripts/components/player_hurtbox.gd" id="2_e75ks"]
-[ext_resource type="Script" path="res://scripts/components/player_hitbox.gd" id="3_uh2po"]
+[ext_resource type="PackedScene" uid="uid://dyhaxcgtwix4c" path="res://scenes/weapons/crowbar.tscn" id="3_x0rfm"]
 [ext_resource type="Script" path="res://scripts/UI/debug_panel.gd" id="5_10xfb"]
 [ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="5_bhu0l"]
 [ext_resource type="Script" path="res://scripts/player/idle_player_state.gd" id="6_bj2x2"]
 [ext_resource type="Theme" uid="uid://fl2wn0rlui36" path="res://scenes/UI elements/debug.tres" id="6_kv8w1"]
 [ext_resource type="Script" path="res://scripts/player/walking_player_state.gd" id="7_p2140"]
 [ext_resource type="Script" path="res://scripts/player/attack_player_state.gd" id="8_0pnxn"]
+[ext_resource type="Script" path="res://scripts/player/jump_player_state.gd" id="11_eev80"]
+[ext_resource type="Script" path="res://scripts/player/dash_player_state.gd" id="12_ejfmq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hhcsc"]
 radius = 0.372213
 height = 1.90151
-
-[sub_resource type="BoxMesh" id="BoxMesh_l8dfm"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1uig0"]
-size = Vector3(2.13149, 1.13287, 2.21739)
 
 [sub_resource type="Animation" id="Animation_j8s0f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/Camera3D/Weapon:rotation")
+tracks/0/path = NodePath("Neck/Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.535923, -0.48845, -0.652102)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.196499, 0.157188, 0.033247)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh/PlayerHitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Neck/Camera3D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "update": 0,
 "values": []
 }
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Neck/Camera3D:position:x")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Neck/Camera3D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Neck/Camera3D:position:y")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Neck/Camera3D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.791232, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Neck/Camera3D:position:z")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Neck/Camera3D:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -118,96 +67,12 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_yw0on"]
 resource_name = "attack"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.14647, -0.0684868, -0.555638)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.15544, 0.123312, -1.51717)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Neck/Camera3D/Weapon:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2.10499, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh/PlayerHitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
+length = 0.3
 
 [sub_resource type="Animation" id="Animation_ai8po"]
 resource_name = "idle"
 length = 3.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/Camera3D/Weapon:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.535923, -0.48845, -0.652102), Vector3(0.535923, -0.566668, -0.652102)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Neck/Camera3D/Weapon/WeaponMesh:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(-0.196499, 0.157188, 0.033247), Vector3(-0.221092, 0.150793, 0.0657412)]
-}
 
 [sub_resource type="Animation" id="Animation_ua8to"]
 resource_name = "walking"
@@ -281,25 +146,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.722329)
 
 [node name="Weapon" type="Node3D" parent="Neck/Camera3D"]
 
-[node name="WeaponMesh" type="MeshInstance3D" parent="Neck/Camera3D/Weapon"]
-transform = Transform3D(0.098611, -0.0633768, 0.0153529, 0.00326012, 0.980214, 0.0195237, -0.0162865, -0.18752, 0.0968665, 0.535923, -0.48845, -0.652102)
-mesh = SubResource("BoxMesh_l8dfm")
-
-[node name="PlayerHitbox" type="Area3D" parent="Neck/Camera3D/Weapon/WeaponMesh"]
-transform = Transform3D(1, -2.98023e-08, -1.49012e-08, -4.65661e-10, 1, -1.86265e-09, 0, 0, 1, 0, 0, 0)
-script = ExtResource("3_uh2po")
-damage = 25
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Camera3D/Weapon/WeaponMesh/PlayerHitbox"]
-transform = Transform3D(0.999995, 1.43051e-06, -2.38419e-07, -8.14907e-08, 0.999999, 0, -1.13249e-06, -1.43051e-06, 1, 0.00546741, 0.0544736, -0.00572777)
-shape = SubResource("BoxShape3D_1uig0")
-disabled = true
-
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615297, -0.195678)
 light_color = Color(0.988235, 0.968627, 0.905882, 1)
 spot_range = 6.09071
 spot_angle = 50.7087
+
+[node name="WeaponRig" type="Node3D" parent="Neck"]
+
+[node name="Crowbar" parent="Neck/WeaponRig" instance=ExtResource("3_x0rfm")]
+transform = Transform3D(-0.990953, 0.102288, 0.086887, 0.0955503, 0.992328, -0.0784591, -0.0942457, -0.0694472, -0.993124, 0.215, 0.45, -0.33)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -319,6 +175,7 @@ offset_right = 0.0
 
 [node name="HitScreen" type="ColorRect" parent="PlayersUi"]
 visible = false
+layout_mode = 0
 offset_top = -318.0
 offset_right = 480.0
 offset_bottom = 1.0
@@ -355,3 +212,9 @@ script = ExtResource("7_p2140")
 
 [node name="AttackPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_0pnxn")
+
+[node name="JumpPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("11_eev80")
+
+[node name="DashPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("12_ejfmq")

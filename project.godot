@@ -80,6 +80,8 @@ debug={
 
 [layer_names]
 
+3d_render/layer_1="Default"
+3d_render/layer_2="Weapon"
 3d_physics/layer_1="player"
 3d_physics/layer_2="npcs(enemies included)"
 3d_physics/layer_3="interactable objects(chests etc)"
