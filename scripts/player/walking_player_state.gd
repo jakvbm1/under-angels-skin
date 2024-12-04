@@ -15,7 +15,7 @@ func update(delta):
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
 	
-	set_animation_speed(PLAYER.velocity.length())
+	#set_animation_speed(PLAYER.velocity.length())
 	
 	if Input.is_action_just_pressed("attack"):
 		transition.emit("AttackPlayerState")

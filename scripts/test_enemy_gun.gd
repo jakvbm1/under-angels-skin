@@ -33,6 +33,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# enemy behaviour at every animation state
 	match state_machine.get_current_node():
+		"idle":
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
 		"walk":
 			var current_location = global_transform.origin
 			var next_location = nav_agent.get_next_path_position()
@@ -56,10 +59,15 @@ func _process(delta: float) -> void:
 func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
 	
-	if distance < ATTACK_RANGE and cooldown >= ATTACK_COOLDOWN:
-		anim_tree["parameters/conditions/attack"] = true
-		anim_tree["parameters/conditions/walk"] = false
-		anim_tree["parameters/conditions/idle"] = false
+	if distance < ATTACK_RANGE:
+		if cooldown >= ATTACK_COOLDOWN:
+			anim_tree["parameters/conditions/attack"] = true
+			anim_tree["parameters/conditions/walk"] = false
+			anim_tree["parameters/conditions/idle"] = false
+		else:
+			anim_tree["parameters/conditions/attack"] = false
+			anim_tree["parameters/conditions/walk"] = false
+			anim_tree["parameters/conditions/idle"] = true
 	
 	elif distance < WALK_RANGE:
 		anim_tree["parameters/conditions/attack"] = false

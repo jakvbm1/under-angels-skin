@@ -21,3 +21,6 @@ func update(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		transition.emit("AttackPlayerState")
+	
+	if Input.is_action_just_pressed("dash"):
+		transition.emit("DashPlayerState")

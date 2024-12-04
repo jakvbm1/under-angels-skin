@@ -536,7 +536,8 @@ graph_offset = Vector2(0, -5.66777)
 radius = 0.235677
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2osc1"]
-height = 1.36515
+radius = 0.711957
+height = 2.11966
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7rpij"]
 resource_name = "mat21"

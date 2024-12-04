@@ -1193,7 +1193,7 @@ mesh = SubResource("ArrayMesh_53j82")
 skeleton = NodePath("")
 
 [node name="right leg" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.998524, -0.0543057, 0, 0.0543057, 0.998524, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998524, -0.0543058, 0, 0.0543058, 0.998524, 0, 0, 0)
 
 [node name="1" type="MeshInstance3D" parent="right leg"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

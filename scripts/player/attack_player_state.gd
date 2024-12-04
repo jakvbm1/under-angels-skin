@@ -7,8 +7,7 @@ extends PlayerMovementState
 
 func enter():
 	ANIMATION.play("attack")
-	await ANIMATION.animation_finished
-	transition.emit("IdlePlayerState")
+	ANIMATION.queue("attack_reset")
 
 func update(delta):
 	PLAYER.update_gravity(delta)
@@ -18,5 +17,6 @@ func update(delta):
 	if Input.is_action_just_pressed("jump"):
 		transition.emit("JumpPlayerState")
 
-func exit():
-	ANIMATION.play("idle")
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "attack_reset":
+		transition.emit("IdlePlayerState")
