@@ -14,8 +14,8 @@ func update(delta):
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
 	
-	if Input.is_action_just_pressed("jump"):
-		transition.emit("JumpPlayerState")
+	#if Input.is_action_just_pressed("jump"):
+		#transition.emit("JumpPlayerState")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack_reset":

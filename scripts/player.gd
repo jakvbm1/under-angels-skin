@@ -1,14 +1,13 @@
 class_name Player
 extends CharacterBody3D
 
-var enemy
 const REGEN = 2
 const DASH_COOLDOWN = 3
 
-var max_hp = 100.0
-var current_hp = 10.0
-var last_dash = 0.0
-var gravity = 12.0
+@export var max_hp = 100.0
+@export var current_hp = 10.0
+@export var last_dash = 0.0
+@export var gravity = 12.0
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D

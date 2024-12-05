@@ -24,55 +24,55 @@ height = 1.30249
 
 [sub_resource type="Animation" id="Animation_j8s0f"]
 length = 0.001
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/Camera3D:position")
+tracks/0/path = NodePath("Neck/Camera3D:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/Camera3D:position:x")
+tracks/1/path = NodePath("Neck/Camera3D:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.791232, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Neck/Camera3D:position:y")
+tracks/2/path = NodePath("Neck/Camera3D:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.791232, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/3/type = "bezier"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Neck/Camera3D:position:z")
+tracks/3/path = NodePath("Neck/WeaponRig:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Neck/WeaponRig:position")
+tracks/4/path = NodePath("Neck/WeaponRig:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -84,26 +84,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Neck/WeaponRig:rotation")
+tracks/5/path = NodePath("Neck/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Neck/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
 "update": 1,
-"values": []
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_yw0on"]
@@ -144,6 +132,34 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_4b15l"]
+resource_name = "attack_reset"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Neck/WeaponRig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.310143, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Neck/WeaponRig:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.13019, -4.16249e-08, 0.63811), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ai8po"]
@@ -189,34 +205,6 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
 }
 
-[sub_resource type="Animation" id="Animation_4b15l"]
-resource_name = "attack_reset"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/WeaponRig:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.310143, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/WeaponRig:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.13019, -4.16249e-08, 0.63811), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ddoup"]
 _data = {
 "RESET": SubResource("Animation_j8s0f"),
@@ -259,18 +247,18 @@ spot_range = 6.09071
 spot_angle = 50.7087
 
 [node name="WeaponRig" type="Node3D" parent="Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Crowbar" parent="Neck/WeaponRig" instance=ExtResource("3_x0rfm")]
 transform = Transform3D(-0.990953, 0.102288, 0.086887, 0.0955503, 0.992328, -0.0784591, -0.0942457, -0.0694472, -0.993124, 0.215, 0.3, -0.33)
 
 [node name="PlayerHitbox" type="Area3D" parent="Neck/WeaponRig/Crowbar"]
 script = ExtResource("4_nj2cl")
-damage = 25
+damage = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/WeaponRig/Crowbar/PlayerHitbox"]
 visible = false
 shape = SubResource("CapsuleShape3D_t3t8n")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -331,6 +319,7 @@ script = ExtResource("8_0pnxn")
 
 [node name="JumpPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("11_eev80")
+JUMP_VELOCITY = 5.0
 
 [node name="DashPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("12_ejfmq")

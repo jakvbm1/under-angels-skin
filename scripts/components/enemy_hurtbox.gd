@@ -14,3 +14,6 @@ func _on_area_entered(hitbox: PlayerHitbox) -> void:
 	
 	if owner.has_method("take_damage"):
 		owner.take_damage(hitbox.damage)
+	
+	if owner.has_method("take_knockback"):
+		owner.take_knockback(hitbox.knockback)
