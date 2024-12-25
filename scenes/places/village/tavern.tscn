@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://435js8gy0kot"]
+
+[ext_resource type="MeshLibrary" uid="uid://6l463v4pqf82" path="res://assets/tiles/wood_tile.tres" id="1_w5c4w"]
+[ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_6c0f0"]
+
+[node name="Tavern" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_w5c4w")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(3, 65529, 1, 3, 65530, 0, 3, 65531, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 3, 4, 0, 3, 5, 0, 3, 6, 0, 3, 7, 0, 3, 8, 0, 3, 9, 1441793)
+}
+
+[node name="Player" parent="." instance=ExtResource("2_6c0f0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5691, 1.85202, 0)
