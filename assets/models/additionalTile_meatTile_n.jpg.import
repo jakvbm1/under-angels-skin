@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bn434t6keby5f"
+path.s3tc="res://.godot/imported/additionalTile_meatTile_n.jpg-e58c3f1343ce912944fc8b1506428463.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "3e2dc1bd36e57999165fd836b595beb3"
+}
+
+[deps]
+
+source_file="res://assets/models/additionalTile_meatTile_n.jpg"
+dest_files=["res://.godot/imported/additionalTile_meatTile_n.jpg-e58c3f1343ce912944fc8b1506428463.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/additionalTile_meatTile_n.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
