@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4hcn5abhn53k"
-path="res://.godot/imported/spikes.glb-98b350568b019e21d136fdb859b64a86.scn"
+uid="uid://c3gdxjhk4oqo0"
+path="res://.godot/imported/spikes_combined.glb-96f1c3beaf4ae14ab3bbd4c791201b91.scn"
 
 [deps]
 
-source_file="res://assets/models/spikes.glb"
-dest_files=["res://.godot/imported/spikes.glb-98b350568b019e21d136fdb859b64a86.scn"]
+source_file="res://assets/models/spikes_combined.glb"
+dest_files=["res://.godot/imported/spikes_combined.glb-96f1c3beaf4ae14ab3bbd4c791201b91.scn"]
 
 [params]
 
-nodes/root_type="MeshInstance3D"
-nodes/root_name="Spikes"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

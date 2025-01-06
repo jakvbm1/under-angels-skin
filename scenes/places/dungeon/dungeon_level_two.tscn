@@ -40,133 +40,288 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
 [node name="torch" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.514935, -0.837995, -0.180573, -0.0175251, -0.200313, 0.979575, -0.85705, 0.507582, 0.0884621, 5.8, 3, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch2" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.779236, 0.616615, 0.11215, -0.0175251, -0.200313, 0.979575, 0.626485, 0.761355, 0.166897, -5.8, 3, -1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch2"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch3" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.514935, -0.837995, -0.180573, -0.0175251, -0.200313, 0.979575, -0.85705, 0.507582, 0.0884621, 2.8, 3, -13)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch3"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch4" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205815, -0.0136761, -0.0175251, -0.200313, 0.979575, 0.0174218, 0.979516, 0.200612, 5.8, 3, -25.4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch4"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch5" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205814, -0.0136761, 7.2, 3, -44)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch5"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch6" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205813, 0.0136761, -19.2, 3, -44)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch6"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch7" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205814, -0.0136761, 7.2, 3, -61)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch7"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch8" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205813, 0.0136761, -19.2, 3, -61)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch8"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch9" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205814, -0.0136761, 32.6, 3, -22.5)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch9"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch10" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.999695, -0.0205814, 0.013676, -0.0175251, -0.200313, 0.979575, -0.0174217, -0.979516, -0.200612, -27.2, 3, 7.4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch10"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch11" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205815, -0.0136761, -0.0175251, -0.200313, 0.979575, 0.0174218, 0.979516, 0.200612, -13.2, 3, -97.4)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch11"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch12" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.999695, -0.0205815, 0.0136761, -0.0175251, -0.200313, 0.979575, -0.0174219, -0.979516, -0.200612, 49.5, 3, 28.4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch12"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch13" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205815, -0.0136761, -0.0175251, -0.200313, 0.979575, 0.0174218, 0.979516, 0.200612, 40, 3, -58)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch13"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch14" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205814, -0.0136761, 53.8, 3, -37.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch14"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch15" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.97014, -0.233637, -0.0651323, -0.0175251, -0.200313, 0.979575, -0.241912, 0.951467, 0.190237, 35.8, 3, -83.9)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch15"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch16" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.999695, -0.0205814, 0.013676, -0.0175251, -0.200313, 0.979575, -0.0174217, -0.979516, -0.200612, 76.8, 3, -96.1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch16"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch17" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205813, -0.0136761, -0.0175251, -0.200313, 0.979575, 0.0174217, 0.979516, 0.200612, 76.8, 3, -134.8)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch17"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch18" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205814, -0.0136761, 76.4, 3, -174)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch18"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch19" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205813, 0.0136761, 33.2, 3, -178)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch19"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch20" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205813, 0.0136761, 33.2, 3, -148)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch20"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch21" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205814, -0.0136761, 47.8, 3, -178)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch21"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch22" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205815, -0.0136761, -0.0175251, -0.200313, 0.979575, 0.0174218, 0.979516, 0.200612, 4.8, 3, -181.2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch22"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch23" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.999695, -0.0205814, 0.013676, -0.0175251, -0.200313, 0.979575, -0.0174217, -0.979516, -0.200612, 4.8, 3, -145.7)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch23"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch24" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205815, -0.0136761, -0.0175251, -0.200313, 0.979575, 0.0174218, 0.979516, 0.200612, -0.2, 3, -139.4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch24"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch25" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205813, 0.0136761, -64.2, 3, -115)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch25"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch26" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205813, 0.0136761, -35.7, 3, -163)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch26"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch27" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174217, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205814, 0.0136761, -58.2, 3, -180)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch27"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch28" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.0174218, 0.979516, 0.200612, -0.0175251, -0.200313, 0.979575, 0.999695, -0.0205814, 0.0136761, -61.3, 3, -213)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch28"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch29" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(0.999695, -0.0205815, 0.0136761, -0.0175251, -0.200313, 0.979575, -0.0174218, -0.979516, -0.200612, -10.7, 3, -199.8)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch29"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
+
 [node name="torch30" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.999695, 0.0205814, -0.013676, -0.0175251, -0.200313, 0.979575, 0.0174217, 0.979516, 0.200612, -10.7, 3, -232.1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch30"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
 [node name="torch31" parent="torches" instance=ExtResource("2_4g3ih")]
 transform = Transform3D(-0.0174218, -0.979516, -0.200612, -0.0175251, -0.200313, 0.979575, -0.999695, 0.0205817, -0.0136763, 5.9, 3, -216)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="torches/torch31"]
+transform = Transform3D(1, 2.98023e-08, 2.23517e-07, -3.57628e-07, 1, 5.92321e-07, 7.45058e-09, -1.86265e-08, 1, 0.0195215, 0.0549574, 0.459277)
+light_color = Color(0.94, 0.705, 0.47, 1)
+light_energy = 2.0
 
-[node name="chest 1" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chests" type="Node3D" parent="."]
+
+[node name="chest 1" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107, -31, 0, 1)
 
-[node name="chest 2" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 2" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(-2.98023e-07, 0, 1, 0, 1, 0, -1, 0, -2.98023e-07, -8, 0, -52)
 
-[node name="chest 3" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 3" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 39, 0, -51)
 
-[node name="chest 0" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 0" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -5, 0, -6)
 
-[node name="chest 4" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 4" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.499999, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.499999, 35.275, 0, -80.6673)
 
-[node name="chest 5" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 5" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(-0.999999, 0, -7.15256e-07, 0, 1, 0, 7.15256e-07, 0, -0.999999, 49.275, 0, 20.3327)
 
-[node name="chest 6" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 6" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 75, 0, -127)
 
-[node name="chest 7" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 7" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(-2.98023e-07, 0, 1, 0, 1, 0, -1, 0, -2.98023e-07, -57, 0, -113)
 
-[node name="chest 8" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 8" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -11, 0, -208)
 
-[node name="chest 9" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 9" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -11, 0, -229)
 
-[node name="chest 10" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 10" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 2, 0, -190)
 
-[node name="chest 11" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 11" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 74, 0, -177)
 
-[node name="chest 12" parent="Node3D" instance=ExtResource("4_dt3ng")]
+[node name="chest 12" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -27, 0, -134)
