@@ -41,8 +41,8 @@ func _process(delta: float) -> void:
 				velocity = velocity.move_toward(new_velocity, 0.25)
 				
 				# to be rotated at walking direction
-				look_at(Vector3(player.global_position.x + velocity.x, global_position.y,
-					player.global_position.z + velocity.z), Vector3.UP, true)
+				look_at(Vector3(player.global_position.x, global_position.y,
+					player.global_position.z), Vector3.UP, true)
 				
 				# apply enemy movement
 				move_and_slide()

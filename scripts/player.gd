@@ -30,9 +30,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * 0.006)
 			camera.rotate_x(-event.relative.y * 0.006)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-50), deg_to_rad(75))
 			spot_light_3d.rotate_x(-event.relative.y * 0.006)
-			spot_light_3d.rotation.x = clamp(spot_light_3d.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			spot_light_3d.rotation.x = clamp(spot_light_3d.rotation.x, deg_to_rad(-50), deg_to_rad(75))
 
 func update_gravity(delta) -> void:
 	velocity.y -= gravity * delta

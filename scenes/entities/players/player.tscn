@@ -238,8 +238,6 @@ current = true
 [node name="Sprite3D" type="Sprite3D" parent="Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.722329)
 
-[node name="Weapon" type="Node3D" parent="Neck/Camera3D"]
-
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615297, -0.195678)
 light_color = Color(0.988235, 0.968627, 0.905882, 1)
@@ -256,7 +254,6 @@ script = ExtResource("4_nj2cl")
 damage = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/WeaponRig/Crowbar/PlayerHitbox"]
-visible = false
 shape = SubResource("CapsuleShape3D_t3t8n")
 disabled = true
 
