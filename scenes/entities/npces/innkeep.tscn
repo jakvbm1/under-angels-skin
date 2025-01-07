@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtcpn0li1u0kt"]
+
+[ext_resource type="PackedScene" uid="uid://bdcwi1aueohwf" path="res://assets/models/pt_medieval_peasant_01_a.glb" id="1_yf37m"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_yf37m")]
