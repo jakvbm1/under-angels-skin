@@ -45,7 +45,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gjq6k")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f7utr"]
-points = PackedVector3Array(0.5, -1, 0, -0.5, 1, 0, -0.5, -1, 0, 0.5, 1, 0)
+points = PackedVector3Array(1, -1, 0, -0.5, 1, 0, -0.5, -1, 0, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_auay6"]
 length = 0.001
@@ -145,12 +145,13 @@ _data = {
 [node name="door" type="Node3D"]
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+rotation_order = 0
 collision_layer = 2
 collision_mask = 255
 script = ExtResource("2_npk6o")
 
 [node name="Cube" type="MeshInstance3D" parent="AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258866, 0.489201, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.489, 0)
 mesh = SubResource("ArrayMesh_do6kg")
 skeleton = NodePath("")
 
