@@ -18,6 +18,27 @@ func update_weapon_model() -> void:
 			current_weapon_view_model.position = current_weapon.pos
 			current_weapon_view_model.rotation = current_weapon.rot
 			current_weapon_view_model.scale = current_weapon.scale
+			#play_anim("attack")
+
+func play_anim(name: String):
+	var anim_player: AnimationPlayer = current_weapon_view_model.get_node_or_null("AnimationPlayer")
+	if not anim_player or not anim_player.has_animation(name):
+		return
+	
+	anim_player.seek(0.0)
+	anim_player.play(name)
+
+func queue_anim(name: String):
+	var anim_player: AnimationPlayer = current_weapon_view_model.get_node_or_null("AnimationPlayer")
+	if not anim_player or not anim_player.has_animation(name):
+		return
+	
+	anim_player.queue(name)
 
 func _ready() -> void:
 	update_weapon_model()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		play_anim("attack")
+		queue_anim("attack_reset")
