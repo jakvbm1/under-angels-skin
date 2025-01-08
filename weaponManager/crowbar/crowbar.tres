@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://bjycof7br1mqa"]
+
+[ext_resource type="Script" path="res://weaponManager/weapon_resource.gd" id="1_mxxa0"]
+[ext_resource type="PackedScene" uid="uid://7kmx80pmcff6" path="res://weaponManager/crowbar/crowbar.glb" id="2_s6msx"]
+
+[resource]
+script = ExtResource("1_mxxa0")
+view_model = ExtResource("2_s6msx")
+pos = Vector3(0.551734, -0.330681, -0.86991)
+rot = Vector3(0.177513, 3.09924, -0.0133102)
+scale = Vector3(1, 1, 1)
+damage = 10.0
+knockback = 0.5

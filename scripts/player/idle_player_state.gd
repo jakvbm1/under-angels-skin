@@ -22,3 +22,6 @@ func update(delta):
 	
 	if Input.is_action_just_pressed("ui_accept") and PLAYER.is_on_floor():
 		transition.emit("JumpPlayerState")
+	
+	#if Input.is_action_just_pressed("dash"):
+		#transition.emit("DashPlayerState")

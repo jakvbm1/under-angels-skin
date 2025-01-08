@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=26 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
+[ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
 [ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
 [ext_resource type="Script" path="res://scripts/components/player_hurtbox.gd" id="2_e75ks"]
+[ext_resource type="Resource" uid="uid://bjycof7br1mqa" path="res://weaponManager/crowbar/crowbar.tres" id="3_hmdtn"]
 [ext_resource type="PackedScene" uid="uid://dyhaxcgtwix4c" path="res://scenes/weapons/crowbar.tscn" id="3_x0rfm"]
 [ext_resource type="Script" path="res://scripts/components/player_hitbox.gd" id="4_nj2cl"]
 [ext_resource type="Script" path="res://scripts/UI/debug_panel.gd" id="5_10xfb"]
@@ -60,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Neck/WeaponRig:position")
+tracks/3/path = NodePath("Neck/Camera3D/WeaponRig:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -72,7 +74,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Neck/WeaponRig:rotation")
+tracks/4/path = NodePath("Neck/Camera3D/WeaponRig:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -84,7 +86,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Neck/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
+tracks/5/path = NodePath("Neck/Camera3D/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -100,7 +102,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/WeaponRig:position")
+tracks/0/path = NodePath("Neck/Camera3D/WeaponRig:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -112,7 +114,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/WeaponRig:rotation")
+tracks/1/path = NodePath("Neck/Camera3D/WeaponRig:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -124,7 +126,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Neck/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
+tracks/2/path = NodePath("Neck/Camera3D/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -140,7 +142,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/WeaponRig:position")
+tracks/0/path = NodePath("Neck/Camera3D/WeaponRig:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -152,7 +154,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/WeaponRig:rotation")
+tracks/1/path = NodePath("Neck/Camera3D/WeaponRig:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -223,7 +225,14 @@ physics_interpolation_mode = 1
 collision_mask = 15
 script = ExtResource("1_pueir")
 
+[node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "bullet_raycast", "view_model") instance=ExtResource("2_11ur4")]
+current_weapon = ExtResource("3_hmdtn")
+player = NodePath("..")
+bullet_raycast = NodePath("../Neck/Camera3D/BulletRayCast3D")
+view_model = NodePath("../Neck/Camera3D/WeaponView")
+
 [node name="PlayerHurtbox" type="Area3D" parent="."]
+visible = false
 script = ExtResource("2_e75ks")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerHurtbox"]
@@ -238,24 +247,30 @@ current = true
 [node name="Sprite3D" type="Sprite3D" parent="Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.722329)
 
+[node name="WeaponRig" type="Node3D" parent="Neck/Camera3D"]
+visible = false
+
+[node name="Crowbar" parent="Neck/Camera3D/WeaponRig" instance=ExtResource("3_x0rfm")]
+transform = Transform3D(-0.990953, 0.102288, 0.086887, 0.0955503, 0.992328, -0.0784591, -0.0942457, -0.0694472, -0.993124, 0.215, 0.3, -0.33)
+
+[node name="PlayerHitbox" type="Area3D" parent="Neck/Camera3D/WeaponRig/Crowbar"]
+script = ExtResource("4_nj2cl")
+damage = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Camera3D/WeaponRig/Crowbar/PlayerHitbox"]
+shape = SubResource("CapsuleShape3D_t3t8n")
+disabled = true
+
+[node name="WeaponView" type="Node3D" parent="Neck/Camera3D"]
+
+[node name="BulletRayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
+target_position = Vector3(0, 0, -999)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615297, -0.195678)
 light_color = Color(0.988235, 0.968627, 0.905882, 1)
 spot_range = 6.09071
 spot_angle = 50.7087
-
-[node name="WeaponRig" type="Node3D" parent="Neck"]
-
-[node name="Crowbar" parent="Neck/WeaponRig" instance=ExtResource("3_x0rfm")]
-transform = Transform3D(-0.990953, 0.102288, 0.086887, 0.0955503, 0.992328, -0.0784591, -0.0942457, -0.0694472, -0.993124, 0.215, 0.3, -0.33)
-
-[node name="PlayerHitbox" type="Area3D" parent="Neck/WeaponRig/Crowbar"]
-script = ExtResource("4_nj2cl")
-damage = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/WeaponRig/Crowbar/PlayerHitbox"]
-shape = SubResource("CapsuleShape3D_t3t8n")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

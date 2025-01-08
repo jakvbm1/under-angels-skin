@@ -9,7 +9,9 @@ extends PlayerMovementState
 
 func enter():
 	PLAYER.velocity.y += JUMP_VELOCITY
-	ANIMATION.pause()
+	var current_anim = ANIMATION.current_animation
+	if current_anim == "idle" or current_anim == "walk":
+		ANIMATION.pause()
 
 func update(delta):
 	PLAYER.update_gravity(delta)
