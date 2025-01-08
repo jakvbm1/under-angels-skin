@@ -1,11 +1,205 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch34y5pcht6xc"]
+[gd_scene load_steps=9 format=3 uid="uid://ch34y5pcht6xc"]
 
 [ext_resource type="PackedScene" uid="uid://cm3h7kicveffj" path="res://assets/models/low_poly_psx_angel.glb" id="1_wcr0o"]
 
+[sub_resource type="Animation" id="Animation_q8mrs"]
+resource_name = "ascend"
+length = 3.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00852503, -0.00352503, -0.382525, 0.923475, 3, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00652503, 0.010475, 0.382475, 0.923475, 3, 1, -0.011525, 0.00447497, -0.258525, 0.965475)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.00339386, 0.28065, -0.489184, 0.825786, 3, 1, 0.053475, 0.275475, -0.310525, 0.908475)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00339396, -0.28065, 0.489184, 0.825786, 3, 1, 0.053475, -0.275525, 0.310475, 0.908475)
+
+[sub_resource type="Animation" id="Animation_vdihn"]
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00952503, 0.00147497, 0.141475, 0.989475)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00652503, 0.010475, 0.382475, 0.923475)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.00339386, 0.28065, -0.489184, 0.825786)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00339396, -0.28065, 0.489184, 0.825786)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w72cb"]
+resource_name = "prepareThrow"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.01153, 0.00447692, -0.258638, 0.965895)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00952953, 0.00347662, 0.258597, 0.965932, 2, 1, 0.661475, -0.467525, 0.144475, 0.568475)
+
+[sub_resource type="Animation" id="Animation_xevse"]
+resource_name = "throw"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.66142, -0.467486, 0.144463, 0.568428, 0.5, 1, 0.341475, -0.380525, -0.477525, 0.714475, 2, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
+
+[sub_resource type="Animation" id="Animation_xhh2m"]
+resource_name = "idle"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00339386, 0.28065, -0.489184, 0.825786, 1, 1, -0.034525, 0.278475, -0.577525, 0.766475, 2, 1, -0.00339386, 0.28065, -0.489184, 0.825786)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00339396, -0.28065, 0.489184, 0.825786, 1, 1, -0.034525, -0.278525, 0.578475, 0.766475, 2, 1, -0.00339396, -0.28065, 0.489184, 0.825786)
+
+[sub_resource type="Animation" id="Animation_vwpgt"]
+resource_name = "dash_forward"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.309, 0, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00339386, 0.28065, -0.489184, 0.825786, 1, 1, -0.103525, 0.444475, -0.477525, 0.750475, 2, 1, -0.00339386, 0.28065, -0.489184, 0.825786)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing2_r_012")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.0627339, -0.000213462, -0.27634, 0.95901, 1, 1, 0.232475, 0.049475, -0.266525, 0.934475, 2, 1, 0.0627339, -0.000213463, -0.27634, 0.95901)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00339396, -0.28065, 0.489184, 0.825786, 1, 1, -0.103525, -0.444525, 0.477475, 0.750475, 2, 1, -0.00339396, -0.28065, 0.489184, 0.825786)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing2_l_09")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.0627339, 0.000213395, 0.27634, 0.95901, 1, 1, 0.232475, -0.049525, 0.266475, 0.934475, 2, 1, 0.0627339, 0.000213395, 0.27634, 0.95901)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2btwm"]
+_data = {
+"RESET": SubResource("Animation_vdihn"),
+"ascend": SubResource("Animation_q8mrs"),
+"dash_forward": SubResource("Animation_vwpgt"),
+"idle": SubResource("Animation_xhh2m"),
+"prepareThrow": SubResource("Animation_w72cb"),
+"throw": SubResource("Animation_xevse")
+}
+
 [node name="angel" instance=ExtResource("1_wcr0o")]
+
+[node name="Angel" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode" index="0"]
+transform = Transform3D(23.5076, 0, 0, 0, -1.02755e-06, 23.5076, 0, -23.5076, -1.02755e-06, 0.626067, 94.6849, 0.992107)
+
+[node name="Skeleton3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
+bones/5/rotation = Quaternion(-0.041525, -0.099525, -0.817525, 0.573475)
+bones/6/rotation = Quaternion(-0.00952899, 0.00147559, 0.141534, 0.989886)
+bones/9/rotation = Quaternion(-0.00339386, 0.28065, -0.489184, 0.825786)
+bones/12/rotation = Quaternion(-0.00339396, -0.28065, 0.489184, 0.825786)
+bones/13/rotation = Quaternion(0.0627339, -0.000213463, -0.27634, 0.95901)
+bones/16/rotation = Quaternion(-0.00652749, 0.0104789, 0.382619, 0.923824)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -0.4)
 light_color = Color(0.5192, 0.75372, 0.88, 1)
 light_energy = 10.0
 omni_range = 6.341
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_2btwm")
+}
+autoplay = "idle"
