@@ -122,6 +122,57 @@ shadow_mesh = SubResource("ArrayMesh_kt364")
 radius = 0.215609
 height = 1.09333
 
+[sub_resource type="Animation" id="Animation_nmvbe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6, -0.725749, -0.973)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.30761, 1.44244, -2.80998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/Sketchfab_model/PlayerHitbox/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_ftbs5"]
 resource_name = "attack"
 length = 0.2
@@ -172,57 +223,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_nmvbe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/Sketchfab_model:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.6, -0.725749, -0.973)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/Sketchfab_model:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.30761, 1.44244, -2.80998)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node3D/Sketchfab_model/PlayerHitbox/CollisionShape3D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_h5ur2"]
@@ -290,7 +290,7 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02482, 0)
 
 [node name="Sketchfab_model" type="Node3D" parent="Node3D"]
-transform = Transform3D(0.190743, 0.947123, 0.258023, -0.0847013, -0.245989, 0.965564, 0.977979, -0.20603, 0.0333018, 0.6, -0.725749, -0.973)
+transform = Transform3D(0.190741, 0.947125, 0.258018, -0.0846993, -0.245985, 0.965565, 0.977979, -0.206028, 0.0333013, 0.6, -0.725749, -0.973)
 
 [node name="42ccf15d0fa544bc8639df3cd2500271_fbx" type="Node3D" parent="Node3D/Sketchfab_model"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -314,6 +314,8 @@ skeleton = NodePath("")
 
 [node name="PlayerHitbox" type="Area3D" parent="Node3D/Sketchfab_model"]
 script = ExtResource("1_1as84")
+damage = 25
+knockback = 0.4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Sketchfab_model/PlayerHitbox"]
 transform = Transform3D(0.999667, 0.00174226, -0.0257444, -0.0257569, 0.00770685, -0.99964, -0.00154316, 0.99997, 0.00774854, -0.0093419, -0.00773972, 0.36735)

@@ -8,7 +8,7 @@ var is_open: bool = false  # Tracks if the door is open
 # References
 @onready var player: Player = null
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-
+@onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 func _ready():
 	# Find the player node (adjust the path as needed for your scene)
@@ -29,7 +29,9 @@ func toggle_door():
 	if not animation_player.is_playing():
 		if !is_open:
 			animation_player.play("door_open")
+			audio_stream_player.play()
 		else:
 			animation_player.play("door_close")
+			audio_stream_player.play()
 		
 		is_open = not is_open

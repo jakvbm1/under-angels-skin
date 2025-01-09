@@ -164,6 +164,8 @@ skeleton = NodePath("")
 [node name="PlayerHitbox" type="Area3D" parent="Sketchfab_model"]
 transform = Transform3D(54.2079, 0, 0, 0, -0.000196232, -54.2079, 0, 54.2079, -0.000196232, 0, 1.57217e-05, 1.58746e-05)
 script = ExtResource("2_0tw3r")
+damage = 15
+knockback = 0.65
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/PlayerHitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.247473, 0.0557138)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://lcwh1v0uqc1f"]
+[gd_scene load_steps=13 format=4 uid="uid://lcwh1v0uqc1f"]
 
 [ext_resource type="Texture2D" uid="uid://bjt7nacpvjhdk" path="res://assets/models/doors_doorTexture.jpg" id="1_jyc02"]
 [ext_resource type="Script" path="res://scripts/objects/door.gd" id="1_xq636"]
 [ext_resource type="Texture2D" uid="uid://biifhyab6jn8k" path="res://assets/models/doors_doorTexture_n.jpg" id="2_ira45"]
+[ext_resource type="AudioStream" uid="uid://urdgrr7jj63b" path="res://assets/soundEffects/objects/door-close-79921.mp3" id="4_rm00j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvis1"]
 resource_name = "Material.001"
@@ -47,21 +48,6 @@ shadow_mesh = SubResource("ArrayMesh_hdau6")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uc22t"]
 points = PackedVector3Array(0.114041, 0.0742424, 0.0610863, -0.774574, -1.00507, -0.00238095, -0.774574, -1.00507, 0.0293464, -0.774574, 1.02667, -0.00238095, 0.114041, 0.0742424, -0.0658482, 0.240901, -1.00507, -0.00238095, 0.240901, 1.02667, -0.00238095, -0.774574, 1.02667, 0.0293464, 0.240901, -1.00507, 0.0293464, 0.240901, 1.02667, 0.0293464, -0.108162, -0.0526423, -0.0658482, -0.108162, -0.0526423, 0.0610863, -0.108162, 0.0742424, -0.0658482, -0.108162, 0.0742424, 0.0610863)
 
-[sub_resource type="Animation" id="Animation_jgwiv"]
-resource_name = "door_open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DoorRotationNode:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_3nfw1"]
 length = 0.001
 tracks/0/type = "value"
@@ -92,6 +78,21 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jgwiv"]
+resource_name = "door_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorRotationNode:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ixop5"]
 _data = {
 "RESET": SubResource("Animation_3nfw1"),
@@ -114,6 +115,9 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorRotationNode/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_uc22t")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DoorRotationNode/StaticBody3D"]
+stream = ExtResource("4_rm00j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
