@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cao4suc7gxafe"]
+
+[ext_resource type="PackedScene" uid="uid://cmjinbrpo0pk4" path="res://assets/models/AngelStatue.glb" id="1_i2ftr"]
+[ext_resource type="Script" path="res://scripts/objects/save_statue.gd" id="2_w5msw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjm6u"]
+albedo_color = Color(0.49, 0.49, 0.49, 1)
+roughness_texture_channel = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_od3k2"]
+size = Vector3(2.5, 4, 3.5)
+
+[node name="AngelStatue" instance=ExtResource("1_i2ftr")]
+script = ExtResource("2_w5msw")
+
+[node name="Angel_Statue_Cube_004" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_yjm6u")
+surface_material_override/1 = SubResource("StandardMaterial3D_yjm6u")
+surface_material_override/2 = SubResource("StandardMaterial3D_yjm6u")
+surface_material_override/3 = SubResource("StandardMaterial3D_yjm6u")
+surface_material_override/4 = SubResource("StandardMaterial3D_yjm6u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Angel_Statue_Cube_004" index="0"]
+collision_layer = 4
+collision_mask = 255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Angel_Statue_Cube_004/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.5, -0.25)
+shape = SubResource("BoxShape3D_od3k2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2, 0.8)
+light_color = Color(0.04, 0.648, 1, 1)
+light_energy = 6.433
