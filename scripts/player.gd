@@ -13,7 +13,6 @@ const DASH_COOLDOWN = 3
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var sprite_3d: Sprite3D = $Neck/Camera3D/Sprite3D
 @onready var spot_light_3d: SpotLight3D = $Neck/SpotLight3D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_rect = $PlayersUi/HitScreen
 
 func _ready() -> void:

@@ -6,8 +6,7 @@ extends PlayerMovementState
 @export var DECELERATION: float = 0.25
 
 func enter():
-	ANIMATION.play("attack")
-	ANIMATION.queue("attack_reset")
+	pass
 
 func update(delta):
 	PLAYER.update_gravity(delta)

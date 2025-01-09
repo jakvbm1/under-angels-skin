@@ -9,9 +9,7 @@ extends PlayerMovementState
 
 func enter():
 	PLAYER.velocity.y += JUMP_VELOCITY
-	var current_anim = ANIMATION.current_animation
-	if current_anim == "idle" or current_anim == "walk":
-		ANIMATION.pause()
+	
 
 func update(delta):
 	PLAYER.update_gravity(delta)
@@ -21,8 +19,8 @@ func update(delta):
 	if PLAYER.is_on_floor():
 		transition.emit("IdlePlayerState")
 	
-	if Input.is_action_just_pressed("attack"):
-		transition.emit("AttackPlayerState")
+	#if Input.is_action_just_pressed("attack"):
+		#transition.emit("AttackPlayerState")
 	
 	if Input.is_action_just_pressed("dash"):
 		transition.emit("DashPlayerState")

@@ -10,6 +10,6 @@ view_model = ExtResource("2_g5pwl")
 pos = Vector3(0.215, -0.4, -0.33)
 rot = Vector3(0.0785398, 3.05433, 0.0959931)
 scale = Vector3(1, 1, 1)
+attack_sound = ExtResource("1_1s8b4")
 damage = 10.0
 knockback = 0.5
-attack_sound = ExtResource("1_1s8b4")

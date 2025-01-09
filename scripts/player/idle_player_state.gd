@@ -6,8 +6,7 @@ extends PlayerMovementState
 @export var DECELERATION: float = 0.25
 
 func enter():
-	ANIMATION.pause()
-	ANIMATION.play("idle")
+	pass
 
 func update(delta):
 	PLAYER.update_gravity(delta)
@@ -17,8 +16,8 @@ func update(delta):
 	if PLAYER.velocity.length() > 0.0 and PLAYER.is_on_floor():
 		transition.emit("WalkingPlayerState")
 	
-	if Input.is_action_just_pressed("attack"):
-		transition.emit("AttackPlayerState")
+	#if Input.is_action_just_pressed("attack"):
+	#	transition.emit("AttackPlayerState")
 	
 	if Input.is_action_just_pressed("ui_accept") and PLAYER.is_on_floor():
 		transition.emit("JumpPlayerState")
