@@ -17,6 +17,7 @@ extends Resource
 
 @export var damage: float = 10.0
 @export var knockback: float = 0.5
+@export var cooldown: float = 0.65
 
 var weapon_manager : WeaponManager
 

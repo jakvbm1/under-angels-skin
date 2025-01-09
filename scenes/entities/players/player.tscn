@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
 [ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
 [ext_resource type="Script" path="res://scripts/components/player_hurtbox.gd" id="2_e75ks"]
-[ext_resource type="Resource" uid="uid://bjycof7br1mqa" path="res://weaponManager/crowbar/crowbar.tres" id="3_hmdtn"]
+[ext_resource type="Resource" uid="uid://w3juqsmeqtf7" path="res://weaponManager/sword1/sword1.tres" id="3_luo4c"]
 [ext_resource type="Script" path="res://scripts/UI/debug_panel.gd" id="5_10xfb"]
 [ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="5_bhu0l"]
 [ext_resource type="Script" path="res://scripts/player/idle_player_state.gd" id="6_bj2x2"]
@@ -29,7 +29,7 @@ collision_mask = 15
 script = ExtResource("1_pueir")
 
 [node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "bullet_raycast", "view_model") instance=ExtResource("2_11ur4")]
-current_weapon = ExtResource("3_hmdtn")
+current_weapon = ExtResource("3_luo4c")
 player = NodePath("..")
 bullet_raycast = NodePath("../Neck/Camera3D/BulletRayCast3D")
 view_model = NodePath("../Neck/Camera3D/WeaponView")
