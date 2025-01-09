@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://bjycof7br1mqa"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://bjycof7br1mqa"]
 
+[ext_resource type="AudioStream" uid="uid://35nee0xpnwl5" path="res://assets/soundEffects/weapons/sword.wav" id="1_1s8b4"]
 [ext_resource type="Script" path="res://weaponManager/weapon_resource.gd" id="1_mxxa0"]
 [ext_resource type="PackedScene" uid="uid://cd20jbm8p1jes" path="res://weaponManager/crowbar/sketchfab_scene.tscn" id="2_g5pwl"]
 
@@ -11,3 +12,4 @@ rot = Vector3(0.0785398, 3.05433, 0.0959931)
 scale = Vector3(1, 1, 1)
 damage = 10.0
 knockback = 0.5
+attack_sound = ExtResource("1_1s8b4")

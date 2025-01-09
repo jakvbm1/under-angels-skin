@@ -1,12 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=23 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
 [ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
 [ext_resource type="Script" path="res://scripts/components/player_hurtbox.gd" id="2_e75ks"]
 [ext_resource type="Resource" uid="uid://bjycof7br1mqa" path="res://weaponManager/crowbar/crowbar.tres" id="3_hmdtn"]
-[ext_resource type="PackedScene" uid="uid://dyhaxcgtwix4c" path="res://scenes/weapons/crowbar.tscn" id="3_x0rfm"]
-[ext_resource type="Script" path="res://scripts/components/player_hitbox.gd" id="4_nj2cl"]
 [ext_resource type="Script" path="res://scripts/UI/debug_panel.gd" id="5_10xfb"]
 [ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="5_bhu0l"]
 [ext_resource type="Script" path="res://scripts/player/idle_player_state.gd" id="6_bj2x2"]
@@ -19,10 +17,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hhcsc"]
 radius = 0.372213
 height = 1.90151
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3t8n"]
-radius = 0.193268
-height = 1.30249
 
 [sub_resource type="Animation" id="Animation_j8s0f"]
 length = 0.001
@@ -59,110 +53,14 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Neck/Camera3D/WeaponRig:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Neck/Camera3D/WeaponRig:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Neck/Camera3D/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_yw0on"]
 resource_name = "attack"
 length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/Camera3D/WeaponRig:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.310143, 0), Vector3(0, 0.310143, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/Camera3D/WeaponRig:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.0519759, 0, 0.63811), Vector3(-1.13019, -4.16249e-08, 0.63811)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Neck/Camera3D/WeaponRig/Crowbar/PlayerHitbox/CollisionShape3D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="Animation" id="Animation_4b15l"]
 resource_name = "attack_reset"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neck/Camera3D/WeaponRig:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.310143, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neck/Camera3D/WeaponRig:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.13019, -4.16249e-08, 0.63811), Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_ai8po"]
 resource_name = "idle"
@@ -232,7 +130,6 @@ bullet_raycast = NodePath("../Neck/Camera3D/BulletRayCast3D")
 view_model = NodePath("../Neck/Camera3D/WeaponView")
 
 [node name="PlayerHurtbox" type="Area3D" parent="."]
-visible = false
 script = ExtResource("2_e75ks")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerHurtbox"]
@@ -246,20 +143,6 @@ current = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.722329)
-
-[node name="WeaponRig" type="Node3D" parent="Neck/Camera3D"]
-visible = false
-
-[node name="Crowbar" parent="Neck/Camera3D/WeaponRig" instance=ExtResource("3_x0rfm")]
-transform = Transform3D(-0.990953, 0.102288, 0.086887, 0.0955503, 0.992328, -0.0784591, -0.0942457, -0.0694472, -0.993124, 0.215, 0.3, -0.33)
-
-[node name="PlayerHitbox" type="Area3D" parent="Neck/Camera3D/WeaponRig/Crowbar"]
-script = ExtResource("4_nj2cl")
-damage = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Camera3D/WeaponRig/Crowbar/PlayerHitbox"]
-shape = SubResource("CapsuleShape3D_t3t8n")
-disabled = true
 
 [node name="WeaponView" type="Node3D" parent="Neck/Camera3D"]
 
@@ -279,6 +162,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_5ooqb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
