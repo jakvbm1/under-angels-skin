@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0q16rpr32t3x"]
+[gd_scene load_steps=8 format=3 uid="uid://d0q16rpr32t3x"]
 
 [ext_resource type="MeshLibrary" uid="uid://daokixd8papop" path="res://assets/tiles/metal_tiles.tres" id="1_6dbld"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_e0khl"]
 [ext_resource type="PackedScene" uid="uid://dli14mjn56tri" path="res://scenes/objects/red_lamp.tscn" id="4_osm0i"]
+[ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="5_nlmwi"]
 [ext_resource type="PackedScene" uid="uid://cdgtyshim8jq1" path="res://scenes/objects/moving_platform.tscn" id="6_elq44"]
 
 [sub_resource type="Environment" id="Environment_0lx28"]
@@ -293,6 +294,12 @@ transform = Transform3D(1.33333, -3.55271e-15, 0, 3.55271e-15, 1.33333, 0, 0, 0,
 light_color = Color(1, 0, 0, 1)
 light_energy = 2.0
 omni_range = 10.0
+
+[node name="AngelStatue" parent="." instance=ExtResource("5_nlmwi")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -5, 1.52409, -104)
+
+[node name="AngelStatue2" parent="." instance=ExtResource("5_nlmwi")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -5, 1.52409, 0)
 
 [editable path="Platforms/MovingPlatform"]
 [editable path="Platforms/MovingPlatform2"]
