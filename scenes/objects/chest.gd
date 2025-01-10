@@ -1,0 +1,39 @@
+extends Node3D
+
+var is_open: bool = false
+@onready var player: Player = null
+@onready var openLabel: Label = $"OpenChestLabel"
+@onready var closeLabel: Label =  $"CloseChestLabel"
+@export var open_distance:float = 2.0
+@onready var animation_player: AnimationPlayer = $"AnimationPlayer"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	openLabel.visible=false
+	closeLabel.visible = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if not player or not animation_player:
+		return
+	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
+	if distance_to_player<=open_distance:
+		if !is_open: openLabel.visible = true
+		if is_open: closeLabel.visible = true
+		if Input.is_action_just_pressed("interact"):
+			toggle_chest()
+			if !is_open: closeLabel.visible = false
+			if is_open: openLabel.visible = false
+	else: 
+		openLabel.visible=false
+		closeLabel.visible=false
+func toggle_chest():
+	if not animation_player.is_playing():
+		if !is_open:
+			animation_player.play("open")
+		else: 
+			animation_player.play("close")
+			
+		is_open = not is_open
