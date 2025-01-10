@@ -7,19 +7,21 @@ var state_machine
 @onready var anim_tree = $AnimationTree
 @onready var gun_barrel = $PowerGun/RayCast3D
 @onready var nav_agent = $NavigationAgent3D
+@onready var hit_particles: GPUParticles3D = $GPUParticles3D
 
-const SPEED = 2.0
-const ATTACK_COOLDOWN = 3.0 # in seconds
-const WALK_RANGE = 10.0
-const ATTACK_RANGE = 5.0
-const ATTACK_DAMAGE = 10
+@export var SPEED: float = 2.0
+@export var ATTACK_COOLDOWN: float = 3.0 # in seconds
+@export var WALK_RANGE: float = 10.0
+@export var ATTACK_RANGE: float = 5.0
+@export var ATTACK_DAMAGE: float = 10.0
+@export var EXP: int = 700
 
-var HP = 150
+@export var HP = 150
 var cooldown = 0.0
 
 var knockback_velocity: Vector3 = Vector3.ZERO
 var knockback_timer: float = 0.0
-const KNOCKBACK_DURATION: float = 0.1
+@export var KNOCKBACK_DURATION: float = 0.1
 var isKnockback = false
 
 # for projectiles
@@ -107,10 +109,11 @@ func take_damage(damage: int) -> void:
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP
 	else:
-		player.money+=get_gold()
-		player.exp_points+=700
+		player.money += get_gold()
+		player.exp_points += EXP
 		queue_free()
-		
+	hit_particles.emitting = true
+
 func get_gold():
 	var rng = RandomNumberGenerator.new()
 	var money = rng.randi_range(100,1000)

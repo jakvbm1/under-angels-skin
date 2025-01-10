@@ -3,23 +3,26 @@ extends CharacterBody3D
 var player
 var state_machine
 
-@onready var hp_label = $Label3D
-@onready var anim_tree = $AnimationTree
-@onready var nav_agent = $NavigationAgent3D
+@onready var hp_label: Label3D = $Label3D
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var hit_particles: GPUParticles3D = $GPUParticles3D
 
-const SPEED = 2.5
-const ATTACK_COOLDOWN = 1.5 # in seconds
-const WALK_RANGE = 10.0
-const ATTACK_RANGE = 1.2
-const ATTACK_DAMAGE = 15
+@export var SPEED: float = 2.5
+@export var ATTACK_COOLDOWN: float = 1.5 # in seconds
+@export var WALK_RANGE: float = 10.0
+@export var ATTACK_RANGE: float = 1.2
+@export var ATTACK_DAMAGE: float = 15.0
+@export var EXP: int = 800
 
-var HP = 200
-var cooldown = 0.0
+@export var HP: float = 200
+@export var cooldown: float = 0.0
+
+@export var KNOCKBACK_DURATION: float = 0.1
 
 var knockback_velocity: Vector3 = Vector3.ZERO
 var knockback_timer: float = 0.0
-const KNOCKBACK_DURATION: float = 0.1
-var isKnockback = false
+var isKnockback: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -104,15 +107,17 @@ func take_damage(damage: int) -> void:
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP
 	else:
-		player.money+=get_gold()
-		player.exp_points+=800
+		player.money += get_gold()
+		player.exp_points += EXP
+		self.visible = false
 		queue_free()
-		
+	hit_particles.emitting = true
+
 func get_gold():
 	var rng = RandomNumberGenerator.new()
 	var money = rng.randi_range(100,1000)
 	return money
-	
+
 func take_knockback(knockback: float) -> void:
 	isKnockback = true
 	var knockback_direction = (global_transform.origin - nav_agent.get_next_path_position()).normalized()

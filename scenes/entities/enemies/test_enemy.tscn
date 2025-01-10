@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://clyxr3hc5w666"]
+[gd_scene load_steps=64 format=4 uid="uid://clyxr3hc5w666"]
 
 [ext_resource type="Script" path="res://scripts/test_enemy.gd" id="1_birs1"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="2_btxxd"]
@@ -1131,6 +1131,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0jlfv")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyjt6"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_elrt1"]
+spread = 155.602
+initial_velocity_max = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_k15bf"]
+size = Vector3(0.04, 0.04, 0.04)
+
 [node name="test_enemy" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_mask = 15
@@ -1268,5 +1278,15 @@ skeleton = NodePath("")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4skk1")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547612, 0)
+material_override = SubResource("StandardMaterial3D_qyjt6")
+emitting = false
+amount = 15
+lifetime = 0.35
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_elrt1")
+draw_pass_1 = SubResource("BoxMesh_k15bf")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://8c3pbgsh832e"]
+[gd_scene load_steps=62 format=4 uid="uid://8c3pbgsh832e"]
 
 [ext_resource type="Script" path="res://scripts/test_enemy_gun.gd" id="1_1qg7w"]
 [ext_resource type="PackedScene" uid="uid://c058it6686r3x" path="res://scenes/weapons/power_gun.tscn" id="2_q0j0i"]
@@ -1079,6 +1079,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0jlfv")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5k5rr"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7036j"]
+spread = 155.602
+initial_velocity_max = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_vi3wr"]
+size = Vector3(0.04, 0.04, 0.04)
+
 [node name="test_enemy_gun" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_mask = 15
@@ -1209,5 +1219,15 @@ skeleton = NodePath("")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4skk1")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547612, 0)
+material_override = SubResource("StandardMaterial3D_5k5rr")
+emitting = false
+amount = 15
+lifetime = 0.35
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_7036j")
+draw_pass_1 = SubResource("BoxMesh_vi3wr")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

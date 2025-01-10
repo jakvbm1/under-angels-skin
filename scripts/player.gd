@@ -1,16 +1,27 @@
 class_name Player
 extends CharacterBody3D
 
-const REGEN = 2
-const DASH_COOLDOWN = 3
+const REGEN: float = 2.0
+const DASH_COOLDOWN: float = 3.0
 
-@export var max_hp = 100.0
-@export var current_hp = 10.0
-@export var last_dash = 0.0
-@export var gravity = 12.0
-@export var level = 1
-@export var exp_points = 0
-@export var money = 0
+@export var last_dash: float = 0.0
+@export var gravity: float = 12.0
+
+@export var max_hp: float = 100.0
+@export var current_hp: float = 10.0
+@export var dmg_bonus: float = 1
+
+@export var money: int = 0
+@export var level: int = 1 :
+	set(value):
+		level = value
+		max_hp += value * 20
+		dmg_bonus = (1 + float(level) / 10)
+@export var exp_points: float = 0 :
+	set(value):
+		exp_points = value
+		if exp_points >= 500.0 * level:
+			level += 1
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -55,12 +66,10 @@ func update_velocity() -> void:
 
 func _process(delta: float) -> void:
 	Global.debug.add_property("Velocity", "%.2f" % velocity.length(), 1)
-	
-	if exp_points>500.0:
-		var number_of_levels =  exp_points/500	
-		level += number_of_levels
-		max_hp += number_of_levels * 20
-		exp_points=0
+	Global.debug.add_property("Gold", money, 3)
+	Global.debug.add_property("Level", level, 4)
+	Global.debug.add_property("Exp", exp_points, 5)
+	Global.debug.add_property("dmg bonus", dmg_bonus, 6)
 	
 	if last_dash < DASH_COOLDOWN:
 		last_dash += delta
