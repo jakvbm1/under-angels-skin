@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgi1cmw0gcy05"]
+
+[ext_resource type="Texture2D" uid="uid://b2fdplbv7a5mx" path="res://assets/sprites/menu_background.png" id="1_cleok"]
+
+[node name="LoadSaveMenu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 321.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cleok")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 36
+text = "Load game state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 115.0
+offset_top = 123.0
+offset_right = 365.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Load from slot 1"
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 50)
+layout_direction = 1
+offset_left = 115.0
+offset_top = 188.0
+offset_right = 365.0
+offset_bottom = 238.0
+text = "Load from slot 2"
+icon_alignment = 1
+
+[node name="Button3" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 50)
+layout_direction = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 115.0
+offset_top = 253.0
+offset_right = 365.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Load from slot 3"
+
+[node name="Button4" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 259.0
+offset_right = 78.0
+offset_bottom = 313.0
+grow_vertical = 0
+text = "Back to
+ menu"
