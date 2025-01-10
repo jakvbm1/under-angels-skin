@@ -8,6 +8,7 @@ var state_machine
 @onready var gun_barrel = $PowerGun/RayCast3D
 @onready var nav_agent = $NavigationAgent3D
 @onready var hit_particles: GPUParticles3D = $GPUParticles3D
+@onready var death_particles: GPUParticles3D = $GPUParticles3D2
 
 @export var SPEED: float = 2.0
 @export var ATTACK_COOLDOWN: float = 3.0 # in seconds
@@ -109,8 +110,13 @@ func take_damage(damage: int) -> void:
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP
 	else:
+		# on death
+		hp_label.text = "HP: 0"
 		player.money += get_gold()
 		player.exp_points += EXP
+		anim_tree["parameters/conditions/death"] = true
+		death_particles.emitting = true
+		await get_tree().create_timer(1.0).timeout
 		queue_free()
 	hit_particles.emitting = true
 

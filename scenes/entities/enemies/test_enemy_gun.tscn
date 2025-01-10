@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://8c3pbgsh832e"]
+[gd_scene load_steps=71 format=4 uid="uid://8c3pbgsh832e"]
 
 [ext_resource type="Script" path="res://scripts/test_enemy_gun.gd" id="1_1qg7w"]
 [ext_resource type="PackedScene" uid="uid://c058it6686r3x" path="res://scenes/weapons/power_gun.tscn" id="2_q0j0i"]
@@ -125,6 +125,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.108751, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("head:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("head:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_47al1"]
@@ -409,14 +433,45 @@ tracks/9/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.108751, 0, 0), Vector3(0, 0, 0), Vector3(0.181549, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wbkum"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.265661, 0), Vector3(0, -0.8459, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.324788), Vector3(0, 0, -1.5708)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_na2se"]
 _data = {
 "RESET": SubResource("Animation_v4xq0"),
+"death": SubResource("Animation_wbkum"),
 "gun_aim": SubResource("Animation_47al1"),
 "gun_down": SubResource("Animation_i5a0e"),
 "idle": SubResource("Animation_q863o"),
 "walk": SubResource("Animation_4mp1t")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_at4ro"]
+animation = &"death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wgbpm"]
 animation = &"gun_aim"
@@ -469,9 +524,27 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4xmvt"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rx3fy"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uninm"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nydcs"]
+advance_mode = 2
+advance_condition = &"death"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x647t"]
 states/End/position = Vector2(632, 123)
 states/Start/position = Vector2(74, 123)
+states/death/node = SubResource("AnimationNodeAnimation_at4ro")
+states/death/position = Vector2(342, 351.876)
 states/gun_aim/node = SubResource("AnimationNodeAnimation_wgbpm")
 states/gun_aim/position = Vector2(242, 56)
 states/gun_down/node = SubResource("AnimationNodeAnimation_rwigs")
@@ -480,7 +553,7 @@ states/idle/node = SubResource("AnimationNodeAnimation_tyygw")
 states/idle/position = Vector2(194, 210)
 states/walk/node = SubResource("AnimationNodeAnimation_v55k4")
 states/walk/position = Vector2(504, 210)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_f6lpy"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mstng"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ny0na"), "walk", "gun_aim", SubResource("AnimationNodeStateMachineTransition_x3vqk"), "gun_aim", "gun_down", SubResource("AnimationNodeStateMachineTransition_k7rc3"), "gun_down", "walk", SubResource("AnimationNodeStateMachineTransition_8xaoa"), "idle", "gun_aim", SubResource("AnimationNodeStateMachineTransition_4w36y"), "gun_down", "idle", SubResource("AnimationNodeStateMachineTransition_atdv6")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_f6lpy"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mstng"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ny0na"), "walk", "gun_aim", SubResource("AnimationNodeStateMachineTransition_x3vqk"), "gun_aim", "gun_down", SubResource("AnimationNodeStateMachineTransition_k7rc3"), "gun_down", "walk", SubResource("AnimationNodeStateMachineTransition_8xaoa"), "idle", "gun_aim", SubResource("AnimationNodeStateMachineTransition_4w36y"), "gun_down", "idle", SubResource("AnimationNodeStateMachineTransition_atdv6"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_4xmvt"), "gun_aim", "death", SubResource("AnimationNodeStateMachineTransition_rx3fy"), "gun_down", "death", SubResource("AnimationNodeStateMachineTransition_uninm"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_nydcs")]
 graph_offset = Vector2(0, 23.8757)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioovt"]
@@ -1079,14 +1152,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0jlfv")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5k5rr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ov63k"]
 albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7036j"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2yahx"]
+direction = Vector3(0, 0, 1)
 spread = 155.602
 initial_velocity_max = 2.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_vi3wr"]
+[sub_resource type="BoxMesh" id="BoxMesh_gylcx"]
+size = Vector3(0.04, 0.04, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6xdy"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w0205"]
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_jidme"]
 size = Vector3(0.04, 0.04, 0.04)
 
 [node name="test_enemy_gun" type="CharacterBody3D" groups=["enemy"]]
@@ -1106,6 +1192,7 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_x647t")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
+parameters/conditions/death = false
 parameters/conditions/idle = false
 parameters/conditions/walk = false
 
@@ -1135,12 +1222,14 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_r5pjs")
 skeleton = NodePath("")
 
-[node name="group1668580957" type="MeshInstance3D" parent="."]
+[node name="head" type="Node3D" parent="."]
+
+[node name="group1668580957" type="MeshInstance3D" parent="head"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nwwmq")
 skeleton = NodePath("")
 
-[node name="group1875346923" type="MeshInstance3D" parent="."]
+[node name="group1875346923" type="MeshInstance3D" parent="head"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rqotv")
 skeleton = NodePath("")
@@ -1222,12 +1311,22 @@ skeleton = NodePath("")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547612, 0)
-material_override = SubResource("StandardMaterial3D_5k5rr")
+material_override = SubResource("StandardMaterial3D_ov63k")
 emitting = false
 amount = 15
 lifetime = 0.35
 one_shot = true
-process_material = SubResource("ParticleProcessMaterial_7036j")
-draw_pass_1 = SubResource("BoxMesh_vi3wr")
+process_material = SubResource("ParticleProcessMaterial_2yahx")
+draw_pass_1 = SubResource("BoxMesh_gylcx")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.999925, 0, -0.0122345, 0, 1, 0, 0.0122345, 0, -0.999925, -0.0489583, 0.670897, 0)
+material_override = SubResource("StandardMaterial3D_g6xdy")
+emitting = false
+amount = 50
+one_shot = true
+speed_scale = 1.2
+process_material = SubResource("ParticleProcessMaterial_w0205")
+draw_pass_1 = SubResource("BoxMesh_jidme")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
