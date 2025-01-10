@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 				# to be rotated at player's direction
 				look_at(Vector3(player.global_position.x, global_position.y,
 					player.global_position.z), Vector3.UP, true)
+				
 		
 		# animation conditions
 		update_animation_parameters()
@@ -103,8 +104,15 @@ func take_damage(damage: int) -> void:
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP
 	else:
+		player.money+=get_gold()
+		player.exp_points+=800
 		queue_free()
-
+		
+func get_gold():
+	var rng = RandomNumberGenerator.new()
+	var money = rng.randi_range(100,1000)
+	return money
+	
 func take_knockback(knockback: float) -> void:
 	isKnockback = true
 	var knockback_direction = (global_transform.origin - nav_agent.get_next_path_position()).normalized()

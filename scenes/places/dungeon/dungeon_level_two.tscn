@@ -289,7 +289,7 @@ light_energy = 2.0
 [node name="chests" type="Node3D" parent="."]
 
 [node name="chest 1" parent="chests" instance=ExtResource("4_dt3ng")]
-transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107, -31, 0, 1)
+transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107, -30.9078, -1.44522, 1.58635)
 
 [node name="chest 2" parent="chests" instance=ExtResource("4_dt3ng")]
 transform = Transform3D(-2.98023e-07, 0, 1, 0, 1, 0, -1, 0, -2.98023e-07, -8, 0, -52)
@@ -325,7 +325,7 @@ transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 2, 0, -190
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 74, 0, -177)
 
 [node name="chest 12" parent="chests" instance=ExtResource("4_dt3ng")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2, 0, 1)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.449, 0, -1.964)
 
 [node name="AngelStatue" parent="." instance=ExtResource("5_0h22c")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -5, 0, 0)

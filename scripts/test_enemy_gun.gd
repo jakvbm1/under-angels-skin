@@ -107,7 +107,14 @@ func take_damage(damage: int) -> void:
 	if HP > 0:
 		hp_label.text = "HP: %s" % HP
 	else:
+		player.money+=get_gold()
+		player.exp_points+=700
 		queue_free()
+		
+func get_gold():
+	var rng = RandomNumberGenerator.new()
+	var money = rng.randi_range(100,1000)
+	return money
 
 func take_knockback(knockback: float) -> void:
 	isKnockback = true

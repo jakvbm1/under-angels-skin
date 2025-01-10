@@ -8,6 +8,9 @@ const DASH_COOLDOWN = 3
 @export var current_hp = 10.0
 @export var last_dash = 0.0
 @export var gravity = 12.0
+@export var level = 1
+@export var exp_points = 0
+@export var money = 0
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -52,6 +55,12 @@ func update_velocity() -> void:
 
 func _process(delta: float) -> void:
 	Global.debug.add_property("Velocity", "%.2f" % velocity.length(), 1)
+	
+	if exp_points>500.0:
+		var number_of_levels =  exp_points/500	
+		level += number_of_levels
+		max_hp += number_of_levels * 20
+		exp_points=0
 	
 	if last_dash < DASH_COOLDOWN:
 		last_dash += delta
