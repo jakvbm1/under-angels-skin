@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bddgedeol8nwd"]
+[gd_scene load_steps=3 format=3 uid="uid://bddgedeol8nwd"]
 
+[ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="1_0vltx"]
 [ext_resource type="Texture2D" uid="uid://b2fdplbv7a5mx" path="res://assets/sprites/menu_background.png" id="1_2wxsc"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_0vltx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
