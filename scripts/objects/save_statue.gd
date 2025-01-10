@@ -5,13 +5,16 @@ var unlocked:bool = false
 @onready var light: OmniLight3D = $OmniLight3D
 @onready var activateLabel: Label = $ActivateLabel
 @onready var statue = $Angel_Statue_Cube_004/StaticBody3D
+@onready var menu =$StatueSelection
 @export var open_distance:float = 2.0
 
 
 func _ready():
+	menu.visible = false
 	player = get_tree().get_first_node_in_group("player")
 	light.visible = unlocked
 	activateLabel.visible = false
+	
 	
 	
 func _process(delta: float):
@@ -33,7 +36,9 @@ func activate_statue():
 	if(!unlocked):
 		unlocked = true
 		light.visible = true
-		
+	
+	menu.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 func save():
 	print('not implemented yet ;p')

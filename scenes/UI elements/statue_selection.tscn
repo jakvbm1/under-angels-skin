@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cp70g88op31qd"]
+[gd_scene load_steps=3 format=3 uid="uid://cp70g88op31qd"]
+
+[ext_resource type="Script" path="res://scripts/UI/statue_selection.gd" id="1_tvt0v"]
+[ext_resource type="PackedScene" uid="uid://b20g3r423w83p" path="res://scenes/UI elements/save_game_menu.tscn" id="2_06cm3"]
 
 [node name="StatueSelection" type="Control"]
 layout_mode = 3
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tvt0v")
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 120)
@@ -48,3 +52,6 @@ offset_right = 71.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Back to the game"
+
+[node name="SaveGameMenu" parent="." instance=ExtResource("2_06cm3")]
+layout_mode = 1

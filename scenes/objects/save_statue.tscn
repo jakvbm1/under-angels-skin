@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cao4suc7gxafe"]
+[gd_scene load_steps=6 format=3 uid="uid://cao4suc7gxafe"]
 
 [ext_resource type="PackedScene" uid="uid://cmjinbrpo0pk4" path="res://assets/models/AngelStatue.glb" id="1_i2ftr"]
 [ext_resource type="Script" path="res://scripts/objects/save_statue.gd" id="2_w5msw"]
+[ext_resource type="PackedScene" uid="uid://cp70g88op31qd" path="res://scenes/UI elements/statue_selection.tscn" id="3_nf1ri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjm6u"]
 albedo_color = Color(0.49, 0.49, 0.49, 1)
@@ -48,3 +49,5 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Press f to activate"
+
+[node name="StatueSelection" parent="." index="3" instance=ExtResource("3_nf1ri")]
