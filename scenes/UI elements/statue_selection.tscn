@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp70g88op31qd"]
+[gd_scene load_steps=4 format=3 uid="uid://cp70g88op31qd"]
 
 [ext_resource type="Script" path="res://scripts/UI/statue_selection.gd" id="1_tvt0v"]
 [ext_resource type="PackedScene" uid="uid://b20g3r423w83p" path="res://scenes/UI elements/save_game_menu.tscn" id="2_06cm3"]
+[ext_resource type="PackedScene" uid="uid://cb3kwjrrcq3fl" path="res://scenes/UI elements/location_select.tscn" id="3_ogjs3"]
 
 [node name="StatueSelection" type="Control"]
 layout_mode = 3
@@ -54,4 +55,7 @@ grow_vertical = 0
 text = "Back to the game"
 
 [node name="SaveGameMenu" parent="." instance=ExtResource("2_06cm3")]
+layout_mode = 1
+
+[node name="LocationSelect" parent="." instance=ExtResource("3_ogjs3")]
 layout_mode = 1
