@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var prev_button = $Control/Button
-@onready var next_button = $Control/Button2
-@onready var back_button = $Control/Button3
+@onready var prev_button = $Button
+@onready var next_button = $Button2
+@onready var back_button = $Button3
 @onready var text_credits = $Label2
 
 var texts = ['text 1', 'text 2', 'text 3']

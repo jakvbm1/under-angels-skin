@@ -13,7 +13,7 @@ func _ready():
 	credits.pressed.connect(show_credits)
 	
 func load_new_game():
-	get_tree().change_scene_to_file("res://scenes/places/village/tavern.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI elements/intro.tscn")
 	
 func load_game_from_file():
 	get_tree().change_scene_to_file("res://scenes/UI elements/load_save menu.tscn")

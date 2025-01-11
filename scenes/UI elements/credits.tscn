@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj4i81dcv7bw0"]
+[gd_scene load_steps=2 format=3 uid="uid://bj4i81dcv7bw0"]
 
 [ext_resource type="Script" path="res://scripts/UI/credits.gd" id="1_1slgj"]
-[ext_resource type="Texture2D" uid="uid://b2fdplbv7a5mx" path="res://assets/sprites/menu_background.png" id="1_kdu36"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_1slgj")
@@ -20,70 +19,6 @@ offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control"]
-custom_minimum_size = Vector2(80, 40)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 80.0
-offset_bottom = 20.0
-grow_vertical = 2
-text = "Previous"
-
-[node name="Button2" type="Button" parent="Control"]
-custom_minimum_size = Vector2(80, 40)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -20.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Next
-"
-
-[node name="Button3" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Back to menu"
-
-[node name="Control2" type="Control" parent="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -1.0
-offset_top = -200.0
-offset_right = 39.0
-offset_bottom = -160.0
-
-[node name="TextureRect" type="TextureRect" parent="Control/Control2"]
-visible = false
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 442.0
-offset_bottom = 282.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_kdu36")
-expand_mode = 1
-
 [node name="Label" type="Label" parent="."]
 offset_right = 478.0
 offset_bottom = 58.0
@@ -97,3 +32,53 @@ offset_top = 51.0
 offset_right = 479.0
 offset_bottom = 234.0
 text = "tekst z creditsow"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+z_index = -1
+offset_right = 495.0
+offset_bottom = 339.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 40)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 240.0
+offset_right = 81.0
+offset_bottom = 280.0
+grow_vertical = 2
+text = "Previous"
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 40)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 399.0
+offset_top = 240.0
+offset_right = 479.0
+offset_bottom = 280.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Next
+"
+
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 182.5
+offset_top = 289.0
+offset_right = 297.5
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to menu"
