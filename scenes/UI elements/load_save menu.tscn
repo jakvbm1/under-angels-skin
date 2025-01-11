@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgi1cmw0gcy05"]
+[gd_scene load_steps=3 format=3 uid="uid://bgi1cmw0gcy05"]
 
+[ext_resource type="Script" path="res://scripts/UI/load_save_menu.gd" id="1_albxb"]
 [ext_resource type="Texture2D" uid="uid://b2fdplbv7a5mx" path="res://assets/sprites/menu_background.png" id="1_cleok"]
 
 [node name="LoadSaveMenu" type="Node2D"]
+script = ExtResource("1_albxb")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
