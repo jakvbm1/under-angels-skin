@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=4 uid="uid://br84xxn1bvjwa"]
+
+[ext_resource type="Script" path="res://scenes/objects/game_start.gd" id="1_pll5p"]
+[ext_resource type="Texture2D" uid="uid://bjt7nacpvjhdk" path="res://assets/models/doors_doorTexture.jpg" id="2_ggufi"]
+[ext_resource type="Texture2D" uid="uid://biifhyab6jn8k" path="res://assets/models/doors_doorTexture_n.jpg" id="3_e1xg7"]
+[ext_resource type="AudioStream" uid="uid://urdgrr7jj63b" path="res://assets/soundEffects/objects/door-close-79921.mp3" id="4_37mkh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvis1"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("2_ggufi")
+roughness = 0.75
+normal_enabled = true
+normal_texture = ExtResource("3_e1xg7")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hdau6"]
+_surfaces = [{
+"aabb": AABB(-0.758866, -0.989201, -0.05, 1, 2, 0.1),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEACAALAAkACAAKAAsACgANAAsACgAMAA0ACQAIAAgACQAJAAgACwAJAAkACwALAAkACwAJAAkACwALAAkACwAJAAkACwALAAkACAAKAAoACAAIAAoACQAIAAgACQAJAAgACQAJAAkACQAJAAkACgAKAAoACgAKAAoA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("qqg3eP//AACqqASF//8AAKqoN3gAAAAAqqgEhQAAAADd2zd4//8AAN3bBIX//wAA3ds3eAAAAADd2wSFAAAAAAAAAAD/fwAA//8AAP9/AAAAAP9//38AAP///3//fwAAAAD///9/AAD//////38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c3kku"]
+resource_name = "doors_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.758866, -0.989201, -0.05, 1, 2, 0.1),
+"attribute_data": PackedByteArray("/18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9///8AAAAA//8AAAAA/////wAA////////AAAAAAAA//////////8AAAAAAAD//wAAAAD///////////////8AAP///////wAA////////AAAAAP//AAAAAAAA//////////////////8AAAAAAAAAAA=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQAGAAfABoAGAAdAB8AHAAjACAAHAAiACMAGwAkABkAGwAlACQAIQAmABsAIQAnACYAJwAoACYAJwApACgAKQAqACgAKQArACoAGQAtAB4AGQAsAC0AJQAuACQAJQAvAC4AGwAxACUAGwAwADEALQAyAB4ALQAzADIA"),
+"material": SubResource("StandardMaterial3D_rvis1"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("qqg3eP///7+qqDd4////v6qoN3j//1TVqqgEhf///7+qqASF/////6qoBIX//1TVqqg3eAAA//+qqDd4AAD/v6qoN3gAAFTVqqgEhQAA//+qqASFAAD//6qoBIUAAFTV3ds3eP///7/d2zd4////v93bN3j//1TV3dsEhf///7/d2wSF/////93bBIX//1TV3ds3eAAA///d2zd4AAD/v93bN3gAAFTV3dsEhQAA///d2wSFAAD//93bBIUAAFTVAAAAAP9///8AAAAA/3//v///AAD/f/////8AAP9//78AAP9//38AgAAA/3//f///AAD/f/9//7////9//3///////3//fwCA////f/9//78AAP///38AgP//////fwCAAAAAAP9//7///wAA/3//v///AAD/f/+/////f/9//7///wAA/3//v////3//f/+///8AAP9//7////9//3//vwAAAAD/f/+/AAD/f/9//78AAAAA/3//v///AAD/f/+///8AAP9//7///wAA/3//vwAA/3//f/+/AAD/f/9//7//////AAD/f1TVVNX//////3//v1TVVNX/v/+/AAD/f1TVVNX/v/+//3//v1TVVNX/////AAD/f6oqqir//////3//v6oqqir/v/+/AAD/f6oqqir/v/+//3//v6oqqir/f/9/////f/9//3////9//3////9//3////9//3//f/9///////9//3////9///////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hdau6")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8xto7"]
+points = PackedVector3Array(0.114041, 0.0742424, 0.0610863, -0.774574, -1.00507, -0.00238095, -0.774574, -1.00507, 0.0293464, -0.774574, 1.02667, -0.00238095, 0.114041, 0.0742424, -0.0658482, 0.240901, -1.00507, -0.00238095, 0.240901, 1.02667, -0.00238095, -0.774574, 1.02667, 0.0293464, 0.240901, -1.00507, 0.0293464, 0.240901, 1.02667, 0.0293464, -0.108162, -0.0526423, -0.0658482, -0.108162, -0.0526423, 0.0610863, -0.108162, 0.0742424, -0.0658482, -0.108162, 0.0742424, 0.0610863)
+
+[node name="GameStart" type="Node3D"]
+script = ExtResource("1_pll5p")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 269.0
+offset_right = 481.0
+offset_bottom = 320.0
+text = "Press f to go to the hole"
+horizontal_alignment = 1
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("ArrayMesh_c3kku")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_8xto7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D2"]
+stream = ExtResource("4_37mkh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.6, 0.4)
+light_color = Color(0.589571, 0.180887, 0.342734, 1)
