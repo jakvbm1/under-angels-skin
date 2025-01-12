@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cti51rydsg6e7"]
+
+[ext_resource type="PackedScene" uid="uid://67ykgnlyjeev" path="res://assets/models/Simple Vertical Ladder.glb" id="1_kbqtl"]
+[ext_resource type="Script" path="res://scripts/objects/ladder_to_tavern.gd" id="2_kdo4y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r3k3e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu4rd"]
+size = Vector3(1, 3.92896, 0.202637)
+
+[node name="Simple Vertical Ladder" instance=ExtResource("1_kbqtl")]
+script = ExtResource("2_kdo4y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+collision_layer = 4
+collision_mask = 251
+physics_material_override = SubResource("PhysicsMaterial_r3k3e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0343018, 0.0163574)
+shape = SubResource("BoxShape3D_hu4rd")
+
+[node name="Label" type="Label" parent="." index="2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -52.0
+offset_right = 105.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press f to go back to tavern"
