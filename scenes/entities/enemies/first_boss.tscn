@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://c36yl4l46aqr1"]
+[gd_scene load_steps=55 format=4 uid="uid://c36yl4l46aqr1"]
 
 [ext_resource type="PackedScene" uid="uid://deji6afvwq72u" path="res://assets/weapons/sword_test.glb" id="1_vkunk"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hitbox.gd" id="2_t0l63"]
@@ -173,11 +173,58 @@ tracks/13/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("mesh/LeftHand/LeftElbow/LeftWrist:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.430312, 0.883432, -0.400542)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("mesh:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("mesh/LeftEye:surface_material_override/0:albedo_color")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.533037, 0.533037, 0.533037, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("mesh/LeftEye:surface_material_override/0:emission")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.533333, 0.533333, 0.533333, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_u3cmq"]
 resource_name = "aoe"
 length = 7.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -322,6 +369,30 @@ tracks/11/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("mesh/LeftEye:surface_material_override/0:albedo_color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 6.56667, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("mesh/LeftEye:surface_material_override/0:emission")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 6.56667, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6jw2e"]
 resource_name = "idle"
@@ -451,6 +522,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("mesh/LeftEye:surface_material_override/0:albedo_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 1, 1), Color(0, 0, 1, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("mesh/LeftEye:surface_material_override/0:emission")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 1, 1), Color(0, 0, 1, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_85oph"]
 resource_name = "walk"
@@ -517,14 +612,167 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0), Vector3(-0.261799, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3w2yr"]
+resource_name = "spin"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh/RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.22173), Vector3(-0.83905, 0.577861, 1.22173), Vector3(-0.83905, 0.577861, 1.22173), Vector3(0, 0, 1.22173)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh/RightHand/RightElbow:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.078495, -0.217826, -0.00858744), Vector3(0.432365, 0.294424, 0.0798127), Vector3(0.432365, 0.294424, 0.0798127), Vector3(0.078495, -0.217826, -0.00858744)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mesh/RightHand/RightElbow/RightWrist:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.203967, 0.60301, -0.0902358), Vector3(-0.659338, -0.771884, 0.665721), Vector3(-0.659338, -0.771884, 0.665721), Vector3(0.203967, 0.60301, -0.0902358)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.169201, -0.101902, 0.234797), Vector3(-0.252005, 0.0637219, 0.140844), Vector3(-0.252005, 0.0637219, 0.140844), Vector3(-0.169201, -0.101902, 0.234797)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.0193, -1.5101, -0.545793), Vector3(-0.259827, -2.08193, -0.694117), Vector3(-0.259827, -2.08193, -0.694117), Vector3(1.0193, -1.5101, -0.545793)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("mesh/LeftHand:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.22173), Vector3(-0.938081, -0.67013, -1.11734), Vector3(-0.938081, -0.67013, -1.11734), Vector3(0, 0, -1.22173)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("mesh/LeftHand/LeftElbow:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.359351, 0.506081, -0.412055), Vector3(-0.175069, 0.0170642, -0.560289), Vector3(-0.175069, 0.0170642, -0.560289), Vector3(-0.359351, 0.506081, -0.412055)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("mesh/LeftHand/LeftElbow/LeftWrist:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.430312, 0.883432, -0.400542), Vector3(-0.430312, 0.883432, -0.400542), Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("mesh:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemyHitbox/CollisionShape3D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.6, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("mesh/LeftEye:surface_material_override/0:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(0, 1, 0, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("mesh/LeftEye:surface_material_override/0:emission")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0, 1), Color(0, 1, 0, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_spcsx"]
 _data = {
 "RESET": SubResource("Animation_tav0v"),
 "aoe": SubResource("Animation_u3cmq"),
 "idle": SubResource("Animation_6jw2e"),
 "slash": SubResource("Animation_bx4ir"),
+"spin": SubResource("Animation_3w2yr"),
 "walk": SubResource("Animation_85oph")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mdpcr"]
+radius = 0.10387
+height = 1.04546
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rc5fp"]
 resource_name = "mat21"
@@ -1122,6 +1370,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pup1x")
 
+[sub_resource type="BoxMesh" id="BoxMesh_lghi8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57jb3"]
+albedo_color = Color(0.533037, 0.533037, 0.533037, 1)
+emission_enabled = true
+emission = Color(0.533333, 0.533333, 0.533333, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_8msjh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ehlv"]
@@ -1146,13 +1401,17 @@ size = Vector3(0.05, 0.05, 0.05)
 height = 0.28134
 radius = 2.48568
 
-[node name="FirstBoss" type="Node3D"]
+[node name="FirstBoss" type="CharacterBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_mask = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_spcsx")
 }
-autoplay = "aoe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_mdpcr")
 
 [node name="mesh" type="Node3D" parent="."]
 
@@ -1173,7 +1432,7 @@ mesh = SubResource("ArrayMesh_fgtn6")
 skeleton = NodePath("")
 
 [node name="RightWrist" type="Node3D" parent="mesh/RightHand/RightElbow"]
-transform = Transform3D(0.80993, 0.188627, 0.555368, -0.0882454, 0.975287, -0.202556, -0.57985, 0.115047, 0.806559, -0.0704682, -0.00386409, 0.0425848)
+transform = Transform3D(0.809929, 0.188627, 0.555368, -0.0882454, 0.975287, -0.202556, -0.57985, 0.115047, 0.806559, -0.0704682, -0.00386411, 0.0425848)
 
 [node name="group1417456128" type="MeshInstance3D" parent="mesh/RightHand/RightElbow/RightWrist"]
 transform = Transform3D(0.808925, -4.47035e-08, -0.587912, 0.233676, 0.917616, 0.321522, 0.539478, -0.397468, 0.742282, 0.382435, -0.170483, 0.358938)
@@ -1202,7 +1461,7 @@ mesh = SubResource("ArrayMesh_14cq5")
 skeleton = NodePath("")
 
 [node name="LeftElbow" type="Node3D" parent="mesh/LeftHand"]
-transform = Transform3D(0.924651, 0.0859029, 0.371001, -0.249599, 0.872497, 0.42006, -0.287612, -0.48101, 0.828196, 0.260293, -0.00583059, -0.0061522)
+transform = Transform3D(0.924651, 0.0859029, 0.371001, -0.249599, 0.872497, 0.42006, -0.287612, -0.48101, 0.828197, 0.260293, -0.00583065, -0.00615223)
 
 [node name="group1650133731" type="MeshInstance3D" parent="mesh/LeftHand/LeftElbow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365699, -0.293139, 0.0750678)
@@ -1210,7 +1469,7 @@ mesh = SubResource("ArrayMesh_u776t")
 skeleton = NodePath("")
 
 [node name="LeftWrist" type="Node3D" parent="mesh/LeftHand/LeftElbow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0775272, 0.00127336, 0.0382513)
+transform = Transform3D(0.710001, -0.049504, 0.702458, -0.354371, 0.836901, 0.417154, -0.608539, -0.545111, 0.576658, 0.0775272, 0.00127336, 0.0382513)
 
 [node name="group964701134" type="MeshInstance3D" parent="mesh/LeftHand/LeftElbow/LeftWrist"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443226, -0.294412, 0.0368165)
@@ -1280,6 +1539,18 @@ skeleton = NodePath("")
 [node name="group1218717540" type="MeshInstance3D" parent="mesh"]
 mesh = SubResource("ArrayMesh_rtlxt")
 skeleton = NodePath("")
+
+[node name="LeftEye" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(0.015, 0, -2.62268e-09, 0, 0.015, 0, 2.62268e-09, 0, 0.015, 0.00586327, 0.432661, 0.0613091)
+mesh = SubResource("BoxMesh_lghi8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_57jb3")
+
+[node name="RightEye" type="MeshInstance3D" parent="mesh"]
+transform = Transform3D(0.015, 0, -2.62268e-09, 0, 0.015, 0, 2.62268e-09, 0, 0.015, -0.0479487, 0.432661, 0.0613091)
+mesh = SubResource("BoxMesh_lghi8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_57jb3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, -0.479949, 0)

@@ -7,9 +7,8 @@
 [resource]
 script = ExtResource("1_5cew8")
 view_model = ExtResource("3_3rj1m")
-pos = Vector3(0, -0.8, 0)
+pos = Vector3(0, -0.9, 0)
 rot = Vector3(0, 0, 0)
 scale = Vector3(1, 1, 1)
 attack_sound = ExtResource("1_k8tuq")
-damage = 10.0
-knockback = 0.5
+cooldown = 0.65
