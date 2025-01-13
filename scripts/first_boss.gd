@@ -9,7 +9,6 @@ var state_machine
 var hp_bar: ProgressBar
 
 @export var SPEED: float = 3.8
-@export var WALK_RANGE: float = 10.0
 @export var ATTACK_RANGE: float = 1.5
 @export var EXP: int = 2000
 @export var GOLD: int = 2000
@@ -21,6 +20,8 @@ var rng = RandomNumberGenerator.new()
 var first_aoe: bool = true
 var second_aoe: bool = true
 var third_aoe: bool = true
+
+signal boss_death
 
 func _ready() -> void:
 	anim_tree.active = true
@@ -35,12 +36,6 @@ func _process(delta: float) -> void:
 		hp_bar.value = HP
 	
 	match state_machine.get_current_node():
-		"idle":
-			var distance = global_position.distance_to(player.global_position)
-			
-			if distance < WALK_RANGE:
-				anim_tree["parameters/conditions/fight_started"] = true
-				hp_bar.visible = true
 		"walk":
 			var current_location = global_transform.origin
 			var next_location = nav_agent.get_next_path_position()
@@ -116,4 +111,10 @@ func take_damage(damage: int) -> void:
 		#await get_tree().create_timer(1.0).timeout
 		hp_bar.visible = false
 		queue_free()
+		boss_death.emit()
 	hit_particles.emitting = true
+
+
+func _on_area_boss_start_body_entered(body: Node3D) -> void:
+	anim_tree["parameters/conditions/fight_started"] = true
+	hp_bar.visible = true

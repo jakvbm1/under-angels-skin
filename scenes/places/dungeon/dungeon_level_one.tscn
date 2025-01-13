@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfoiosfbfqusm"]
+[gd_scene load_steps=21 format=3 uid="uid://dfoiosfbfqusm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_level_one.gd" id="1_8lp4k"]
 [ext_resource type="MeshLibrary" uid="uid://6xgmq753mewm" path="res://assets/tiles/LevelOneTileset.tres" id="1_fssn0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cti51rydsg6e7" path="res://scenes/objects/ladder_to_tavern.tscn" id="7_3lgvd"]
 [ext_resource type="PackedScene" uid="uid://7wmsnagdtpt4" path="res://scenes/objects/ladder_to_level_2.tscn" id="8_sbjhe"]
 [ext_resource type="PackedScene" uid="uid://c36yl4l46aqr1" path="res://scenes/entities/enemies/first_boss.tscn" id="9_nyw26"]
+[ext_resource type="Script" path="res://scripts/objects/area_boss_start.gd" id="10_kchdp"]
 
 [sub_resource type="Environment" id="Environment_nids0"]
 ambient_light_source = 3
@@ -33,6 +34,19 @@ size = Vector3(3, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d4p77"]
 size = Vector3(3, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6nlj"]
+size = Vector3(17.9597, 6.72063, 0.156219)
+
+[sub_resource type="BoxMesh" id="BoxMesh_blrrn"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n0uay"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ukjv6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mjxo"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [node name="DungeonLevelOne" type="Node"]
 script = ExtResource("1_8lp4k")
@@ -104,3 +118,42 @@ mesh = SubResource("BoxMesh_maor6")
 
 [node name="FirstBoss" parent="." instance=ExtResource("9_nyw26")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 1.04206, 55.8298)
+
+[node name="AreaBossStart" type="Area3D" parent="."]
+script = ExtResource("10_kchdp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaBossStart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190811, 3.37896, 46.4137)
+shape = SubResource("BoxShape3D_d6nlj")
+
+[node name="bossFrontFog" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bossFrontFog"]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 2, 0, 3.40773, 41.7199)
+mesh = SubResource("BoxMesh_blrrn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bossFrontFog"]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 2, 0, 3.40773, 41.7199)
+shape = SubResource("ConvexPolygonShape3D_n0uay")
+disabled = true
+
+[node name="bossBackFog" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bossBackFog"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 0.8, 0, 3.2412, 76.1668)
+mesh = SubResource("BoxMesh_ukjv6")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bossBackFog"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 0.8, 0, 3.2412, 76.1668)
+shape = SubResource("ConvexPolygonShape3D_7mjxo")
+disabled = true
+
+[connection signal="boss_death" from="FirstBoss" to="AreaBossStart" method="_on_first_boss_boss_death"]
+[connection signal="body_entered" from="AreaBossStart" to="FirstBoss" method="_on_area_boss_start_body_entered"]
+[connection signal="body_entered" from="AreaBossStart" to="AreaBossStart" method="_on_body_entered"]
