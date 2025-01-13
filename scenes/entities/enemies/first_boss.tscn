@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://c36yl4l46aqr1"]
+[gd_scene load_steps=75 format=4 uid="uid://c36yl4l46aqr1"]
 
 [ext_resource type="Script" path="res://scripts/first_boss.gd" id="1_5a0bn"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="1_oyssu"]
@@ -426,10 +426,10 @@ tracks/14/path = NodePath("EnemyHurtbox/CollisionHurtbox:disabled")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(6.56667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 6.56667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_6jw2e"]
@@ -1564,6 +1564,17 @@ size = Vector3(0.05, 0.05, 0.05)
 height = 0.28134
 radius = 2.48568
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i82ye"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xfov3"]
+direction = Vector3(0, 0, 1)
+spread = 155.602
+initial_velocity_max = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_huvur"]
+size = Vector3(0.04, 0.04, 0.04)
+
 [node name="FirstBoss" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_mask = 15
@@ -1628,7 +1639,7 @@ transform = Transform3D(0.02959, -0.0417101, -0.0313798, -0.0163192, 0.0268703, 
 [node name="EnemySwordHitbox" type="Area3D" parent="mesh/RightHand/RightElbow/RightWrist/SWORD"]
 transform = Transform3D(1, 0, 2.98023e-08, -1.49012e-07, 1, 2.98023e-08, -2.98023e-08, 1.04308e-07, 1, -1.51522, -2.15544, -2.66922)
 script = ExtResource("2_t0l63")
-damage = 25
+damage = 35
 
 [node name="CollisionSword" type="CollisionShape3D" parent="mesh/RightHand/RightElbow/RightWrist/SWORD/EnemySwordHitbox"]
 transform = Transform3D(0.678216, 0.58297, -0.447402, -0.513135, 0.81151, 0.279545, 0.526037, 0.0399859, 0.849521, 2.266, 3.33708, 0.217049)
@@ -1735,9 +1746,6 @@ mesh = SubResource("BoxMesh_lghi8")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_57jb3")
 
-[node name="Label3D" type="Label3D" parent="mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.654428, 0)
-
 [node name="aoe" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="aoe"]
@@ -1765,3 +1773,13 @@ damage = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296046, 0)
 shape = SubResource("CylinderShape3D_i2kn5")
 disabled = true
+
+[node name="GPUParticles3D_hit" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.179681, 0)
+material_override = SubResource("StandardMaterial3D_i82ye")
+emitting = false
+amount = 25
+lifetime = 0.35
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_xfov3")
+draw_pass_1 = SubResource("BoxMesh_huvur")

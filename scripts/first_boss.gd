@@ -5,7 +5,8 @@ var state_machine
 
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var hp_label: Label3D = $mesh/Label3D
+@onready var hit_particles: GPUParticles3D = $GPUParticles3D_hit
+var hp_bar: ProgressBar
 
 @export var SPEED: float = 3.8
 @export var WALK_RANGE: float = 10.0
@@ -25,16 +26,21 @@ func _ready() -> void:
 	anim_tree.active = true
 	state_machine = anim_tree.get("parameters/playback")
 	player = get_tree().get_first_node_in_group("player")
+	hp_bar = player.get_node("PlayersUi/ProgressBar")
+	hp_bar.max_value = MAX_HP
 	HP = MAX_HP
-	hp_label.text = "HP: %s" % HP
 
 func _process(delta: float) -> void:
+	if hp_bar.visible:
+		hp_bar.value = HP
+	
 	match state_machine.get_current_node():
 		"idle":
 			var distance = global_position.distance_to(player.global_position)
 			
 			if distance < WALK_RANGE:
 				anim_tree["parameters/conditions/fight_started"] = true
+				hp_bar.visible = true
 		"walk":
 			var current_location = global_transform.origin
 			var next_location = nav_agent.get_next_path_position()
@@ -99,14 +105,15 @@ func update_target_location(target_location):
 func take_damage(damage: int) -> void:
 	HP -= damage
 	if HP > 0:
-		hp_label.text = "HP: %s" % HP
+		hp_bar.value = HP
 	else:
 		# on death
-		hp_label.text = "HP: 0"
+		hp_bar.value = 0
 		player.money += GOLD
 		player.exp_points += EXP
 		#anim_tree["parameters/conditions/death"] = true
 		#death_particles.emitting = true
 		#await get_tree().create_timer(1.0).timeout
+		hp_bar.visible = false
 		queue_free()
-	#hit_particles.emitting = true
+	hit_particles.emitting = true
