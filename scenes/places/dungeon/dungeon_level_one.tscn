@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfoiosfbfqusm"]
+[gd_scene load_steps=15 format=3 uid="uid://dfoiosfbfqusm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_level_one.gd" id="1_8lp4k"]
 [ext_resource type="MeshLibrary" uid="uid://6xgmq753mewm" path="res://assets/tiles/LevelOneTileset.tres" id="1_fssn0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="6_al24a"]
 [ext_resource type="PackedScene" uid="uid://cti51rydsg6e7" path="res://scenes/objects/ladder_to_tavern.tscn" id="7_3lgvd"]
 [ext_resource type="PackedScene" uid="uid://7wmsnagdtpt4" path="res://scenes/objects/ladder_to_level_2.tscn" id="8_sbjhe"]
+[ext_resource type="PackedScene" uid="uid://c36yl4l46aqr1" path="res://scenes/entities/enemies/first_boss.tscn" id="9_nyw26"]
 
 [sub_resource type="Environment" id="Environment_nids0"]
 ambient_light_source = 3
@@ -100,3 +101,6 @@ shape = SubResource("BoxShape3D_d4p77")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.01, 91)
 material_override = SubResource("StandardMaterial3D_500ki")
 mesh = SubResource("BoxMesh_maor6")
+
+[node name="FirstBoss" parent="." instance=ExtResource("9_nyw26")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 1.04206, 55.8298)

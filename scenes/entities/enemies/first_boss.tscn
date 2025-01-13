@@ -1,5 +1,7 @@
-[gd_scene load_steps=55 format=4 uid="uid://c36yl4l46aqr1"]
+[gd_scene load_steps=72 format=4 uid="uid://c36yl4l46aqr1"]
 
+[ext_resource type="Script" path="res://scripts/first_boss.gd" id="1_5a0bn"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="1_oyssu"]
 [ext_resource type="PackedScene" uid="uid://deji6afvwq72u" path="res://assets/weapons/sword_test.glb" id="1_vkunk"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hitbox.gd" id="2_t0l63"]
 
@@ -116,7 +118,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemyHitbox/CollisionShape3D:disabled")
+tracks/9/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemySwordHitbox/CollisionSword:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -140,7 +142,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("MeshInstance3D:scale")
+tracks/11/path = NodePath("aoe/MeshInstance3D:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -152,7 +154,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("MeshInstance3D:visible")
+tracks/12/path = NodePath("aoe/MeshInstance3D:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -164,7 +166,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("GPUParticles3D:emitting")
+tracks/13/path = NodePath("aoe/GPUParticles3D:emitting")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -220,6 +222,30 @@ tracks/17/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.533333, 0.533333, 0.533333, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("EnemyHurtbox/CollisionHurtbox:disabled")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("aoe/EnemyAoeHitbox/CollisionAoe:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_u3cmq"]
@@ -324,7 +350,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("MeshInstance3D:scale")
+tracks/8/path = NodePath("aoe/MeshInstance3D:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -336,7 +362,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("MeshInstance3D:visible")
+tracks/9/path = NodePath("aoe/MeshInstance3D:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -348,7 +374,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("GPUParticles3D:emitting")
+tracks/10/path = NodePath("aoe/GPUParticles3D:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -360,11 +386,11 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("EnemyHitbox/CollisionShape3D:disabled")
+tracks/11/path = NodePath("aoe/EnemyAoeHitbox/CollisionAoe:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 5.46667, 6.96667),
+"times": PackedFloat32Array(0, 5.46667, 6.56667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -392,6 +418,18 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(0.533333, 0.533333, 0.533333, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("EnemyHurtbox/CollisionHurtbox:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 6.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_6jw2e"]
@@ -421,6 +459,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, -1.22173), Vector3(-0.261799, 0, -1.22173), Vector3(0, 0, -1.22173), Vector3(0.261799, 0, -1.22173)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyHurtbox/CollisionHurtbox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemySwordHitbox/CollisionSword:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("aoe/EnemyAoeHitbox/CollisionAoe:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_bx4ir"]
@@ -513,14 +587,14 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemyHitbox/CollisionShape3D:disabled")
+tracks/7/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemySwordHitbox/CollisionSword:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(1, 1.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -545,71 +619,6 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 1, 1), Color(0, 0, 1, 1), Color(0.533333, 0.533333, 0.533333, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_85oph"]
-resource_name = "walk"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("mesh/RightHand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 1.22173), Vector3(0.349066, 0, 1.22173), Vector3(0, 0, 1.22173), Vector3(-0.349066, 0, 1.22173)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("mesh/LeftHand:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -1.22173), Vector3(-0.349066, 0, -1.22173), Vector3(0, 0, -1.22173), Vector3(0.349066, 0, -1.22173)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("mesh/RightHand/RightElbow/RightWrist:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.203967, 0.60301, -0.0902358)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("mesh/RightLeg:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0177675, 0, 0), Vector3(-0.261799, 0, 0), Vector3(-0.0177675, 0, 0), Vector3(0.261799, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("mesh/LeftLeg:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0), Vector3(-0.261799, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3w2yr"]
@@ -726,14 +735,14 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemyHitbox/CollisionShape3D:disabled")
+tracks/9/path = NodePath("mesh/RightHand/RightElbow/RightWrist/SWORD/EnemySwordHitbox/CollisionSword:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.6, 2.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.6, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false, true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -760,6 +769,71 @@ tracks/11/keys = {
 "values": [Color(0, 1, 0, 1), Color(0, 1, 0, 1), Color(0.533333, 0.533333, 0.533333, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_85oph"]
+resource_name = "walk"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh/RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.22173), Vector3(0.349066, 0, 1.22173), Vector3(0, 0, 1.22173), Vector3(-0.349066, 0, 1.22173)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh/LeftHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.22173), Vector3(-0.349066, 0, -1.22173), Vector3(0, 0, -1.22173), Vector3(0.349066, 0, -1.22173)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mesh/RightHand/RightElbow/RightWrist:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.203967, 0.60301, -0.0902358)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mesh/RightLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0177675, 0, 0), Vector3(-0.261799, 0, 0), Vector3(-0.0177675, 0, 0), Vector3(0.261799, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mesh/LeftLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0), Vector3(-0.261799, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_spcsx"]
 _data = {
 "RESET": SubResource("Animation_tav0v"),
@@ -770,7 +844,72 @@ _data = {
 "walk": SubResource("Animation_85oph")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdbj4"]
+animation = &"aoe"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6he08"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fovso"]
+animation = &"slash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ps8c6"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8elp"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xbuv4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iahah"]
+advance_mode = 2
+advance_condition = &"fight_started"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m1gs0"]
+advance_mode = 2
+advance_condition = &"slash"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8i0h"]
+advance_mode = 2
+advance_condition = &"spin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4d6cs"]
+advance_mode = 2
+advance_condition = &"aoe"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y40ia"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gkta4"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j1nlw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jeb06"]
+states/End/position = Vector2(897, 129)
+states/Start/position = Vector2(90, 140)
+states/aoe/node = SubResource("AnimationNodeAnimation_rdbj4")
+states/aoe/position = Vector2(532, 255)
+states/idle/node = SubResource("AnimationNodeAnimation_6he08")
+states/idle/position = Vector2(224, 140)
+states/slash/node = SubResource("AnimationNodeAnimation_fovso")
+states/slash/position = Vector2(532, 33)
+states/spin/node = SubResource("AnimationNodeAnimation_ps8c6")
+states/spin/position = Vector2(607, 140)
+states/walk/node = SubResource("AnimationNodeAnimation_s8elp")
+states/walk/position = Vector2(375, 140)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xbuv4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_iahah"), "walk", "slash", SubResource("AnimationNodeStateMachineTransition_m1gs0"), "walk", "spin", SubResource("AnimationNodeStateMachineTransition_a8i0h"), "walk", "aoe", SubResource("AnimationNodeStateMachineTransition_4d6cs"), "aoe", "walk", SubResource("AnimationNodeStateMachineTransition_y40ia"), "spin", "walk", SubResource("AnimationNodeStateMachineTransition_gkta4"), "slash", "walk", SubResource("AnimationNodeStateMachineTransition_j1nlw")]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mdpcr"]
+radius = 0.10387
+height = 1.04546
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8h56"]
 radius = 0.10387
 height = 1.04546
 
@@ -1401,17 +1540,37 @@ size = Vector3(0.05, 0.05, 0.05)
 height = 0.28134
 radius = 2.48568
 
-[node name="FirstBoss" type="CharacterBody3D"]
+[node name="FirstBoss" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_mask = 15
+script = ExtResource("1_5a0bn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_spcsx")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_jeb06")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/aoe = false
+parameters/conditions/fight_started = false
+parameters/conditions/slash = false
+parameters/conditions/spin = false
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_mdpcr")
+
+[node name="EnemyHurtbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236724, 0)
+script = ExtResource("1_oyssu")
+
+[node name="CollisionHurtbox" type="CollisionShape3D" parent="EnemyHurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231767, 0)
+shape = SubResource("CapsuleShape3D_x8h56")
 
 [node name="mesh" type="Node3D" parent="."]
 
@@ -1432,7 +1591,7 @@ mesh = SubResource("ArrayMesh_fgtn6")
 skeleton = NodePath("")
 
 [node name="RightWrist" type="Node3D" parent="mesh/RightHand/RightElbow"]
-transform = Transform3D(0.809929, 0.188627, 0.555368, -0.0882454, 0.975287, -0.202556, -0.57985, 0.115047, 0.806559, -0.0704682, -0.00386411, 0.0425848)
+transform = Transform3D(0.809929, 0.188627, 0.555368, -0.0882453, 0.975287, -0.202556, -0.57985, 0.115047, 0.806559, -0.0704682, -0.00386411, 0.0425848)
 
 [node name="group1417456128" type="MeshInstance3D" parent="mesh/RightHand/RightElbow/RightWrist"]
 transform = Transform3D(0.808925, -4.47035e-08, -0.587912, 0.233676, 0.917616, 0.321522, 0.539478, -0.397468, 0.742282, 0.382435, -0.170483, 0.358938)
@@ -1442,12 +1601,12 @@ skeleton = NodePath("")
 [node name="SWORD" parent="mesh/RightHand/RightElbow/RightWrist" instance=ExtResource("1_vkunk")]
 transform = Transform3D(0.02959, -0.0417101, -0.0313798, -0.0163192, 0.0268703, -0.0511044, 0.0495793, 0.033738, 0.00190698, -0.169201, -0.101902, 0.234797)
 
-[node name="EnemyHitbox" type="Area3D" parent="mesh/RightHand/RightElbow/RightWrist/SWORD"]
+[node name="EnemySwordHitbox" type="Area3D" parent="mesh/RightHand/RightElbow/RightWrist/SWORD"]
 transform = Transform3D(1, 0, 2.98023e-08, -1.49012e-07, 1, 2.98023e-08, -2.98023e-08, 1.04308e-07, 1, -1.51522, -2.15544, -2.66922)
 script = ExtResource("2_t0l63")
 damage = 25
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/RightHand/RightElbow/RightWrist/SWORD/EnemyHitbox"]
+[node name="CollisionSword" type="CollisionShape3D" parent="mesh/RightHand/RightElbow/RightWrist/SWORD/EnemySwordHitbox"]
 transform = Transform3D(0.678216, 0.58297, -0.447402, -0.513135, 0.81151, 0.279545, 0.526037, 0.0399859, 0.849521, 2.266, 3.33708, 0.217049)
 shape = SubResource("CapsuleShape3D_6pucw")
 disabled = true
@@ -1469,7 +1628,7 @@ mesh = SubResource("ArrayMesh_u776t")
 skeleton = NodePath("")
 
 [node name="LeftWrist" type="Node3D" parent="mesh/LeftHand/LeftElbow"]
-transform = Transform3D(0.710001, -0.049504, 0.702458, -0.354371, 0.836901, 0.417154, -0.608539, -0.545111, 0.576658, 0.0775272, 0.00127336, 0.0382513)
+transform = Transform3D(0.710001, -0.0495037, 0.702458, -0.354371, 0.836901, 0.417154, -0.608539, -0.545111, 0.576658, 0.0775272, 0.00127336, 0.0382513)
 
 [node name="group964701134" type="MeshInstance3D" parent="mesh/LeftHand/LeftElbow/LeftWrist"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.443226, -0.294412, 0.0368165)
@@ -1552,13 +1711,16 @@ mesh = SubResource("BoxMesh_lghi8")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_57jb3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="aoe" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="aoe"]
 transform = Transform3D(0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, -0.479949, 0)
 visible = false
 mesh = SubResource("CylinderMesh_8msjh")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4ehlv")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="aoe"]
 transform = Transform3D(3, 0, 0, 0, 0.01, 0, 0, 0, 3, 0, 0.907475, 0)
 material_override = SubResource("StandardMaterial3D_55tup")
 emitting = false
@@ -1568,11 +1730,11 @@ explosiveness = 0.4
 process_material = SubResource("ParticleProcessMaterial_hqgy7")
 draw_pass_1 = SubResource("BoxMesh_4qwqn")
 
-[node name="EnemyHitbox" type="Area3D" parent="."]
+[node name="EnemyAoeHitbox" type="Area3D" parent="aoe"]
 script = ExtResource("2_t0l63")
 damage = 100
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHitbox"]
+[node name="CollisionAoe" type="CollisionShape3D" parent="aoe/EnemyAoeHitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296046, 0)
 shape = SubResource("CylinderShape3D_i2kn5")
 disabled = true
