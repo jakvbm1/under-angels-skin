@@ -6,7 +6,9 @@ var state_machine
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var hit_particles: GPUParticles3D = $GPUParticles3D_hit
+@onready var death_particles: GPUParticles3D = $GPUParticles3D_death
 var hp_bar: ProgressBar
+var name_label: Label
 
 @export var SPEED: float = 3.8
 @export var ATTACK_RANGE: float = 1.5
@@ -28,8 +30,10 @@ func _ready() -> void:
 	state_machine = anim_tree.get("parameters/playback")
 	player = get_tree().get_first_node_in_group("player")
 	hp_bar = player.get_node("PlayersUi/ProgressBar")
+	name_label = player.get_node("PlayersUi/ProgressBar/Label")
 	hp_bar.max_value = MAX_HP
 	HP = MAX_HP
+	name_label.text = "The Gatekeeper"
 
 func _process(delta: float) -> void:
 	if hp_bar.visible:
@@ -106,10 +110,10 @@ func take_damage(damage: int) -> void:
 		hp_bar.value = 0
 		player.money += GOLD
 		player.exp_points += EXP
-		#anim_tree["parameters/conditions/death"] = true
-		#death_particles.emitting = true
-		#await get_tree().create_timer(1.0).timeout
+		anim_tree["parameters/conditions/death"] = true
+		death_particles.emitting = true
 		hp_bar.visible = false
+		await get_tree().create_timer(3.0).timeout
 		queue_free()
 		boss_death.emit()
 	hit_particles.emitting = true

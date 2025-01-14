@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://c36yl4l46aqr1"]
+[gd_scene load_steps=80 format=4 uid="uid://c36yl4l46aqr1"]
 
 [ext_resource type="Script" path="res://scripts/first_boss.gd" id="1_5a0bn"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="1_oyssu"]
@@ -246,6 +246,78 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("mesh/group1875346923:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("mesh/RightHand:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.129557, 0.282467, -0.0513884)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("mesh/LeftHand:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.105406, 0.29897, -0.0689156)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("mesh/group1668580957:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("mesh/group1668580957:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("GPUParticles3D_death:emitting")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_u3cmq"]
@@ -858,10 +930,123 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0), Vector3(-0.261799, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_07ny0"]
+resource_name = "death"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh/group1875346923:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.836132, 0.135232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh/RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.8, 2.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.130248, 0.28896, -0.0513884), Vector3(-0.293394, -0.487035, -0.0513884)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mesh/RightHand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8, 2.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.22173), Vector3(0, 0, -0.0162495)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mesh/LeftHand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.06667, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.105406, 0.29897, -0.0689156), Vector3(0.247355, -0.465889, -0.0689156)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mesh/LeftHand:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.06667, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.22173), Vector3(0, 0, 0.016616)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("mesh/group1668580957:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.46667, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.140278, 0.173081, -0.173142), Vector3(-0.266317, -0.817803, -0.362782)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("mesh/group1668580957:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.46667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("mesh:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0609101, 0.0705385, 0), Vector3(-0.154692, -0.0378227, 0), Vector3(-0.129981, 0.135583, 0), Vector3(0.0576482, 0.0110477, 0), Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GPUParticles3D_death:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_spcsx"]
 _data = {
 "RESET": SubResource("Animation_tav0v"),
 "aoe": SubResource("Animation_u3cmq"),
+"death": SubResource("Animation_07ny0"),
 "idle": SubResource("Animation_6jw2e"),
 "slash": SubResource("Animation_bx4ir"),
 "spin": SubResource("Animation_3w2yr"),
@@ -870,6 +1055,9 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdbj4"]
 animation = &"aoe"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjb8b"]
+animation = &"death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6he08"]
 animation = &"idle"
@@ -914,20 +1102,34 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yv4da"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8stwt"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f3rr3"]
+advance_mode = 2
+advance_condition = &"death"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jeb06"]
-states/End/position = Vector2(897, 129)
+states/End/position = Vector2(1191, 140)
 states/Start/position = Vector2(90, 140)
 states/aoe/node = SubResource("AnimationNodeAnimation_rdbj4")
 states/aoe/position = Vector2(532, 255)
+states/death/node = SubResource("AnimationNodeAnimation_pjb8b")
+states/death/position = Vector2(772, 33)
 states/idle/node = SubResource("AnimationNodeAnimation_6he08")
 states/idle/position = Vector2(224, 140)
 states/slash/node = SubResource("AnimationNodeAnimation_fovso")
 states/slash/position = Vector2(532, 33)
 states/spin/node = SubResource("AnimationNodeAnimation_ps8c6")
-states/spin/position = Vector2(607, 140)
+states/spin/position = Vector2(663, 140)
 states/walk/node = SubResource("AnimationNodeAnimation_s8elp")
 states/walk/position = Vector2(375, 140)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xbuv4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_iahah"), "walk", "slash", SubResource("AnimationNodeStateMachineTransition_m1gs0"), "walk", "spin", SubResource("AnimationNodeStateMachineTransition_a8i0h"), "walk", "aoe", SubResource("AnimationNodeStateMachineTransition_4d6cs"), "aoe", "walk", SubResource("AnimationNodeStateMachineTransition_y40ia"), "spin", "walk", SubResource("AnimationNodeStateMachineTransition_gkta4"), "slash", "walk", SubResource("AnimationNodeStateMachineTransition_j1nlw")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xbuv4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_iahah"), "walk", "slash", SubResource("AnimationNodeStateMachineTransition_m1gs0"), "walk", "spin", SubResource("AnimationNodeStateMachineTransition_a8i0h"), "walk", "aoe", SubResource("AnimationNodeStateMachineTransition_4d6cs"), "aoe", "walk", SubResource("AnimationNodeStateMachineTransition_y40ia"), "spin", "walk", SubResource("AnimationNodeStateMachineTransition_gkta4"), "slash", "walk", SubResource("AnimationNodeStateMachineTransition_j1nlw"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_yv4da"), "spin", "death", SubResource("AnimationNodeStateMachineTransition_8stwt"), "slash", "death", SubResource("AnimationNodeStateMachineTransition_f3rr3")]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mdpcr"]
 radius = 0.10387
@@ -1590,6 +1792,7 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_jeb06")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/aoe = false
+parameters/conditions/death = false
 parameters/conditions/fight_started = false
 parameters/conditions/slash = false
 parameters/conditions/spin = false
@@ -1610,7 +1813,7 @@ shape = SubResource("CapsuleShape3D_x8h56")
 [node name="mesh" type="Node3D" parent="."]
 
 [node name="RightHand" type="Node3D" parent="mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.130248, 0.28896, -0.0513884)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129557, 0.282467, -0.0513884)
 
 [node name="group593132608" type="MeshInstance3D" parent="mesh/RightHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130248, -0.28896, 0.0513884)
@@ -1779,7 +1982,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.179681, 0)
 material_override = SubResource("StandardMaterial3D_i82ye")
 emitting = false
 amount = 25
-lifetime = 0.35
+lifetime = 0.3
 one_shot = true
+process_material = SubResource("ParticleProcessMaterial_xfov3")
+draw_pass_1 = SubResource("BoxMesh_huvur")
+
+[node name="GPUParticles3D_death" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.179681, 0)
+material_override = SubResource("StandardMaterial3D_i82ye")
+emitting = false
+amount = 25
+lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_xfov3")
 draw_pass_1 = SubResource("BoxMesh_huvur")
