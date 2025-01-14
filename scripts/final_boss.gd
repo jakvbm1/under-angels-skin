@@ -70,8 +70,11 @@ func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
 	var current_anim = state_machine.get_current_node()
 	
-	
-		
+	if distance < 10:
+		anim_tree["parameters/conditions/start"] = true
+		anim_tree["parameters/conditions/walk"] = true
+		hp_bar.visible = true
+
 
 # get player location from the map
 func update_target_location(target_location):
@@ -91,8 +94,3 @@ func take_damage(damage: int) -> void:
 		await get_tree().create_timer(3.0).timeout
 		queue_free()
 		boss_death.emit()
-
-
-func _on_area_boss_start_body_entered(body: Node3D) -> void:
-	anim_tree["parameters/conditions/start"] = true
-	hp_bar.visible = true
