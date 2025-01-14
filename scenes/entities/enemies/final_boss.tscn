@@ -1,6 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://ch34y5pcht6xc"]
+[gd_scene load_steps=41 format=3 uid="uid://ch34y5pcht6xc"]
 
 [ext_resource type="PackedScene" uid="uid://cm3h7kicveffj" path="res://assets/models/low_poly_psx_angel.glb" id="1_wcr0o"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="2_0h07k"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hitbox.gd" id="3_drc1b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2n1o"]
+radius = 1.7
+height = 8.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oyfwb"]
+radius = 1.0
+height = 6.6
 
 [sub_resource type="Animation" id="Animation_vdihn"]
 length = 2.0
@@ -10,28 +20,28 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.00952503, -0.00352503, -0.382525, 0.923475)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0104434, -0.00523299, 0.141561, 0.989861)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.00652503, 0.010475, 0.382475, 0.923475)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0104434, 0.00523298, -0.141561, 0.989861)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.00339387, 0.28065, -0.489184, 0.825786)
+tracks/2/keys = PackedFloat32Array(0, 1, -0.00339388, 0.28065, -0.489184, 0.825786)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -0.00339396, -0.28065, 0.489184, 0.825786)
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00339397, -0.28065, 0.489184, 0.825786)
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -50,7 +60,7 @@ tracks/5/enabled = true
 tracks/5/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm3_r_016")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0.238475, -0.00852503, 0.00847497, 0.650475)
+tracks/5/keys = PackedFloat32Array(0, 1, 0.238634, -0.00616474, 0.00904251, 0.971048)
 tracks/6/type = "rotation_3d"
 tracks/6/imported = false
 tracks/6/enabled = true
@@ -65,6 +75,39 @@ tracks/7/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/R
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = PackedFloat32Array(0, 1, -0.42811, 0.00289055, 0.138847, 0.892992)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm3_l_06")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.238634, 0.00616473, -0.00904253, 0.971048)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing2_l_09")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.0627339, 0.000213393, 0.27634, 0.95901)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing2_r_012")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.0627339, -0.000213463, -0.27634, 0.95901)
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/EnemyHitbox/CollisionShape3D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q8mrs"]
 resource_name = "ascend"
@@ -75,28 +118,28 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.00852503, -0.00352503, -0.382525, 0.923475, 3, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.000474975, 0.000474975, -0.382525, 0.923475, 3, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.00652503, 0.010475, 0.382475, 0.923475, 3, 1, -0.011525, 0.00447497, -0.258525, 0.965475)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00652749, 0.010479, 0.382619, 0.923824, 3, 1, -0.011525, 0.00447497, -0.258525, 0.965475)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.00339386, 0.28065, -0.489184, 0.825786, 3, 1, 0.053475, 0.275475, -0.310525, 0.908475)
+tracks/2/keys = PackedFloat32Array(0, 1, -0.00339387, 0.28065, -0.489184, 0.825786, 3, 1, 0.053475, 0.275475, -0.310525, 0.908475)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -0.00339396, -0.28065, 0.489184, 0.825786, 3, 1, 0.053475, -0.275525, 0.310475, 0.908475)
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00339397, -0.28065, 0.489184, 0.825786, 3, 1, 0.053475, -0.275525, 0.310475, 0.908475)
 
 [sub_resource type="Animation" id="Animation_vwpgt"]
 resource_name = "dash_forward"
@@ -155,6 +198,38 @@ tracks/6/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/R
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = PackedFloat32Array(0, 1, -0.00652503, 0.010475, 0.382475, 0.923475)
+
+[sub_resource type="Animation" id="Animation_s11qf"]
+resource_name = "descend"
+length = 2.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.054475, -0.274525, 0.310475, 0.908475, 2, 1, -0.00252503, -0.279525, 0.489475, 0.826475)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.054475, 0.274475, -0.310525, 0.908475, 2, 1, -0.00252503, 0.279475, -0.488525, 0.826475)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, -0.000525026, 0.000474975, -0.382525, 0.923475)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, 0.000474975, 0.000474975, 0.382475, 0.923475)
 
 [sub_resource type="Animation" id="Animation_l4dxu"]
 resource_name = "die"
@@ -266,21 +341,33 @@ tracks/1/keys = PackedFloat32Array(0, 1, -0.00952953, 0.00347662, 0.258597, 0.96
 
 [sub_resource type="Animation" id="Animation_u78vd"]
 resource_name = "punch"
-length = 1.5
+length = 2.0
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.00652749, 0.0104789, 0.382619, 0.923824, 1.3, 1, -0.3, -0.02, -0.08, 0.95, 1.5, 1, 0.644475, -0.046525, 0.042475, 0.761475)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00652749, 0.0104789, 0.382619, 0.923824, 1.3, 1, -0.3, -0.02, -0.08, 0.95, 1.5, 1, 0.644475, -0.046525, 0.042475, 0.761475, 2, 1, 0.00147497, 0.000474975, 0.382475, 0.923475)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm3_r_016")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.238634, -0.00616474, 0.00904251, 0.971048, 1.3, 1, 0.76, -0.01, 0.01, 0.65, 1.5, 1, 0.113475, -0.152525, 0.022475, 0.981475)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.238634, -0.00616474, 0.00904251, 0.971048, 1.3, 1, 0.76, -0.01, 0.01, 0.65, 1.5, 1, 0.113475, -0.152525, 0.022475, 0.981475, 2, 1, 0.237475, -0.00652503, 0.00847497, 0.971475)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/EnemyHitbox/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_xevse"]
 resource_name = "throw"
@@ -291,13 +378,14 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.66142, -0.467486, 0.144463, 0.568428, 0.5, 1, 0.341475, -0.380525, -0.477525, 0.714475, 2, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.66142, -0.467486, 0.144463, 0.568428, 0.5, 1, 0.341475, -0.380525, -0.477525, 0.714475, 2, 1, -0.000525026, 0.000474975, -0.382525, 0.923475)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2btwm"]
 _data = {
 "RESET": SubResource("Animation_vdihn"),
 "ascend": SubResource("Animation_q8mrs"),
 "dash_forward": SubResource("Animation_vwpgt"),
+"descend": SubResource("Animation_s11qf"),
 "die": SubResource("Animation_l4dxu"),
 "idle": SubResource("Animation_xhh2m"),
 "prepareThrow": SubResource("Animation_w72cb"),
@@ -305,7 +393,104 @@ _data = {
 "throw": SubResource("Animation_xevse")
 }
 
-[sub_resource type="AnimationRootNode" id="AnimationRootNode_ugplk"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m0fjh"]
+animation = &"ascend"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uhvdi"]
+animation = &"dash_forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_53ed2"]
+animation = &"descend"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_shqkc"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r0cc3"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8vk6f"]
+animation = &"prepareThrow"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdwoh"]
+animation = &"punch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5n762"]
+animation = &"throw"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0tfrf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kh55r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3srki"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cl7cw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vliem"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cxhc5"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugau0"]
+switch_mode = 1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_so8e6"]
+switch_mode = 1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b67fs"]
+switch_mode = 1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hjuj3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2knix"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ujll"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u068f"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xbonm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6bivt"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yr35o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vq3gk"]
+states/Start/position = Vector2(80, 135)
+states/ascend/node = SubResource("AnimationNodeAnimation_m0fjh")
+states/ascend/position = Vector2(292, -1)
+states/dash_forward/node = SubResource("AnimationNodeAnimation_uhvdi")
+states/dash_forward/position = Vector2(147, 286)
+states/descend/node = SubResource("AnimationNodeAnimation_53ed2")
+states/descend/position = Vector2(855, 225)
+states/die/node = SubResource("AnimationNodeAnimation_shqkc")
+states/die/position = Vector2(506, 286)
+states/idle/node = SubResource("AnimationNodeAnimation_r0cc3")
+states/idle/position = Vector2(185, 128)
+states/prepareThrow/node = SubResource("AnimationNodeAnimation_8vk6f")
+states/prepareThrow/position = Vector2(564, -10)
+states/punch/node = SubResource("AnimationNodeAnimation_rdwoh")
+states/punch/position = Vector2(275, 231)
+states/throw/node = SubResource("AnimationNodeAnimation_5n762")
+states/throw/position = Vector2(741, 54)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0tfrf"), "prepareThrow", "throw", SubResource("AnimationNodeStateMachineTransition_kh55r"), "ascend", "prepareThrow", SubResource("AnimationNodeStateMachineTransition_3srki"), "idle", "dash_forward", SubResource("AnimationNodeStateMachineTransition_cl7cw"), "idle", "ascend", SubResource("AnimationNodeStateMachineTransition_vliem"), "dash_forward", "punch", SubResource("AnimationNodeStateMachineTransition_cxhc5"), "throw", "descend", SubResource("AnimationNodeStateMachineTransition_ugau0"), "descend", "idle", SubResource("AnimationNodeStateMachineTransition_so8e6"), "punch", "idle", SubResource("AnimationNodeStateMachineTransition_b67fs"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_hjuj3"), "dash_forward", "die", SubResource("AnimationNodeStateMachineTransition_2knix"), "punch", "die", SubResource("AnimationNodeStateMachineTransition_5ujll"), "descend", "die", SubResource("AnimationNodeStateMachineTransition_u068f"), "throw", "die", SubResource("AnimationNodeStateMachineTransition_xbonm"), "ascend", "die", SubResource("AnimationNodeStateMachineTransition_6bivt"), "prepareThrow", "die", SubResource("AnimationNodeStateMachineTransition_yr35o")]
+graph_offset = Vector2(0, -53.4571)
 
 [node name="angel" instance=ExtResource("1_wcr0o")]
 
@@ -315,15 +500,34 @@ transform = Transform3D(23.5076, 0, 0, 0, -8.50973e-05, 23.5076, 0, -23.5076, -8
 [node name="Skeleton3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
 bones/5/rotation = Quaternion(-0.041525, -0.099525, -0.817525, 0.573475)
-bones/6/rotation = Quaternion(-0.00952868, -0.00352638, -0.382671, 0.923829)
+bones/6/rotation = Quaternion(-0.0104434, -0.00523299, 0.141561, 0.989861)
+bones/7/rotation = Quaternion(0.238634, 0.00616473, -0.00904253, 0.971048)
 bones/9/rotation = Quaternion(-0.00339388, 0.28065, -0.489184, 0.825786)
-bones/10/rotation = Quaternion(0.0627339, 0.000213393, 0.27634, 0.95901)
-bones/12/rotation = Quaternion(-0.00339397, -0.28065, 0.489184, 0.825786)
-bones/13/rotation = Quaternion(0.0627339, -0.000213463, -0.27634, 0.95901)
-bones/16/rotation = Quaternion(-0.00652749, 0.010479, 0.382619, 0.923824)
+bones/10/rotation = Quaternion(0.0627339, 0.000213391, 0.27634, 0.95901)
+bones/12/rotation = Quaternion(-0.00339399, -0.28065, 0.489184, 0.825786)
+bones/13/rotation = Quaternion(0.0627339, -0.000213461, -0.27634, 0.95901)
+bones/16/rotation = Quaternion(-0.0104434, 0.00523298, -0.141561, 0.989861)
 bones/17/rotation = Quaternion(0.238634, -0.00616474, 0.00904251, 0.971048)
 bones/20/rotation = Quaternion(-0.42811, -0.00289055, -0.138847, 0.892992)
 bones/24/rotation = Quaternion(-0.42811, 0.00289055, 0.138847, 0.892992)
+
+[node name="EnemyHurtbox" type="Area3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4" index="2"]
+transform = Transform3D(-0.99863, -0.0504811, -0.0138101, 0, 0.263873, -0.964557, 0.052336, -0.963235, -0.263511, 0, -0.645498, -0.698665)
+script = ExtResource("2_0h07k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/EnemyHurtbox" index="0"]
+transform = Transform3D(1, 1.10647e-08, 2.29916e-09, -1.10647e-08, 1, 1.73656e-08, -2.29916e-09, -1.73656e-08, 1, -1.49012e-07, -0.0971992, -0.946231)
+shape = SubResource("CapsuleShape3D_i2n1o")
+
+[node name="EnemyHitbox" type="Area3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98028e-08, 0, -2.98028e-08, 1, 2.97776, -1.09835, -0.548302)
+script = ExtResource("3_drc1b")
+damage = 75
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/EnemyHitbox" index="0"]
+transform = Transform3D(1, -5.96046e-08, -1.49012e-08, -2.03288e-20, 1, 1.1921e-07, -1.49012e-08, 8.19557e-08, 1, -4.0711, 0.431431, 2.44977)
+shape = SubResource("CapsuleShape3D_oyfwb")
+disabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -0.4)
@@ -338,5 +542,5 @@ libraries = {
 autoplay = "idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
-tree_root = SubResource("AnimationRootNode_ugplk")
+tree_root = SubResource("AnimationNodeStateMachine_vq3gk")
 anim_player = NodePath("../AnimationPlayer")
