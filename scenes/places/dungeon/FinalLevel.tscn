@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://catfclkkcgpen" path="res://assets/tiles/FleshTiles.tres" id="1_0a1tj"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_ulevw"]
 [ext_resource type="PackedScene" uid="uid://w2sswppp441y" path="res://assets/models/Chest.glb" id="3_qi6pt"]
-[ext_resource type="PackedScene" uid="uid://ch34y5pcht6xc" path="res://scenes/entities/enemies/final_boss.tscn" id="4_p8njx"]
+[ext_resource type="PackedScene" uid="uid://di28wb6idfbeg" path="res://scenes/entities/enemies/final_boss_ch3d.tscn" id="5_d3vop"]
 [ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="5_xyld0"]
 
 [sub_resource type="Environment" id="Environment_u3kdl"]
@@ -62,11 +62,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 59, 0,
 [node name="chest6" parent="chests" instance=ExtResource("3_qi6pt")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 33, 0, -118)
 
-[node name="angel" parent="." instance=ExtResource("4_p8njx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -189)
-
 [node name="AngelStatue" parent="." instance=ExtResource("5_xyld0")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2, 0, 3)
 
 [node name="AngelStatue2" parent="." instance=ExtResource("5_xyld0")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 16, 0, -156)
+
+[node name="FinalBossCh3d" parent="." instance=ExtResource("5_d3vop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -182)
