@@ -246,7 +246,7 @@ tracks/12/keys = {
 }
 tracks/13/type = "value"
 tracks/13/imported = false
-tracks/13/enabled = true
+tracks/13/enabled = false
 tracks/13/path = NodePath("Sketchfab_model/energyBall/MeshInstance3D:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
@@ -647,7 +647,7 @@ advance_condition = &"throw_1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lai4e"]
 advance_mode = 2
-advance_condition = &"punch_1"
+advance_condition = &"dash"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqob7"]
 resource_name = "walk"
@@ -745,7 +745,7 @@ states/throw/position = Vector2(591, -43.7118)
 states/walk/node = SubResource("AnimationNodeAnimation_e5joh")
 states/walk/position = Vector2(432, 316.288)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4nwqg"), "idle", "ascend", SubResource("AnimationNodeStateMachineTransition_itlc6"), "idle", "dash_forward", SubResource("AnimationNodeStateMachineTransition_lai4e"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_cqob7"), "walk", "punch", SubResource("AnimationNodeStateMachineTransition_1cppv"), "walk", "ascend", SubResource("AnimationNodeStateMachineTransition_rna5m"), "walk", "dash_forward", SubResource("AnimationNodeStateMachineTransition_df1vp"), "descend", "die", SubResource("AnimationNodeStateMachineTransition_gm54s"), "throw", "die", SubResource("AnimationNodeStateMachineTransition_s7ssq"), "prepareThrow", "die", SubResource("AnimationNodeStateMachineTransition_iuw3u"), "ascend", "die", SubResource("AnimationNodeStateMachineTransition_ijipt"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_5pid0"), "dash_forward", "die", SubResource("AnimationNodeStateMachineTransition_ctp3x"), "punch", "die", SubResource("AnimationNodeStateMachineTransition_ovruy"), "walk", "die", SubResource("AnimationNodeStateMachineTransition_w6m2n"), "descend", "idle", SubResource("AnimationNodeStateMachineTransition_4ne2a"), "punch", "idle", SubResource("AnimationNodeStateMachineTransition_4kxpf"), "throw", "descend", SubResource("AnimationNodeStateMachineTransition_2uhm4"), "prepareThrow", "throw", SubResource("AnimationNodeStateMachineTransition_mhjxh"), "ascend", "prepareThrow", SubResource("AnimationNodeStateMachineTransition_qtpu1"), "dash_forward", "punch", SubResource("AnimationNodeStateMachineTransition_i4t10")]
-graph_offset = Vector2(-57, 103.505)
+graph_offset = Vector2(-56, 74.9927)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_88sjm"]
 radius = 0.4
@@ -1013,6 +1013,7 @@ autoplay = "idle"
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["enemy"]]
 tree_root = SubResource("AnimationNodeStateMachine_1jdn2")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/dash = false
 parameters/conditions/dead = false
 parameters/conditions/punch = false
 parameters/conditions/punch_1 = false

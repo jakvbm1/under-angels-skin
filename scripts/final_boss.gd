@@ -9,6 +9,8 @@ var name_label: Label
 
 var route_chosen = false
 
+var start_ball = Vector3(0.278, -0.098, 2.852)
+
 @export var SPEED: float = 4
 @export var ATTACK_RANGE: float = 1.5
 @export var EXP: int = 5000
@@ -54,7 +56,7 @@ func _process(delta: float) -> void:
 			# apply enemy movement
 			move_and_slide()
 			
-		"punch_1":
+		"dash_forward":
 			var current_location = global_transform.origin
 			var next_location = nav_agent.get_next_path_position()
 			var new_velocity = (next_location - current_location).normalized() * SPEED * 4
@@ -66,7 +68,7 @@ func _process(delta: float) -> void:
 				
 			var distance = global_position.distance_to(player.global_position)
 			if distance <= 1.2:
-				anim_tree['parameters/conditions/punch_1'] = false
+				anim_tree['parameters/conditions/dash'] = false
 				anim_tree['parameters/conditions/punch'] = true
 			
 			# apply enemy movement
@@ -74,13 +76,23 @@ func _process(delta: float) -> void:
 			move_and_slide()
 			
 		"punch":
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
 			route_chosen = false
 			anim_tree['parameters/conditions/punch'] = false
 			
-		"throw_1":
+		"descend":
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
 			route_chosen = false
 			anim_tree['parameters/conditions/throw_1'] = false
 
+		"throw":
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
+			$Sketchfab_model/energyBall/MeshInstance3D.visible = true
+			bullet.position += transform.basis * Vector3(0, 0, -SPEED) * delta
+			
 			
 		
 	
@@ -97,6 +109,7 @@ func update_animation_parameters():
 		anim_tree["parameters/conditions/start"] = true
 		hp_bar.visible = true
 		var randint = rng.randi_range(0, 2)
+		#randint = 1
 		print(randint)
 		route_chosen = true
 		if randint == 0:
@@ -104,7 +117,7 @@ func update_animation_parameters():
 
 			
 		elif randint == 1:
-			anim_tree['parameters/conditions/punch_1'] = true
+			anim_tree['parameters/conditions/dash'] = true
 
 			
 		elif randint == 2:
