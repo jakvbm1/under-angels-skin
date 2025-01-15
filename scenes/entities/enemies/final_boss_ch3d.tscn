@@ -137,6 +137,7 @@ emission = Color(0.133363, 0.572082, 0.753271, 1)
 
 [sub_resource type="Animation" id="Animation_vdihn"]
 length = 2.0
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -578,6 +579,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0.66142, -0.467486, 0.144463, 0.568428,
 [sub_resource type="Animation" id="Animation_anw25"]
 resource_name = "walk"
 length = 2.0
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true

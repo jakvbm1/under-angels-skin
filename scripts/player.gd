@@ -8,7 +8,7 @@ const DASH_COOLDOWN: float = 3.0
 @export var gravity: float = 12.0
 
 @export var max_hp: float = 100.0
-@export var current_hp: float = 10.0
+@export var current_hp: float = 50.0
 @export var dmg_bonus: float = 1
 
 @export var money: int = 0
@@ -85,3 +85,6 @@ func take_damage(damage: int) -> void:
 	
 	if current_hp > 0:
 		current_hp -= damage
+		
+	if current_hp <= 0:
+		get_tree().change_scene_to_file("res://scenes/UI elements/death_screen.tscn")

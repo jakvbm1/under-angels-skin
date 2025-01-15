@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch5omawom6mjs"]
+
+[ext_resource type="Texture2D" uid="uid://cjhtjdvsd3rfr" path="res://assets/sprites/dead_background.png" id="1_jqspp"]
+[ext_resource type="Script" path="res://scripts/UI/death_screen.gd" id="1_n8cut"]
+
+[node name="DeathScreen" type="Node2D"]
+script = ExtResource("1_n8cut")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 462.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "Game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+z_index = -1
+offset_right = 481.0
+offset_bottom = 321.0
+texture = ExtResource("1_jqspp")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 182.0
+offset_top = 197.0
+offset_right = 297.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to menu"

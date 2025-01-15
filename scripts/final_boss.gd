@@ -27,7 +27,7 @@ func _ready() -> void:
 	hp_bar.max_value = MAX_HP
 	HP = MAX_HP
 	name_label.text = "Dohrnii"
-	hp_bar.visible = true
+	#hp_bar.visible = true
 
 func _process(delta: float) -> void:
 	if hp_bar.visible:
@@ -70,10 +70,15 @@ func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
 	var current_anim = state_machine.get_current_node()
 	
-	if distance < 10:
+	if distance < 10 and distance > 1.25:
+		anim_tree["parameters/conditions/punch"] = false
 		anim_tree["parameters/conditions/start"] = true
 		anim_tree["parameters/conditions/walk"] = true
 		hp_bar.visible = true
+		
+	else:
+		anim_tree["parameters/conditions/punch"] = true
+
 
 
 # get player location from the map
