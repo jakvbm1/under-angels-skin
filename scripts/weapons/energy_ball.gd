@@ -4,9 +4,10 @@ const SPEED = 15.0
 
 @onready var mesh = $MeshInstance3D
 @onready var ray = $RayCast3D
+@export var distance = 10
 
 func _process(delta: float) -> void:
-	position += transform.basis * Vector3(0, -0.2*SPEED, SPEED) * delta
+	position += transform.basis * Vector3(0, -2/distance*SPEED, SPEED) * delta
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider.is_in_group("player"):

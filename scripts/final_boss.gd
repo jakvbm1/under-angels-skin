@@ -90,12 +90,14 @@ func _process(delta: float) -> void:
 			ball_thrown = false
 
 		"throw":
-
+			
 			look_at(Vector3(player.global_position.x, global_position.y,
 				player.global_position.z), Vector3.UP, true)
 			if !ball_thrown:
+				var distance = global_position.distance_to(player.global_position)
 				instance = bullet.instantiate()
-				instance.position = global_position + Vector3(0, 3, 0)
+				instance.distance = distance-0.5
+				instance.position = global_position + Vector3(0, 3, 0.5)
 				instance.transform.basis = global_transform.basis
 				get_parent().add_child(instance)
 				ball_thrown = true
