@@ -28,6 +28,7 @@ const DASH_COOLDOWN: float = 3.0
 @onready var sprite_3d: Sprite3D = $Neck/Camera3D/Sprite3D
 @onready var spot_light_3d: SpotLight3D = $Neck/SpotLight3D
 @onready var hit_rect = $PlayersUi/HitScreen
+@onready var esc_screen = $EscScreen
 
 func _ready() -> void:
 	max_hp = Global.player_stats["max_hp"]
@@ -37,6 +38,7 @@ func _ready() -> void:
 	level = Global.player_stats["level"]
 	exp_points = Global.player_stats["exp_points"]
 	self.position = Global.player_stats["current_position"]
+	esc_screen.visible = false
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -44,7 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed('ui_cancel'):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().change_scene_to_file("res://scenes/UI elements/main_menu.tscn")
+		esc_screen.visible = true
 		
 		
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

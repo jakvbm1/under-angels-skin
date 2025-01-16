@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=20 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhr88b462ews" path="res://scenes/UI elements/crosshair001.png" id="8_6loy0"]
 [ext_resource type="Script" path="res://scripts/player/jump_player_state.gd" id="11_eev80"]
 [ext_resource type="Script" path="res://scripts/player/dash_player_state.gd" id="12_ejfmq"]
+[ext_resource type="PackedScene" uid="uid://ift2jgt0n483" path="res://scenes/UI elements/esc_screen.tscn" id="15_u43ep"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hhcsc"]
 radius = 0.372213
@@ -151,3 +152,6 @@ JUMP_VELOCITY = 5.0
 
 [node name="DashPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("12_ejfmq")
+
+[node name="EscScreen" parent="." instance=ExtResource("15_u43ep")]
+visible = false
