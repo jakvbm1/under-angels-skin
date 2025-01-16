@@ -12,7 +12,7 @@ func _process(delta: float):
 		menu_button.disabled = false
 		
 	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		back_button.disabled = true
 		load_button.disabled = true
 		menu_button.disabled = true
