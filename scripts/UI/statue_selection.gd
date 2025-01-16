@@ -72,7 +72,11 @@ func save_state(slot:int):
 	Global.player_stats["money"] = player.money 
 	Global.player_stats["level"] = player.level  
 	Global.player_stats["exp_points"] = player.exp_points 
-	Global.player_stats["current_scene"] = get_node("../..").name
+	Global.current_scene = get_node("../..").name
+	Global.statue_node = get_node("..").name
+	
+	
+	
 	var file = FileAccess.open(save_path + str(slot) +".save", FileAccess.WRITE)
 	file.store_var(Global.player_stats)
 	

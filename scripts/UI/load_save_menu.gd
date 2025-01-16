@@ -27,13 +27,27 @@ func load_from_slot(slot: int):
 		var file = FileAccess.open(file_path, FileAccess.READ)
 		if file:
 			Global.player_stats = file.get_var()
-			print(Global.player_stats["money"])
 			file.close()
 		else:
 			print("Failed to open file for loading:", file_path)
 	else:
 		print("Save file does not exist:", file_path)
-	get_tree().change_scene_to_file(Global.scenes[Global.player_stats.current_scene])
+	if Global.current_scene == "DungeonLevelOne" and Global.statue_node == "AngelStatue2":
+		Global.tel_lv1_end()
+	if Global.current_scene == "DungeonLevelOne" and Global.statue_node == "AngelStatue":
+		Global.tel_lv1_beg()
+	if Global.current_scene == "DungeonLevelTwo" and Global.statue_node == "AngelStatue2":
+		Global.tel_lv2_end()
+	if Global.current_scene == "DungeonLevelTwo" and Global.statue_node == "AngelStatue":
+		Global.tel_lv2_beg()
+	if Global.current_scene == "DungeonLevelThree" and Global.statue_node == "AngelStatue2":
+		Global.tel_lv3_beg()
+	if Global.current_scene == "FinalLevel" and Global.statue_node == "AngelStatue2":
+		Global.tel_lv4_end()
+	if Global.current_scene == "FinalLevel" and Global.statue_node == "AngelStatue":
+		Global.tel_lv4_beg()
+	
+	
 func load_slot_1():
 	load_from_slot(1)
 
