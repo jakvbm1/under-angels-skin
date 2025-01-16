@@ -1,15 +1,13 @@
 extends CharacterBody3D
 var player
 var state_machine
-@onready var bullet = $Sketchfab_model/energyBall
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 var hp_bar: ProgressBar
 var name_label: Label
 
 var route_chosen = false
-
-var start_ball = Vector3(0.278, -0.098, 2.852)
+var ball_thrown = false
 
 @export var SPEED: float = 4
 @export var ATTACK_RANGE: float = 1.5
@@ -17,6 +15,9 @@ var start_ball = Vector3(0.278, -0.098, 2.852)
 @export var GOLD: int = 10000
 @export var MAX_HP: float = 5000
 var HP: float
+
+var bullet = load("res://scenes/weapons/energy_ball.tscn")
+var instance
 
 var rng = RandomNumberGenerator.new()
 
@@ -86,12 +87,18 @@ func _process(delta: float) -> void:
 				player.global_position.z), Vector3.UP, true)
 			route_chosen = false
 			anim_tree['parameters/conditions/throw_1'] = false
+			ball_thrown = false
 
 		"throw":
+
 			look_at(Vector3(player.global_position.x, global_position.y,
 				player.global_position.z), Vector3.UP, true)
-			$Sketchfab_model/energyBall/MeshInstance3D.visible = true
-			bullet.position += transform.basis * Vector3(0, 0, -SPEED) * delta
+			if !ball_thrown:
+				instance = bullet.instantiate()
+				instance.position = global_position + Vector3(0, 3, 0)
+				instance.transform.basis = global_transform.basis
+				get_parent().add_child(instance)
+				ball_thrown = true
 			
 			
 		
@@ -103,7 +110,6 @@ func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
 	var current_anim = state_machine.get_current_node()
 
-	var options = ['walk', 'punch_1', 'throw_1']
 	if distance < 10 and !route_chosen:
 		print('im in')
 		anim_tree["parameters/conditions/start"] = true

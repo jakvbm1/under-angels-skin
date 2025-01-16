@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgsoi1wiab3hh"]
+
+[ext_resource type="Script" path="res://scripts/weapons/energy_ball.gd" id="1_7y7y2"]
+[ext_resource type="Script" path="res://scripts/components/enemy_hitbox.gd" id="1_i52hi"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jsa43"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxqcn"]
+albedo_color = Color(0.25, 0.65, 1, 1)
+emission_enabled = true
+emission = Color(0.39, 0.623833, 1, 1)
+emission_energy_multiplier = 4.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yayrt"]
+
+[node name="EnergyBall" type="Node3D"]
+script = ExtResource("1_7y7y2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jsa43")
+surface_material_override/0 = SubResource("StandardMaterial3D_wxqcn")
+
+[node name="EnemyHitbox" type="Area3D" parent="."]
+script = ExtResource("1_i52hi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHitbox"]
+shape = SubResource("SphereShape3D_yayrt")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
