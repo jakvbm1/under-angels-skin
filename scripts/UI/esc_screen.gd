@@ -4,6 +4,11 @@ extends Control
 @onready var load_button = $LoadButton
 @onready var menu_button = $MenuButton
 
+func _ready():
+	back_button.pressed.connect(back)
+	load_button.pressed.connect(go_load)
+	menu_button.pressed.connect(menu)
+
 func _process(delta: float):
 	if(visible):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -17,9 +22,6 @@ func _process(delta: float):
 		load_button.disabled = true
 		menu_button.disabled = true
 		
-	back_button.pressed.connect(back)
-	load_button.pressed.connect(go_load)
-	menu_button.pressed.connect(menu)
 		
 func back():
 	visible = false
