@@ -44,6 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed('ui_cancel'):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene_to_file("res://scenes/UI elements/main_menu.tscn")
 		
 		
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
