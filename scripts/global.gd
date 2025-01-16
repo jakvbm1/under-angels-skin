@@ -6,6 +6,7 @@ var scenes = {
 	"DungeonLevelOne": "res://scenes/places/dungeon/dungeon_level_one.tscn",
 	"DungeonLevelTwo":  "res://scenes/places/dungeon/dungeon_level_two.tscn",
 	"DungeonLevelThree":   "res://scenes/places/dungeon/dungeon_level_three.tscn",
+	"FinalLevel": "res://scenes/places/dungeon/FinalLevel.tscn",
 	"Tavern":"res://scenes/places/village/tavern.tscn"
 }
 
