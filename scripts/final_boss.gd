@@ -1,13 +1,13 @@
 extends CharacterBody3D
 var player
 var state_machine
-@onready var bullet = $Sketchfab_model/energyBall
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 var hp_bar: ProgressBar
 var name_label: Label
 
 var route_chosen = false
+var ball_thrown = false
 
 @export var SPEED: float = 4
 @export var ATTACK_RANGE: float = 1.5
@@ -15,6 +15,9 @@ var route_chosen = false
 @export var GOLD: int = 10000
 @export var MAX_HP: float = 5000
 var HP: float
+
+var bullet = load("res://scenes/weapons/energy_ball.tscn")
+var instance
 
 var rng = RandomNumberGenerator.new()
 
@@ -54,7 +57,7 @@ func _process(delta: float) -> void:
 			# apply enemy movement
 			move_and_slide()
 			
-		"punch_1":
+		"dash_forward":
 			var current_location = global_transform.origin
 			var next_location = nav_agent.get_next_path_position()
 			var new_velocity = (next_location - current_location).normalized() * SPEED * 4
@@ -66,7 +69,7 @@ func _process(delta: float) -> void:
 				
 			var distance = global_position.distance_to(player.global_position)
 			if distance <= 1.2:
-				anim_tree['parameters/conditions/punch_1'] = false
+				anim_tree['parameters/conditions/dash'] = false
 				anim_tree['parameters/conditions/punch'] = true
 			
 			# apply enemy movement
@@ -74,13 +77,29 @@ func _process(delta: float) -> void:
 			move_and_slide()
 			
 		"punch":
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
 			route_chosen = false
 			anim_tree['parameters/conditions/punch'] = false
 			
-		"throw_1":
+		"descend":
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
 			route_chosen = false
 			anim_tree['parameters/conditions/throw_1'] = false
+			ball_thrown = false
 
+		"throw":
+
+			look_at(Vector3(player.global_position.x, global_position.y,
+				player.global_position.z), Vector3.UP, true)
+			if !ball_thrown:
+				instance = bullet.instantiate()
+				instance.position = global_position + Vector3(0, 3, 0)
+				instance.transform.basis = global_transform.basis
+				get_parent().add_child(instance)
+				ball_thrown = true
+			
 			
 		
 	
@@ -91,12 +110,12 @@ func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
 	var current_anim = state_machine.get_current_node()
 
-	var options = ['walk', 'punch_1', 'throw_1']
 	if distance < 10 and !route_chosen:
 		print('im in')
 		anim_tree["parameters/conditions/start"] = true
 		hp_bar.visible = true
 		var randint = rng.randi_range(0, 2)
+		#randint = 1
 		print(randint)
 		route_chosen = true
 		if randint == 0:
@@ -104,7 +123,7 @@ func update_animation_parameters():
 
 			
 		elif randint == 1:
-			anim_tree['parameters/conditions/punch_1'] = true
+			anim_tree['parameters/conditions/dash'] = true
 
 			
 		elif randint == 2:

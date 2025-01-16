@@ -24,6 +24,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3d86e")
 
 [node name="EnemyHitbox" type="Area3D" parent="MeshInstance3D"]
 script = ExtResource("2_rjbu1")
+damage = 60
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/EnemyHitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34329e-05, -0.000213623, 0)
