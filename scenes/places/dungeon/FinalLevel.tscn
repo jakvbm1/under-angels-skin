@@ -78,4 +78,4 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 16, 0, -156)
 
 [node name="FinalBossCh3d" parent="." instance=ExtResource("5_d3vop")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5365, 0.310186, -205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.536501, 0.310186, -15)

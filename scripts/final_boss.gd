@@ -10,7 +10,7 @@ var route_chosen = false
 var ball_thrown = false
 
 @export var SPEED: float = 4
-@export var ATTACK_RANGE: float = 1.5
+@export var ATTACK_RANGE: float = 1.1
 @export var EXP: int = 5000
 @export var GOLD: int = 10000
 @export var MAX_HP: float = 5000
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 				player.global_position.z), Vector3.UP, true)
 			
 			var distance = global_position.distance_to(player.global_position)
-			if distance <= 1.2:
+			if distance <= ATTACK_RANGE:
 				anim_tree['parameters/conditions/walk'] = false
 				anim_tree['parameters/conditions/punch'] = true
 			
@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 				player.global_position.z), Vector3.UP, true)
 				
 			var distance = global_position.distance_to(player.global_position)
-			if distance <= 1.2:
+			if distance <= ATTACK_RANGE:
 				anim_tree['parameters/conditions/dash'] = false
 				anim_tree['parameters/conditions/punch'] = true
 			
@@ -96,8 +96,8 @@ func _process(delta: float) -> void:
 			if !ball_thrown:
 				var distance = global_position.distance_to(player.global_position)
 				instance = bullet.instantiate()
-				instance.distance = distance-0.5
-				instance.position = global_position + Vector3(0, 3, 0.5)
+				instance.distance = distance
+				instance.position = global_position + Vector3(0, 3, 0)
 				instance.transform.basis = global_transform.basis
 				get_parent().add_child(instance)
 				ball_thrown = true

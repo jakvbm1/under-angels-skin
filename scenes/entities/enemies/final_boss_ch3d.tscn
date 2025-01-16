@@ -455,21 +455,20 @@ tracks/1/keys = PackedFloat32Array(0, 1, -0.00952953, 0.00347662, 0.258597, 0.96
 
 [sub_resource type="Animation" id="Animation_u78vd"]
 resource_name = "punch"
-length = 2.0
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.00652749, 0.0104789, 0.382619, 0.923824, 1.3, 1, -0.3, -0.02, -0.08, 0.95, 1.5, 1, 0.644475, -0.046525, 0.042475, 0.761475, 2, 1, 0.00147497, 0.000474975, 0.382475, 0.923475)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.00652749, 0.0104789, 0.382619, 0.923824, 0.433333, 1, -0.3, -0.02, -0.08, 0.95, 0.633333, 1, 0.644475, -0.046525, 0.042475, 0.761475, 0.966667, 1, 0.00147497, 0.000474975, 0.382475, 0.923475)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm3_r_016")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.238634, -0.00616474, 0.00904251, 0.971048, 1.3, 1, 0.76, -0.01, 0.01, 0.65, 1.5, 1, 0.113475, -0.152525, 0.022475, 0.981475, 2, 1, 0.237475, -0.00652503, 0.00847497, 0.971475)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.238634, -0.00616474, 0.00904251, 0.971048, 0.433333, 1, 0.76, -0.01, 0.01, 0.65, 0.633333, 1, 0.113475, -0.152525, 0.022475, 0.981475, 0.966667, 1, 0.237475, -0.00652503, 0.00847497, 0.971475)
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -477,7 +476,7 @@ tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/R
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.7),
+"times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -892,7 +891,7 @@ transform = Transform3D(1, 1.10647e-08, 2.29916e-09, -1.10647e-08, 1, 1.73656e-0
 shape = SubResource("CapsuleShape3D_3k7qj")
 
 [node name="EnemyHitbox" type="Area3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98028e-08, 0, -2.98028e-08, 1, 2.97776, -1.09835, -0.548302)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98037e-08, 0, -2.98037e-08, 1, 2.97776, -1.52374, -0.548304)
 script = ExtResource("3_wse1x")
 damage = 40
 
