@@ -28,9 +28,8 @@ func _process(delta: float):
 	if distance_to_player <= open_distance:
 		activateLabel.visible = true
 		if Input.is_action_just_pressed("interact"):
-		
 			activate_statue()
-			save()
+			
 	else: activateLabel.visible = false
 func activate_statue():
 	if(!unlocked):
@@ -40,5 +39,3 @@ func activate_statue():
 	menu.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
-func save():
-	print('not implemented yet ;p')

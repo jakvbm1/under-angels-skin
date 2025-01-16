@@ -7,17 +7,17 @@ const DASH_COOLDOWN: float = 3.0
 @export var last_dash: float = 0.0
 @export var gravity: float = 12.0
 
-@export var max_hp: float = 100.0
-@export var current_hp: float = 50.0
-@export var dmg_bonus: float = 1
+@export var max_hp: float 
+@export var current_hp: float 
+@export var dmg_bonus: float 
 
-@export var money: int = 0
-@export var level: int = 1 :
+@export var money: int 
+@export var level: int :
 	set(value):
 		level = value
 		max_hp += value * 20
 		dmg_bonus = (1 + float(level) / 10)
-@export var exp_points: float = 0 :
+@export var exp_points: float :
 	set(value):
 		exp_points = value
 		if exp_points >= 500.0 * level:
@@ -30,7 +30,14 @@ const DASH_COOLDOWN: float = 3.0
 @onready var hit_rect = $PlayersUi/HitScreen
 
 func _ready() -> void:
-	Global.player = self
+	max_hp = Global.player_stats["max_hp"]
+	current_hp = Global.player_stats["current_hp"]
+	dmg_bonus = Global.player_stats["dmg_bonus"]
+	money = Global.player_stats["money"]
+	level = Global.player_stats["level"]
+	exp_points = Global.player_stats["exp_points"]
+	self.position = Global.player_stats["current_position"]
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -82,6 +89,7 @@ func take_damage(damage: int) -> void:
 	hit_rect.visible = true
 	await get_tree().create_timer(0.2).timeout
 	hit_rect.visible = false
+	
 	
 	if current_hp > 0:
 		current_hp -= damage

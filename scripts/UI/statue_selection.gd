@@ -1,11 +1,11 @@
 extends Control
 
-
+var save_path = "res://scripts/saves/save"
 
 @onready var save_game = $Button
 @onready var teleport = $Button2
 @onready var exit = $Button3
-
+@onready var player:Player
 @onready var save_menu = $SaveGameMenu
 @onready var save_slot_1 = $SaveGameMenu/Button
 @onready var save_slot_2 = $SaveGameMenu/Button2
@@ -15,6 +15,8 @@ extends Control
 @onready var teleport_menu = $LocationSelect
 
 func _ready():
+	
+	player = get_tree().get_first_node_in_group("player")
 	exit.pressed.connect(self.exit_menu)
 	save_game.pressed.connect(self.open_save_slots)
 	save_go_back.pressed.connect(self.close_save_slots)
@@ -64,8 +66,18 @@ func slot_3():
 	save_state(3)
 
 func save_state(slot:int):
-	print('to zostawiam tobie do implementacji tymku')
-	print(slot)
+	Global.player_stats["max_hp"] = player.max_hp
+	Global.player_stats["current_hp"] = player.current_hp 
+	Global.player_stats["dmg_bonus"] = player.dmg_bonus  
+	Global.player_stats["money"] = player.money 
+	Global.player_stats["level"] = player.level  
+	Global.player_stats["exp_points"] = player.exp_points 
+	Global.player_stats["current_scene"] = get_node("../..").name
+	var file = FileAccess.open(save_path + str(slot) +".save", FileAccess.WRITE)
+	file.store_var(Global.player_stats)
+	
+	file.close()
+	
 		
 func open_teleport():
 	save_game.visible = false

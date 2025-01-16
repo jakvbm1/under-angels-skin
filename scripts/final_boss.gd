@@ -133,6 +133,7 @@ func take_damage(damage: int) -> void:
 		hp_bar.value = HP
 	else:
 		# on death
+		Global.player_stats["final_level_finished"]=true
 		hp_bar.value = 0
 		player.money += GOLD
 		player.exp_points += EXP
