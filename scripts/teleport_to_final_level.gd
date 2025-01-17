@@ -2,7 +2,7 @@ extends Area3D
 @onready var player: Player = null
 
 func _on_body_entered(body: Node3D) -> void:
-	Global.player_stats["second_level_finished"]=true
+	Global.player_stats["third_level_finished"]=true
 	player = get_tree().get_first_node_in_group("player")
 	Global.player_stats["max_hp"] = player.max_hp
 	Global.player_stats["current_hp"] = player.current_hp 
