@@ -3,6 +3,7 @@ var player
 var state_machine
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var dialogue = $BossDialogue
 var hp_bar: ProgressBar
 var name_label: Label
 
@@ -111,8 +112,12 @@ func _process(delta: float) -> void:
 func update_animation_parameters():
 	var distance = global_position.distance_to(player.global_position)
 	var current_anim = state_machine.get_current_node()
+	
+	if !dialogue.read and distance < 20:
+		dialogue.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	if distance < 10 and !route_chosen:
+	if dialogue.read and !route_chosen:
 		print('im in')
 		anim_tree["parameters/conditions/start"] = true
 		hp_bar.visible = true

@@ -1,6 +1,6 @@
 extends Control
 
-var read: bool = false
+@export var read: bool = false
 @onready var next = $Button
 @onready var text_field = $Label
 var dialog_counter: int = 0
@@ -20,5 +20,7 @@ func update_text():
 		
 	else:
 		visible = false
+		read = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 	

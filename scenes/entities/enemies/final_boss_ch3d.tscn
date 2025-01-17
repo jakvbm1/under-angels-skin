@@ -1,9 +1,10 @@
-[gd_scene load_steps=53 format=4 uid="uid://di28wb6idfbeg"]
+[gd_scene load_steps=54 format=4 uid="uid://di28wb6idfbeg"]
 
 [ext_resource type="Texture2D" uid="uid://bkugstqh4hreu" path="res://assets/models/low_poly_psx_angel_0.png" id="1_6vb4i"]
 [ext_resource type="Script" path="res://scripts/final_boss.gd" id="1_yww0l"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hurtbox.gd" id="2_7ilht"]
 [ext_resource type="Script" path="res://scripts/components/enemy_hitbox.gd" id="3_wse1x"]
+[ext_resource type="PackedScene" uid="uid://bviobq8eetino" path="res://scripts/UI/boss dialogue.tscn" id="5_cpj1n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hkrk"]
 resource_name = "Angel"
@@ -928,3 +929,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_88sjm")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="BossDialogue" parent="." instance=ExtResource("5_cpj1n")]
