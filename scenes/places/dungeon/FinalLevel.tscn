@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuo6s3d5u4doa"]
+[gd_scene load_steps=9 format=3 uid="uid://cuo6s3d5u4doa"]
 
 [ext_resource type="MeshLibrary" uid="uid://catfclkkcgpen" path="res://assets/tiles/FleshTiles.tres" id="1_0a1tj"]
 [ext_resource type="Script" path="res://scripts/final_level.gd" id="1_v46aj"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_ulevw"]
-[ext_resource type="PackedScene" uid="uid://w2sswppp441y" path="res://assets/models/Chest.glb" id="3_qi6pt"]
 [ext_resource type="PackedScene" uid="uid://di28wb6idfbeg" path="res://scenes/entities/enemies/final_boss_ch3d.tscn" id="5_d3vop"]
 [ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="5_xyld0"]
 [ext_resource type="PackedScene" uid="uid://fevyvf4in2ae" path="res://scenes/objects/chest.tscn" id="7_foecx"]
@@ -52,26 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 3, -161)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u3kdl")
 
-[node name="chests" type="Node3D" parent="."]
-
-[node name="chest" parent="chests" instance=ExtResource("3_qi6pt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -29)
-
-[node name="chest2" parent="chests" instance=ExtResource("3_qi6pt")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24, 0, -51)
-
-[node name="chest3" parent="chests" instance=ExtResource("3_qi6pt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, -79)
-
-[node name="chest4" parent="chests" instance=ExtResource("3_qi6pt")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33, 0, -85)
-
-[node name="chest5" parent="chests" instance=ExtResource("3_qi6pt")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 59, 0.609977, -71)
-
-[node name="chest6" parent="chests" instance=ExtResource("3_qi6pt")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 33, 0, -118)
-
 [node name="AngelStatue" parent="." instance=ExtResource("5_xyld0")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2, 0, 3)
 
@@ -84,40 +63,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.536501, 0.310186, -15)
 [node name="chests2" type="Node3D" parent="."]
 
 [node name="chest 1" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(-0.707107, 0, 0.707106, 0, 1, 0, -0.707106, 0, -0.707107, -30.9078, -1.44522, 1.58635)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -29)
 
 [node name="chest 2" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(-2.98023e-07, 0, 1, 0, 1, 0, -1, 0, -2.98023e-07, -8, 0, -52)
+transform = Transform3D(-2.98023e-07, 0, 1, 0, 1, 0, -1, 0, -2.98023e-07, -24, 0, -51)
 
 [node name="chest 3" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 39, 0, -51)
-
-[node name="chest 0" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -1.0798, -0.00494891, -2.10045)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -25, 0, -79)
 
 [node name="chest 4" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.499999, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.499999, 35.275, 0, -80.6673)
+transform = Transform3D(0.499999, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.499999, 33, 0, -85)
 
 [node name="chest 5" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(-0.999999, 0, -7.15256e-07, 0, 1, 0, 7.15256e-07, 0, -0.999999, 49.275, 0, 20.3327)
-
-[node name="chest 6" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 75, 0, -127)
-
-[node name="chest 7" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(-2.98023e-07, 0, 1, 0, 1, 0, -1, 0, -2.98023e-07, -57, 0, -113)
-
-[node name="chest 8" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -11, 0, -208)
-
-[node name="chest 9" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -11, 0, -229)
-
-[node name="chest 10" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 2, 0, -190)
-
-[node name="chest 11" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 74, 0, -177)
-
-[node name="chest 12" parent="chests2" instance=ExtResource("7_foecx")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.449, 0, -1.964)
+transform = Transform3D(-0.999999, 0, -7.15256e-07, 0, 1, 0, 7.15256e-07, 0, -0.999999, 59, 0, -71)
