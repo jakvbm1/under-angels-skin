@@ -51,7 +51,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		var root = get_tree().current_scene
 		for node in root.get_children():
-			if (node.name == "test_enemy" || node.name == "test_enemy_gun" || node.name == "FirstBoss" || node.name =="FinalBossCh3d"):
+			if ("enemy" in node.name||  "Boss" in node.name ):
 				node.set_process(false)
 		esc_screen.visible = true
 		

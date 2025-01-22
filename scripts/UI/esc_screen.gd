@@ -27,7 +27,7 @@ func _process(delta: float):
 func back():
 	var root = get_tree().current_scene
 	for node in root.get_children():
-		if (node.name == "test_enemy" || node.name == "test_enemy_gun" || node.name == "FirstBoss" || node.name =="FinalBossCh3d"):
+		if ("enemy" in node.name||  "Boss" in node.name ):
 			node.set_process(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	visible=false

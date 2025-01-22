@@ -10,13 +10,13 @@ var state_machine
 @onready var hit_particles: GPUParticles3D = $GPUParticles3D
 @onready var death_particles: GPUParticles3D = $GPUParticles3D2
 
-var strength: int = 1
 
-@export var SPEED: float = 2.0 * strength
+
+@export var SPEED: float = 2.0 
 @export var ATTACK_COOLDOWN: float = 3.0 # in seconds
-@export var WALK_RANGE: float = 10.0 * strength
+@export var WALK_RANGE: float = 10.0 
 @export var ATTACK_RANGE: float = 5.0
-@export var ATTACK_DAMAGE: float = 10.0 * strength
+@export var ATTACK_DAMAGE: float = 10.0 
 @export var EXP: int = 700
 
 @export var HP = 150
@@ -35,7 +35,7 @@ var instance
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	if get_node("..").name == "DungeonLevelTwo": strength=2
+	
 	anim_tree.active = true
 	state_machine = anim_tree.get("parameters/playback")
 	player = get_tree().get_first_node_in_group("player")
