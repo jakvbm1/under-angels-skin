@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtcpn0li1u0kt"]
+[gd_scene load_steps=4 format=3 uid="uid://dtcpn0li1u0kt"]
 
 [ext_resource type="PackedScene" uid="uid://bdcwi1aueohwf" path="res://assets/models/pt_medieval_peasant_01_a.glb" id="1_yf37m"]
+[ext_resource type="Script" path="res://scripts/innkeep.gd" id="2_hptkv"]
+[ext_resource type="PackedScene" uid="uid://bp5xcqekyucvs" path="res://scenes/UI elements/shop_ui.tscn" id="3_1dd36"]
 
 [node name="Sketchfab_Scene" instance=ExtResource("1_yf37m")]
+script = ExtResource("2_hptkv")
+
+[node name="TalkLabel" type="Label" parent="." index="1"]
+offset_left = 185.0
+offset_top = 266.0
+offset_right = 301.0
+offset_bottom = 289.0
+theme_override_font_sizes/font_size = 16
+text = "Press f to talk"
+
+[node name="ShopUi" parent="." index="2" instance=ExtResource("3_1dd36")]

@@ -16,7 +16,7 @@ const DASH_COOLDOWN: float = 3.0
 	set(value):
 		level = value
 		max_hp += value * 20
-		dmg_bonus = (1 + float(level) / 10)
+		dmg_bonus +=  float(level) / 10
 @export var exp_points: float :
 	set(value):
 		exp_points = value
@@ -30,6 +30,7 @@ const DASH_COOLDOWN: float = 3.0
 @onready var hit_rect = $PlayersUi/HitScreen
 @onready var esc_screen = $EscScreen
 
+
 func _ready() -> void:
 	max_hp = Global.player_stats["max_hp"]
 	current_hp = Global.player_stats["current_hp"]
@@ -40,12 +41,18 @@ func _ready() -> void:
 	self.position = Global.player_stats["current_position"]
 	esc_screen.visible = false
 	
+	
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed('ui_cancel'):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		var root = get_tree().current_scene
+		for node in root.get_children():
+			if (node.name == "test_enemy" || node.name == "test_enemy_gun" || node.name == "FirstBoss" || node.name =="FinalBossCh3d"):
+				node.set_process(false)
 		esc_screen.visible = true
 		
 		

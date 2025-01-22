@@ -8,6 +8,7 @@ func _ready():
 	back_button.pressed.connect(back)
 	load_button.pressed.connect(go_load)
 	menu_button.pressed.connect(menu)
+	get_tree().paused = false
 
 func _process(delta: float):
 	if(visible):
@@ -24,7 +25,12 @@ func _process(delta: float):
 		
 		
 func back():
-	visible = false
+	var root = get_tree().current_scene
+	for node in root.get_children():
+		if (node.name == "test_enemy" || node.name == "test_enemy_gun" || node.name == "FirstBoss" || node.name =="FinalBossCh3d"):
+			node.set_process(true)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	visible=false
 	
 func go_load():
 	get_tree().change_scene_to_file("res://scenes/UI elements/load_save menu.tscn")

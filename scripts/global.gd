@@ -14,11 +14,11 @@ var scenes = {
 var player_stats = {
 	"max_hp": 100.0,
 	"current_hp": 50.0,
-	"dmg_bonus": 1,
-	"money":  0,
-	"level": 100,
+	"dmg_bonus": 1.0,
+	"money":  5000,
+	"level": 1,
 	"exp_points": 0.0,
-	
+	"speed_bonus":0.0,
 	"first_level_finished":false,
 	"second_level_finished":false,
 	"third_level_finished":false,

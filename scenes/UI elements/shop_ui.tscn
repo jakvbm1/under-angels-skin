@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp5xcqekyucvs"]
+[gd_scene load_steps=3 format=3 uid="uid://bp5xcqekyucvs"]
 
 [ext_resource type="Texture2D" uid="uid://lfrtlf01b6wo" path="res://assets/sprites/dark_background.png" id="1_i517y"]
+[ext_resource type="Script" path="res://scenes/UI elements/shop_ui.gd" id="1_rwof6"]
 
 [node name="ShopUi" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rwof6")
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -43,9 +45,6 @@ offset_right = 144.0
 offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
-item_count = 2
-item_0/text = "[nazwa przedmiotu] [cena]"
-item_1/text = "i tak wszystkie itemy nie"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -65,5 +64,8 @@ text = "Back to game"
 layout_mode = 0
 offset_right = 66.0
 offset_bottom = 54.0
-text = "Funds: []"
+text = "Funds: "
 vertical_alignment = 1
+
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
