@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://c4ochqw5c3bfo"]
+
+[ext_resource type="Script" path="res://weaponManager/weapon_resource.gd" id="1_pwly5"]
+[ext_resource type="AudioStream" uid="uid://35nee0xpnwl5" path="res://assets/soundEffects/weapons/sword.wav" id="1_sfl8a"]
+[ext_resource type="PackedScene" uid="uid://dk65mskwvgpmc" path="res://weaponManager/katana/katana_sword.tscn" id="3_66qn0"]
+
+[resource]
+script = ExtResource("1_pwly5")
+view_model = ExtResource("3_66qn0")
+pos = Vector3(0, -0.8, 0)
+rot = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+attack_sound = ExtResource("1_sfl8a")
+cooldown = 0.65
