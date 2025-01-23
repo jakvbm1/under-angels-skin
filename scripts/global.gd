@@ -2,6 +2,7 @@ extends Node
 
 var debug # reference to DebugPanel for property assignment
 var current_scene:String
+
 var statue_node: String
 var scenes = {
 	"DungeonLevelOne": "res://scenes/places/dungeon/dungeon_level_one.tscn",
@@ -15,7 +16,7 @@ var player_stats = {
 	"max_hp": 50.0,
 	"current_hp": 50.0,
 	"dmg_bonus": 1.0,
-	"money":  5000,
+	"money":  50000,
 	"level": 1,
 	"exp_points": 0.0,
 	"speed_bonus":1.0,
@@ -26,6 +27,7 @@ var player_stats = {
 	"current_position": Vector3(0,2,0),
 	
 }
+
 
 func tel_lv1_beg():
 	get_tree().change_scene_to_file("res://scenes/places/dungeon/dungeon_level_one.tscn")

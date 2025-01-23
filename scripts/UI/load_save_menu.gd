@@ -36,7 +36,7 @@ func load_from_slot(slot: int):
 	else:
 		print("Save file does not exist:", file_path)
 		
-	print(Global.player_stats["max_hp"])	
+	
 	if Global.current_scene == "DungeonLevelOne" and Global.statue_node == "AngelStatue2":
 		Global.tel_lv1_end()
 	if Global.current_scene == "DungeonLevelOne" and Global.statue_node == "AngelStatue":
@@ -51,6 +51,8 @@ func load_from_slot(slot: int):
 		Global.tel_lv4_end()
 	if Global.current_scene == "FinalLevel" and Global.statue_node == "AngelStatue":
 		Global.tel_lv4_beg()
+	if Global.current_scene == "Tavern":
+		Global.tel_tav()
 	
 	
 func load_slot_1():
