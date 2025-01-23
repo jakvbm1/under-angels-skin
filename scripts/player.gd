@@ -20,7 +20,7 @@ const DASH_COOLDOWN: float = 3.0
 @export var exp_points: float :
 	set(value):
 		exp_points = value
-		if exp_points >= 500.0 * level:
+		if exp_points >= 500.0 * level * level: 
 			level += 1
 
 @onready var neck: Node3D = $Neck

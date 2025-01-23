@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://435js8gy0kot"]
+[gd_scene load_steps=8 format=3 uid="uid://435js8gy0kot"]
 
 [ext_resource type="MeshLibrary" uid="uid://b6ql7moh32f0l" path="res://assets/tiles/wood_tiles_fixed.tres" id="1_7i51v"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_6c0f0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mdbf3vku3ttq" path="res://scenes/objects/torch.tscn" id="5_1srlv"]
 [ext_resource type="PackedScene" uid="uid://br84xxn1bvjwa" path="res://scenes/objects/game_start.tscn" id="6_2nfcq"]
 [ext_resource type="PackedScene" uid="uid://lcwh1v0uqc1f" path="res://scenes/objects/door.tscn" id="6_a0p44"]
+[ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="7_e4o6h"]
 
 [node name="Tavern" type="Node3D"]
 
@@ -129,3 +130,6 @@ transform = Transform3D(-5.24537e-08, 0, 1, 0, 1.2, 0, -1.2, 0, -4.37114e-08, -1
 
 [node name="GameStart" parent="." instance=ExtResource("6_2nfcq")]
 transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, -0.015, 1.2, 12)
+
+[node name="AngelStatue" parent="." instance=ExtResource("7_e4o6h")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -5, 0, 3.6)

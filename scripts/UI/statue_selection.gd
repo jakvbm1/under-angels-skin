@@ -75,10 +75,14 @@ func save_state(slot:int):
 	Global.current_scene = get_node("../..").name
 	Global.statue_node = get_node("..").name
 	
+	print(Global.current_scene)
+	print(Global.statue_node)
 	
 	
 	var file = FileAccess.open(save_path + str(slot) +".save", FileAccess.WRITE)
 	file.store_var(Global.player_stats)
+	file.store_var(Global.current_scene)
+	file.store_var(Global.statue_node)
 	
 	file.close()
 	

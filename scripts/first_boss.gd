@@ -110,6 +110,7 @@ func take_damage(damage: int) -> void:
 		hp_bar.value = 0
 		player.money += GOLD
 		player.exp_points += EXP
+		Global.player_stats["first_level_finished"]=true
 		anim_tree["parameters/conditions/death"] = true
 		death_particles.emitting = true
 		hp_bar.visible = false

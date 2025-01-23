@@ -27,11 +27,16 @@ func load_from_slot(slot: int):
 		var file = FileAccess.open(file_path, FileAccess.READ)
 		if file:
 			Global.player_stats = file.get_var()
+			Global.current_scene = file.get_var()
+			Global.statue_node = file.get_var()
+			print("im here")
 			file.close()
 		else:
 			print("Failed to open file for loading:", file_path)
 	else:
 		print("Save file does not exist:", file_path)
+		
+	print(Global.player_stats["max_hp"])	
 	if Global.current_scene == "DungeonLevelOne" and Global.statue_node == "AngelStatue2":
 		Global.tel_lv1_end()
 	if Global.current_scene == "DungeonLevelOne" and Global.statue_node == "AngelStatue":
