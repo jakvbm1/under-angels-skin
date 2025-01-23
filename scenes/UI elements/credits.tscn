@@ -31,7 +31,10 @@ vertical_alignment = 1
 offset_top = 51.0
 offset_right = 479.0
 offset_bottom = 234.0
+theme_override_font_sizes/font_size = 8
 text = "tekst z creditsow"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Node2D" type="Node2D" parent="."]
 
