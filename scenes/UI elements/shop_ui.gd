@@ -31,20 +31,20 @@ func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_i
 			list_node.set_item_text(0,"HP bonus            +10%     " + str(hp_price) + " gold") 
 			
 	if index==1:
-		if Global.player_stats["money"]>=speed_price:
-			Global.player_stats["money"]-=speed_price
-			Global.player_stats["dmg_bonus"]+=0.1
-			player.reload_values()
-			speed_price = Global.player_stats["speed_bonus"] * 1100
-			list_node.set_item_text(1,"Attack bonus     +10%     "+str(speed_price)+ "gold")
-			
-	if index==2:
 		if Global.player_stats["money"]>=dmg_price:
 			Global.player_stats["money"]-=dmg_price
+			Global.player_stats["dmg_bonus"]+=0.1
+			player.reload_values()
+			dmg_price = Global.player_stats["dmg_bonus"] * 1100
+			list_node.set_item_text(1,"Attack bonus     +10%     "+str(dmg_price)+ "gold")
+			
+	if index==2:
+		if Global.player_stats["money"]>=speed_price:
+			Global.player_stats["money"]-=speed_price
 			Global.player_stats["speed_bonus"] +=0.1
 			player.reload_values()
-			dmg_price =  Global.player_stats["dmg_bonus"] * 900
-			list_node.set_item_text(2,"Speed bonus      +10%     " + str(dmg_price)+ "gold")
+			speed_price =  Global.player_stats["speed_bonus"] * 900
+			list_node.set_item_text(2,"Speed bonus      +10%     " + str(speed_price)+ "gold")
 
 
 func _on_button_pressed() -> void:
