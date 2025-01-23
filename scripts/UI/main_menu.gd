@@ -20,7 +20,7 @@ func load_new_game():
 	Global.player_stats["money"] = 5000
 	Global.player_stats["level"] = 1
 	Global.player_stats["exp_points"] = 0.0
-	Global.player_stats["speed_bonus"] = 0.0
+	Global.player_stats["speed_bonus"] = 1.0
 	Global.player_stats["first_level_finished"] = false
 	Global.player_stats["second_level_finished"] = false
 	Global.player_stats["third_level_finished"] = false

@@ -18,7 +18,7 @@ var player_stats = {
 	"money":  5000,
 	"level": 1,
 	"exp_points": 0.0,
-	"speed_bonus":0.0,
+	"speed_bonus":1.0,
 	"first_level_finished":false,
 	"second_level_finished":false,
 	"third_level_finished":false,
