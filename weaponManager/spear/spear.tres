@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=4 format=3 uid="uid://3e4774lbrivq"]
+
+[ext_resource type="Script" path="res://weaponManager/weapon_resource.gd" id="1_pd2ca"]
+[ext_resource type="AudioStream" uid="uid://bl4u1klcxocem" path="res://assets/soundEffects/weapons/spear.wav" id="1_x5mdk"]
+[ext_resource type="PackedScene" uid="uid://bpxbnwj85n55y" path="res://weaponManager/spear/spear_gold.tscn" id="2_ma75m"]
+
+[resource]
+script = ExtResource("1_pd2ca")
+view_model = ExtResource("2_ma75m")
+pos = Vector3(0, -0.8, 0)
+rot = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+attack_sound = ExtResource("1_x5mdk")
+cooldown = 0.8

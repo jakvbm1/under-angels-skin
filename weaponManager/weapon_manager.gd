@@ -75,6 +75,10 @@ func _unhandled_input(event):
 		current_weapon = load("res://weaponManager/katana/katana.tres")
 	if event.is_action_pressed("weapon3"):
 		current_weapon = load("res://weaponManager/sword1/sword1.tres")
+	if event.is_action_pressed("weapon4"):
+		current_weapon = load("res://weaponManager/spear/spear.tres")
+	if event.is_action_pressed("weapon5"):
+		current_weapon = load("res://weaponManager/hammer/hammer.tres")
 	if current_weapon and is_inside_tree() and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("attack") and allow_attack:
 			current_weapon.trigger_down = true
