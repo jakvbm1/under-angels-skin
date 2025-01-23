@@ -6,7 +6,7 @@ const DASH_COOLDOWN: float = 3.0
 
 @export var last_dash: float = 0.0
 @export var gravity: float = 12.0
-
+@export var speed_bonus: float
 @export var max_hp: float 
 @export var current_hp: float 
 @export var dmg_bonus: float 
@@ -38,6 +38,7 @@ func _ready() -> void:
 	money = Global.player_stats["money"]
 	level = Global.player_stats["level"]
 	exp_points = Global.player_stats["exp_points"]
+	speed_bonus = Global.player_stats["speed_bonus"]
 	self.position = Global.player_stats["current_position"]
 	esc_screen.visible = false
 	
@@ -87,12 +88,22 @@ func _process(delta: float) -> void:
 	Global.debug.add_property("Level", level, 4)
 	Global.debug.add_property("Exp", exp_points, 5)
 	Global.debug.add_property("dmg bonus", dmg_bonus, 6)
+	speed_bonus = Global.player_stats["speed_bonus"]
 	
 	if last_dash < DASH_COOLDOWN:
 		last_dash += delta
 	
 	if current_hp < max_hp:
 		current_hp += REGEN * delta
+		
+func reload_values () -> void:
+	max_hp = Global.player_stats["max_hp"]
+	current_hp = Global.player_stats["current_hp"]
+	dmg_bonus = Global.player_stats["dmg_bonus"]
+	money = Global.player_stats["money"]
+	level = Global.player_stats["level"]
+	exp_points = Global.player_stats["exp_points"]
+
 
 func take_damage(damage: int) -> void:
 	# for red screen
