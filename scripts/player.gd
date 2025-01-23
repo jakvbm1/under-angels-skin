@@ -12,16 +12,21 @@ const DASH_COOLDOWN: float = 3.0
 @export var dmg_bonus: float 
 
 @export var money: int 
-@export var level: int :
-	set(value):
-		level = value
-		max_hp += value * 20
-		dmg_bonus +=  float(level) / 10
+
+@export var level: int
+		
+
 @export var exp_points: float :
 	set(value):
 		exp_points = value
+		print(level)
 		if exp_points >= 500.0 * level * level: 
 			level += 1
+			max_hp += level * 20
+			dmg_bonus +=  float(level) / 10
+
+
+
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
@@ -32,12 +37,14 @@ const DASH_COOLDOWN: float = 3.0
 
 
 func _ready() -> void:
+	
 	max_hp = Global.player_stats["max_hp"]
 	current_hp = Global.player_stats["current_hp"]
 	dmg_bonus = Global.player_stats["dmg_bonus"]
 	money = Global.player_stats["money"]
 	level = Global.player_stats["level"]
 	exp_points = Global.player_stats["exp_points"]
+	
 	speed_bonus = Global.player_stats["speed_bonus"]
 	self.position = Global.player_stats["current_position"]
 	esc_screen.visible = false
@@ -103,6 +110,7 @@ func reload_values () -> void:
 	money = Global.player_stats["money"]
 	level = Global.player_stats["level"]
 	exp_points = Global.player_stats["exp_points"]
+
 
 
 func take_damage(damage: int) -> void:
