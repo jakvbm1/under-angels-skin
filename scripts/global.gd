@@ -12,7 +12,7 @@ var scenes = {
 }
 
 var player_stats = {
-	"max_hp": 100.0,
+	"max_hp": 50.0,
 	"current_hp": 50.0,
 	"dmg_bonus": 1.0,
 	"money":  5000,

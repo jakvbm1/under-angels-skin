@@ -225,35 +225,35 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id="Animation_q8mrs"]
 resource_name = "ascend"
-length = 3.0
+length = 2.0
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.000474975, 0.000474975, -0.382525, 0.923475, 3, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.000474975, 0.000474975, -0.382525, 0.923475, 2, 1, -0.00952503, 0.00347497, 0.258475, 0.965475)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_r_015")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.00652749, 0.010479, 0.382619, 0.923824, 3, 1, -0.011525, 0.00447497, -0.258525, 0.965475)
+tracks/1/keys = PackedFloat32Array(0, 1, -0.00652749, 0.010479, 0.382619, 0.923824, 2, 1, -0.011525, 0.00447497, -0.258525, 0.965475)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.00339387, 0.28065, -0.489184, 0.825786, 3, 1, 0.053475, 0.275475, -0.310525, 0.908475)
+tracks/2/keys = PackedFloat32Array(0, 1, -0.00339387, 0.28065, -0.489184, 0.825786, 2, 1, 0.053475, 0.275475, -0.310525, 0.908475)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -0.00339397, -0.28065, 0.489184, 0.825786, 3, 1, 0.053475, -0.275525, 0.310475, 0.908475)
+tracks/3/keys = PackedFloat32Array(0, 1, -0.00339397, -0.28065, 0.489184, 0.825786, 2, 1, 0.053475, -0.275525, 0.310475, 0.908475)
 
 [sub_resource type="Animation" id="Animation_vwpgt"]
 resource_name = "dash_forward"
@@ -316,28 +316,27 @@ tracks/6/keys = PackedFloat32Array(0, 1, -0.00652503, 0.010475, 0.382475, 0.9234
 
 [sub_resource type="Animation" id="Animation_s11qf"]
 resource_name = "descend"
-length = 2.0
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_r_011")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.054475, -0.274525, 0.310475, 0.908475, 2, 1, -0.00252503, -0.279525, 0.489475, 0.826475)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.054475, -0.274525, 0.310475, 0.908475, 1, 1, -0.00252503, -0.279525, 0.489475, 0.826475)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:wing1_l_08")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.054475, 0.274475, -0.310525, 0.908475, 2, 1, -0.00252503, 0.279475, -0.488525, 0.826475)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.054475, 0.274475, -0.310525, 0.908475, 1, 1, -0.00252503, 0.279475, -0.488525, 0.826475)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/Object_4/Skeleton3D:arm2_l_05")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 2, 1, -0.000525026, 0.000474975, -0.382525, 0.923475)
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, -0.000525026, 0.000474975, -0.382525, 0.923475)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -662,14 +661,13 @@ states/throw/position = Vector2(591, -43.7118)
 states/walk/node = SubResource("AnimationNodeAnimation_e5joh")
 states/walk/position = Vector2(432, 316.288)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4nwqg"), "idle", "ascend", SubResource("AnimationNodeStateMachineTransition_itlc6"), "idle", "dash_forward", SubResource("AnimationNodeStateMachineTransition_lai4e"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_cqob7"), "walk", "punch", SubResource("AnimationNodeStateMachineTransition_1cppv"), "walk", "ascend", SubResource("AnimationNodeStateMachineTransition_rna5m"), "walk", "dash_forward", SubResource("AnimationNodeStateMachineTransition_df1vp"), "descend", "die", SubResource("AnimationNodeStateMachineTransition_gm54s"), "throw", "die", SubResource("AnimationNodeStateMachineTransition_s7ssq"), "prepareThrow", "die", SubResource("AnimationNodeStateMachineTransition_iuw3u"), "ascend", "die", SubResource("AnimationNodeStateMachineTransition_ijipt"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_5pid0"), "dash_forward", "die", SubResource("AnimationNodeStateMachineTransition_ctp3x"), "punch", "die", SubResource("AnimationNodeStateMachineTransition_ovruy"), "walk", "die", SubResource("AnimationNodeStateMachineTransition_w6m2n"), "descend", "idle", SubResource("AnimationNodeStateMachineTransition_4ne2a"), "punch", "idle", SubResource("AnimationNodeStateMachineTransition_4kxpf"), "throw", "descend", SubResource("AnimationNodeStateMachineTransition_2uhm4"), "prepareThrow", "throw", SubResource("AnimationNodeStateMachineTransition_mhjxh"), "ascend", "prepareThrow", SubResource("AnimationNodeStateMachineTransition_qtpu1"), "dash_forward", "punch", SubResource("AnimationNodeStateMachineTransition_i4t10")]
-graph_offset = Vector2(-56, 74.9927)
+graph_offset = Vector2(-56, -32.3024)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_88sjm"]
 radius = 0.4
 
 [node name="FinalBossCh3d" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_yww0l")
-MAX_HP = 50.0
 
 [node name="Sketchfab_model" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.22045e-16, 1, 0, -1, 2.22045e-16, 0, 0, 0)
@@ -894,7 +892,7 @@ shape = SubResource("CapsuleShape3D_3k7qj")
 [node name="EnemyHitbox" type="Area3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel"]
 transform = Transform3D(1, 0, 0, 0, 1, 2.98037e-08, 0, -2.98037e-08, 1, 2.97776, -1.52374, -0.548304)
 script = ExtResource("3_wse1x")
-damage = 40
+damage = 80
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/c30bf58faba7477eb0d0e2e4530c16ee_fbx/RootNode/Angel/EnemyHitbox"]
 transform = Transform3D(1, -5.96046e-08, -1.49012e-08, -2.03288e-20, 1, 1.1921e-07, -1.49012e-08, 8.19557e-08, 1, -4.0711, 0.431431, 2.44977)
@@ -931,3 +929,4 @@ shape = SubResource("CapsuleShape3D_88sjm")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="BossDialogue" parent="." instance=ExtResource("5_cpj1n")]
+visible = false

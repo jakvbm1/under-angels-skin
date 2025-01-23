@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
-const REGEN: float = 2.0
+const REGEN: float = 3.0
 const DASH_COOLDOWN: float = 3.0
 
 @export var last_dash: float = 0.0

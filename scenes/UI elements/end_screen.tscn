@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvyqk13c1y07u"]
+
+[ext_resource type="Texture2D" uid="uid://cjhtjdvsd3rfr" path="res://assets/sprites/dead_background.png" id="1_upx86"]
+[ext_resource type="Script" path="res://scenes/UI elements/end_screen.gd" id="1_vbfkv"]
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_vbfkv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 482.0
+offset_bottom = 324.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -55.0
+offset_top = -37.0
+offset_right = 487.0
+offset_bottom = 421.0
+texture = ExtResource("1_upx86")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+offset_right = 479.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 33
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 42.0
+offset_right = 479.0
+offset_bottom = 152.0
+text = "Dear player,
+We thank you from the bottom of our hearts.
+Hope the game found you well."
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 452.0
+offset_top = 295.0
+offset_right = 477.0
+offset_bottom = 319.0
+text = "Fin"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 481.0
+offset_bottom = 304.0
+
+[node name="Button" type="Button" parent="Control2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -31.0
+offset_right = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Go back to menu"

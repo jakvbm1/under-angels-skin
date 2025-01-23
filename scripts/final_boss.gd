@@ -14,7 +14,7 @@ var ball_thrown = false
 @export var ATTACK_RANGE: float = 1.1
 @export var EXP: int = 5000
 @export var GOLD: int = 10000
-@export var MAX_HP: float = 5000
+@export var MAX_HP: float = 12000
 var HP: float
 
 var bullet = load("res://scenes/weapons/energy_ball.tscn")
@@ -80,15 +80,17 @@ func _process(delta: float) -> void:
 		"punch":
 			look_at(Vector3(player.global_position.x, global_position.y,
 				player.global_position.z), Vector3.UP, true)
-			route_chosen = false
+			#route_chosen = false
 			anim_tree['parameters/conditions/punch'] = false
 			
 		"descend":
 			look_at(Vector3(player.global_position.x, global_position.y,
 				player.global_position.z), Vector3.UP, true)
-			route_chosen = false
+			
 			anim_tree['parameters/conditions/throw_1'] = false
 			ball_thrown = false
+			await get_tree().create_timer(2.0).timeout
+
 
 		"throw":
 			
@@ -103,7 +105,8 @@ func _process(delta: float) -> void:
 				get_parent().add_child(instance)
 				ball_thrown = true
 			
-			
+		"idle":
+			route_chosen = false
 		
 	
 	# animation conditions
@@ -121,15 +124,15 @@ func update_animation_parameters():
 		print('im in')
 		anim_tree["parameters/conditions/start"] = true
 		hp_bar.visible = true
-		var randint = rng.randi_range(0, 2)
+		var randint = rng.randi_range(0, 4)
 		#randint = 1
 		print(randint)
 		route_chosen = true
-		if randint == 0:
+		if randint == 0 or randint == 3:
 			anim_tree['parameters/conditions/walk'] = true
 
 			
-		elif randint == 1:
+		elif randint == 1 or randint == 4:
 			anim_tree['parameters/conditions/dash'] = true
 
 			
@@ -165,6 +168,8 @@ func take_damage(damage: int) -> void:
 		player.exp_points += EXP
 		anim_tree["parameters/conditions/dead"] = true
 		hp_bar.visible = false
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(10.0).timeout
 		queue_free()
 		boss_death.emit()
+		
+		get_tree().change_scene_to_file("res://scenes/UI elements/end_screen.tscn")
