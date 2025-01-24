@@ -91,7 +91,7 @@ libraries = {
 "": SubResource("AnimationLibrary_77yv8")
 }
 
-[node name="GoldLabel" type="Label" parent="." index="4"]
+[node name="GoldLabel" type="Label" parent="." index="4" groups=["labels"]]
 offset_left = 3.0
 offset_top = 30.0
 offset_right = 43.0
