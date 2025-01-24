@@ -41,9 +41,12 @@ func toggle_chest():
 		if !is_open:
 			animation_player.play("open")
 			if chest_number not in empty_chests:
+				goldLabel.add_theme_color_override("font_color", Color(1, 1, 0))
+
 				var money = get_gold()
-				goldLabel.text = "You found %s gold" %money
+				goldLabel.text = "+%s gold" %money
 				goldLabel.visible=true
+				
 				player.money+=money
 				player.exp_points+=300
 				empty_chests.append(chest_number)

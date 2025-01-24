@@ -17,4 +17,4 @@ func _process(delta: float) -> void:
 					collider.take_damage(15)
 				if (get_node("..").name == "FinalLevel"):
 					collider.take_damage(23)
-			queue_free()
+		queue_free()
