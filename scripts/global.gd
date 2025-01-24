@@ -25,7 +25,8 @@ var player_stats = {
 	"third_level_finished":false,
 	"final_level_finished":false,
 	"current_position": Vector3(0,2,0),
-	
+	"weapons": ["sword"],
+	"current_weapon_index": 0
 }
 
 

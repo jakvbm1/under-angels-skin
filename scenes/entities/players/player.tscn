@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=21 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
 [ext_resource type="PackedScene" uid="uid://cdv8rtve5bhi8" path="res://scenes/UI elements/players_ui.tscn" id="2_ca8kw"]
 [ext_resource type="Script" path="res://scripts/components/player_hurtbox.gd" id="2_e75ks"]
-[ext_resource type="Resource" uid="uid://w3juqsmeqtf7" path="res://weaponManager/sword1/sword1.tres" id="3_luo4c"]
 [ext_resource type="Script" path="res://scripts/UI/debug_panel.gd" id="5_10xfb"]
 [ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="5_bhu0l"]
 [ext_resource type="Script" path="res://scripts/player/idle_player_state.gd" id="6_bj2x2"]
@@ -39,7 +38,6 @@ collision_mask = 15
 script = ExtResource("1_pueir")
 
 [node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "view_model", "weapon_slot", "weapon_slot_label") instance=ExtResource("2_11ur4")]
-current_weapon = ExtResource("3_luo4c")
 player = NodePath("..")
 view_model = NodePath("../Neck/Camera3D/WeaponView")
 weapon_slot = NodePath("../PlayersUi/ColorRect/WeaponSlot")

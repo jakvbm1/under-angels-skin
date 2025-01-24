@@ -19,6 +19,8 @@ func _process(delta: float):
 			Global.player_stats["money"] = player.money 
 			Global.player_stats["level"] = player.level  
 			Global.player_stats["exp_points"] = player.exp_points 
+			Global.player_stats["weapons"] = player.weapons
+			Global.player_stats["current_weapon_index"] = player.current_weapon_index
 			
 			if get_node("..").name == "DungeonLevelOne":
 				

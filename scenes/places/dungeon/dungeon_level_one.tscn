@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfoiosfbfqusm"]
+[gd_scene load_steps=23 format=3 uid="uid://dfoiosfbfqusm"]
 
 [ext_resource type="Script" path="res://scripts/dungeon_level_one.gd" id="1_8lp4k"]
 [ext_resource type="MeshLibrary" uid="uid://6xgmq753mewm" path="res://assets/tiles/LevelOneTileset.tres" id="1_fssn0"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://7wmsnagdtpt4" path="res://scenes/objects/ladder_to_level_2.tscn" id="8_sbjhe"]
 [ext_resource type="PackedScene" uid="uid://c36yl4l46aqr1" path="res://scenes/entities/enemies/first_boss.tscn" id="9_nyw26"]
 [ext_resource type="Script" path="res://scripts/objects/area_boss_start.gd" id="10_kchdp"]
+[ext_resource type="PackedScene" uid="uid://chrg55ijw7tkq" path="res://weaponManager/spear/Spear Gold.glb" id="11_yeuqm"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_pickup.gd" id="12_mo1ee"]
 
 [sub_resource type="Environment" id="Environment_nids0"]
 ambient_light_source = 3
@@ -153,6 +155,17 @@ skeleton = NodePath("../..")
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 0.8, 0, 3.2412, 76.1668)
 shape = SubResource("ConvexPolygonShape3D_7mjxo")
 disabled = true
+
+[node name="spear" parent="." instance=ExtResource("11_yeuqm")]
+transform = Transform3D(-2.17662e-08, -0.6, 2.11674e-08, -0.242127, -1.05837e-08, -0.548976, 0.548976, -2.84572e-08, -0.242127, 3.79566, 1.38294, 95.6774)
+script = ExtResource("12_mo1ee")
+
+[node name="Label" type="Label" parent="spear"]
+offset_left = 181.0
+offset_top = 266.0
+offset_right = 313.0
+offset_bottom = 289.0
+text = "Press f to pick up"
 
 [connection signal="boss_death" from="FirstBoss" to="AreaBossStart" method="_on_first_boss_boss_death"]
 [connection signal="body_entered" from="AreaBossStart" to="FirstBoss" method="_on_area_boss_start_body_entered"]

@@ -1,21 +1,17 @@
 class_name WeaponManager
 extends Node3D
 
-# weapon swapping logic
-var weapons: Array = ["sword", "spear", "katana", "hammer"]
-var current_weapon_index: int = 0
-
 func change_weapon(direction: int):
-	if weapons.size() > 0:
-		current_weapon_index = (current_weapon_index + direction) % weapons.size()
-		if current_weapon_index < 0:
-			current_weapon_index = weapons.size() - 1
+	if player.weapons.size() > 0:
+		player.current_weapon_index = (player.current_weapon_index + direction) % player.weapons.size()
+		if player.current_weapon_index < 0:
+			player.current_weapon_index = player.weapons.size() - 1
 		update_weapon_ui()
 
 func update_weapon_ui():
-	if weapons.size() > 0:
-		var equipped_weapon: String = weapons[current_weapon_index]
-		weapon_slot_label.text = str(current_weapon_index + 1)
+	if player.weapons.size() > 0:
+		var equipped_weapon: String = player.weapons[player.current_weapon_index]
+		weapon_slot_label.text = str(player.current_weapon_index + 1)
 		match equipped_weapon:
 			"sword":
 				current_weapon = load("res://weaponManager/sword1/sword1.tres")
@@ -35,7 +31,7 @@ func update_weapon_ui():
 
 @export var allow_attack: bool = true
 
-@export var current_weapon : WeaponResource :
+var current_weapon : WeaponResource :
 	set(v):
 		if v != current_weapon:
 			if current_weapon:
@@ -61,7 +57,10 @@ func update_weapon_model() -> void:
 	if current_weapon_view_model != null and is_instance_valid(current_weapon_view_model):
 		current_weapon_view_model.queue_free()
 		current_weapon_view_model.get_parent().remove_child(current_weapon_view_model)
-	if current_weapon != null:
+	if current_weapon == null:
+		if player.weapons.size() > 0:
+			update_weapon_ui()
+	else:
 		current_weapon.weapon_manager = self
 		if view_model and current_weapon.view_model:
 			current_weapon_view_model = current_weapon.view_model.instantiate()

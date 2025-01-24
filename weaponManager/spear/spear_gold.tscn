@@ -481,7 +481,7 @@ skeleton = NodePath("")
 [node name="PlayerHitbox" type="Area3D" parent="handle"]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, -0.050118, -2.96061)
 script = ExtResource("1_e0p5b")
-damage = 35
+damage = 30
 knockback = 1.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="handle/PlayerHitbox"]

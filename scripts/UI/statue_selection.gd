@@ -72,6 +72,8 @@ func save_state(slot:int):
 	Global.player_stats["money"] = player.money 
 	Global.player_stats["level"] = player.level  
 	Global.player_stats["exp_points"] = player.exp_points 
+	Global.player_stats["weapons"] = player.weapons
+	Global.player_stats["current_weapon_index"] = player.current_weapon_index
 	Global.current_scene = get_node("../..").name
 	Global.statue_node = get_node("..").name
 	
@@ -103,6 +105,8 @@ func open_teleport():
 	Global.player_stats["money"] = player.money 
 	Global.player_stats["level"] = player.level  
 	Global.player_stats["exp_points"] = player.exp_points 
+	Global.player_stats["weapons"] = player.weapons
+	Global.player_stats["current_weapon_index"] = player.current_weapon_index
 	
 	print("level: " +str(player.level) )
 	

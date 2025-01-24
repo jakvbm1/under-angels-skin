@@ -19,6 +19,8 @@ func _process(delta: float):
 			Global.player_stats["level"] = player.level  
 			Global.player_stats["exp_points"] = player.exp_points 
 			Global.player_stats["current_position"] = Vector3(0,1,89)
+			Global.player_stats["weapons"] = player.weapons
+			Global.player_stats["current_weapon_index"] = player.current_weapon_index
 			get_tree().change_scene_to_file("res://scenes/places/dungeon/dungeon_level_one.tscn")
 			
 	else:

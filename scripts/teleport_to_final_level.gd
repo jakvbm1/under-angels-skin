@@ -12,3 +12,5 @@ func _on_body_entered(body: Node3D) -> void:
 	Global.player_stats["exp_points"] = player.exp_points 
 	get_tree().change_scene_to_file("res://scenes/places/dungeon/FinalLevel.tscn")
 	Global.player_stats["current_position"] = Vector3(1, 1, 2)
+	Global.player_stats["weapons"] = player.weapons
+	Global.player_stats["current_weapon_index"] = player.current_weapon_index

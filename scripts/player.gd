@@ -14,7 +14,10 @@ const DASH_COOLDOWN: float = 3.0
 @export var money: int 
 
 @export var level: int
-		
+
+# weapon swapping logic
+var weapons: Array = ["sword"]
+var current_weapon_index: int = 0
 
 @export var exp_points: float :
 	set(value):
@@ -48,6 +51,8 @@ func _ready() -> void:
 	
 	speed_bonus = Global.player_stats["speed_bonus"]
 	self.position = Global.player_stats["current_position"]
+	weapons = Global.player_stats["weapons"]
+	current_weapon_index = Global.player_stats["current_weapon_index"]
 	esc_screen.visible = false
 	
 	
@@ -94,10 +99,8 @@ func update_velocity() -> void:
 
 func _process(delta: float) -> void:
 	Global.debug.add_property("Velocity", "%.2f" % velocity.length(), 1)
-	Global.debug.add_property("Gold", money, 3)
-	Global.debug.add_property("Level", level, 4)
-	Global.debug.add_property("Exp", exp_points, 5)
-	Global.debug.add_property("dmg bonus", dmg_bonus, 6)
+	Global.debug.add_property("Exp", exp_points, 3)
+	Global.debug.add_property("dmg bonus", dmg_bonus, 4)
 	speed_bonus = Global.player_stats["speed_bonus"]
 	
 	if last_dash < DASH_COOLDOWN:
@@ -113,6 +116,8 @@ func reload_values () -> void:
 	money = Global.player_stats["money"]
 	level = Global.player_stats["level"]
 	exp_points = Global.player_stats["exp_points"]
+	weapons = Global.player_stats["weapons"]
+	current_weapon_index = Global.player_stats["current_weapon_index"]
 
 
 

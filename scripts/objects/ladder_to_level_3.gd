@@ -22,6 +22,8 @@ func _process(delta: float):
 			
 			get_tree().change_scene_to_file("res://scenes/places/dungeon/dungeon_level_three.tscn")
 			Global.player_stats["current_position"] = Vector3(-2,2,2)
+			Global.player_stats["weapons"] = player.weapons
+			Global.player_stats["current_weapon_index"] = player.current_weapon_index
 		
 	else:
 		label.visible = false
