@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=21 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/player/walking_player_state.gd" id="7_p2140"]
 [ext_resource type="Script" path="res://scripts/player/attack_player_state.gd" id="8_0pnxn"]
 [ext_resource type="Texture2D" uid="uid://cvhr88b462ews" path="res://scenes/UI elements/crosshair001.png" id="8_6loy0"]
+[ext_resource type="Texture2D" uid="uid://wtwir225fn0t" path="res://weaponManager/sword1/sword1.png" id="9_3ljgg"]
 [ext_resource type="Script" path="res://scripts/player/jump_player_state.gd" id="11_eev80"]
 [ext_resource type="Script" path="res://scripts/player/dash_player_state.gd" id="12_ejfmq"]
 [ext_resource type="PackedScene" uid="uid://ift2jgt0n483" path="res://scenes/UI elements/esc_screen.tscn" id="15_u43ep"]
@@ -34,11 +35,12 @@ physics_interpolation_mode = 1
 collision_mask = 15
 script = ExtResource("1_pueir")
 
-[node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "bullet_raycast", "view_model") instance=ExtResource("2_11ur4")]
+[node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "bullet_raycast", "view_model", "weapon_slot") instance=ExtResource("2_11ur4")]
 current_weapon = ExtResource("3_luo4c")
 player = NodePath("..")
 bullet_raycast = NodePath("../Neck/Camera3D/BulletRayCast3D")
 view_model = NodePath("../Neck/Camera3D/WeaponView")
+weapon_slot = NodePath("../PlayersUi/WeaponSlot")
 
 [node name="PlayerHurtbox" type="Area3D" parent="."]
 script = ExtResource("2_e75ks")
@@ -132,6 +134,16 @@ offset_top = -21.0
 offset_right = 125.0
 offset_bottom = 2.0
 label_settings = SubResource("LabelSettings_rrxde")
+
+[node name="WeaponSlot" type="TextureRect" parent="PlayersUi"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -94.0
+offset_right = 513.0
+offset_bottom = 418.0
+scale = Vector2(0.12, 0.12)
+mouse_filter = 2
+texture = ExtResource("9_3ljgg")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("5_bhu0l")
