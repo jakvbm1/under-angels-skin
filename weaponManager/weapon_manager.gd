@@ -1,6 +1,37 @@
 class_name WeaponManager
 extends Node3D
 
+# weapon swapping logic
+var weapons: Array = ["sword", "spear", "katana", "hammer", "crowbar"]
+var current_weapon_index: int = 0
+
+func change_weapon(direction: int):
+	if weapons.size() > 0:
+		current_weapon_index = (current_weapon_index + direction) % weapons.size()
+		if current_weapon_index < 0:
+			current_weapon_index = weapons.size() - 1
+		update_weapon_ui()
+
+func update_weapon_ui():
+	if weapons.size() > 0:
+		var equipped_weapon: String = weapons[current_weapon_index]
+		match equipped_weapon:
+			"sword":
+				current_weapon = load("res://weaponManager/sword1/sword1.tres")
+				weapon_slot.texture = load("res://weaponManager/sword1/sword1.png")
+			"spear":
+				current_weapon = load("res://weaponManager/spear/spear.tres")
+				weapon_slot.texture = load("res://weaponManager/spear/spear.png")
+			"katana":
+				current_weapon = load("res://weaponManager/katana/katana.tres")
+				weapon_slot.texture = load("res://weaponManager/katana/katana.png")
+			"hammer":
+				current_weapon = load("res://weaponManager/hammer/hammer.tres")
+				weapon_slot.texture = load("res://weaponManager/hammer/hammer.png")
+			"crowbar":
+				current_weapon = load("res://weaponManager/crowbar/crowbar.tres")
+				weapon_slot.texture = load("res://weaponManager/crowbar/crowbar.png")
+
 @export var allow_attack: bool = true
 
 @export var current_weapon : WeaponResource :
@@ -72,20 +103,9 @@ func get_anim() -> String:
 func _unhandled_input(event):
 	# weapon changing
 	if event.is_action_pressed("weapon1"):
-		current_weapon = load("res://weaponManager/crowbar/crowbar.tres")
-		weapon_slot.texture = load("res://weaponManager/crowbar/crowbar.png")
+		change_weapon(-1)
 	if event.is_action_pressed("weapon2"):
-		current_weapon = load("res://weaponManager/katana/katana.tres")
-		weapon_slot.texture = load("res://weaponManager/katana/katana.png")
-	if event.is_action_pressed("weapon3"):
-		current_weapon = load("res://weaponManager/sword1/sword1.tres")
-		weapon_slot.texture = load("res://weaponManager/sword1/sword1.png")
-	if event.is_action_pressed("weapon4"):
-		current_weapon = load("res://weaponManager/spear/spear.tres")
-		weapon_slot.texture = load("res://weaponManager/spear/spear.png")
-	if event.is_action_pressed("weapon5"):
-		current_weapon = load("res://weaponManager/hammer/hammer.tres")
-		weapon_slot.texture = load("res://weaponManager/hammer/hammer.png")
+		change_weapon(1)
 	if current_weapon and is_inside_tree() and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.is_action_pressed("attack") and allow_attack:
 			current_weapon.trigger_down = true
