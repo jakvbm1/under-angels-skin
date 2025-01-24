@@ -29,6 +29,8 @@ func back():
 	for node in root.get_children():
 		if ("enemy" in node.name||  "Boss" in node.name ):
 			node.set_process(true)
+	for label in get_tree().get_nodes_in_group("labels"):
+			label.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	visible=false
 	

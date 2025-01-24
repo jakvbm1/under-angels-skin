@@ -24,6 +24,7 @@ const DASH_COOLDOWN: float = 3.0
 			level += 1
 			max_hp += level * 20
 			dmg_bonus +=  float(level) / 10
+			Global.player_stats["dmg_bonus"] = dmg_bonus
 
 
 
@@ -58,6 +59,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed('ui_cancel'):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		var root = get_tree().current_scene
+		for label in get_tree().get_nodes_in_group("labels"):
+			label.visible = false
 		for node in root.get_children():
 			if ("enemy" in node.name||  "Boss" in node.name ):
 				node.set_process(false)
