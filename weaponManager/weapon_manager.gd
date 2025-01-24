@@ -2,7 +2,7 @@ class_name WeaponManager
 extends Node3D
 
 # weapon swapping logic
-var weapons: Array = ["sword", "spear", "katana", "hammer", "crowbar"]
+var weapons: Array = ["sword", "spear", "katana", "hammer"]
 var current_weapon_index: int = 0
 
 func change_weapon(direction: int):
@@ -15,6 +15,7 @@ func change_weapon(direction: int):
 func update_weapon_ui():
 	if weapons.size() > 0:
 		var equipped_weapon: String = weapons[current_weapon_index]
+		weapon_slot_label.text = str(current_weapon_index + 1)
 		match equipped_weapon:
 			"sword":
 				current_weapon = load("res://weaponManager/sword1/sword1.tres")
@@ -44,11 +45,11 @@ func update_weapon_ui():
 				update_weapon_model()
 
 @export var player: CharacterBody3D
-@export var bullet_raycast: RayCast3D
 
 @export var view_model: Node3D
 
 @export var weapon_slot: TextureRect
+@export var weapon_slot_label: Label
 
 var current_weapon_view_model: Node3D
 

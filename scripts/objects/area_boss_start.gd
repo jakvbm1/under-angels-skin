@@ -8,11 +8,12 @@ extends Area3D
 @onready var child_collision: CollisionShape3D = $CollisionShape3D
 
 func _on_body_entered(body: Node3D) -> void:
-	back_wall.visible = true
-	front_wall.visible = true
-	front_wall_collision.disabled = false
-	back_wall_collision.disabled = false
-	child_collision.disabled = true
+	if body.is_in_group("player"):
+		back_wall.visible = true
+		front_wall.visible = true
+		front_wall_collision.disabled = false
+		back_wall_collision.disabled = false
+		child_collision.disabled = true
 
 
 func _on_first_boss_boss_death() -> void:

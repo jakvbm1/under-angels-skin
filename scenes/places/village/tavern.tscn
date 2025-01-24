@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://435js8gy0kot"]
+[gd_scene load_steps=10 format=3 uid="uid://435js8gy0kot"]
 
 [ext_resource type="MeshLibrary" uid="uid://b6ql7moh32f0l" path="res://assets/tiles/wood_tiles_fixed.tres" id="1_7i51v"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_6c0f0"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://br84xxn1bvjwa" path="res://scenes/objects/game_start.tscn" id="6_2nfcq"]
 [ext_resource type="PackedScene" uid="uid://lcwh1v0uqc1f" path="res://scenes/objects/door.tscn" id="6_a0p44"]
 [ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="7_e4o6h"]
+[ext_resource type="PackedScene" uid="uid://b7fnpjra1mwao" path="res://weaponManager/crowbar/sketchfab_scene.glb" id="8_80mht"]
+[ext_resource type="Script" path="res://weaponManager/spear/crowbar.gd" id="9_46rqj"]
 
 [node name="Tavern" type="Node3D"]
 
@@ -133,3 +135,14 @@ transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 
 
 [node name="AngelStatue" parent="." instance=ExtResource("7_e4o6h")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -5, 0, 3.6)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("8_80mht")]
+transform = Transform3D(-1.84025, 0.323631, 0.713275, -0.783261, -0.76036, -1.67581, -2.14817e-08, -1.8213, 0.826368, -5.71537, 4.41941, 9.03244)
+script = ExtResource("9_46rqj")
+
+[node name="Label" type="Label" parent="Sketchfab_Scene2"]
+offset_left = 181.0
+offset_top = 266.0
+offset_right = 313.0
+offset_bottom = 289.0
+text = "Press f to pick up"

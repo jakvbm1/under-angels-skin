@@ -121,5 +121,6 @@ func take_damage(damage: int) -> void:
 
 
 func _on_area_boss_start_body_entered(body: Node3D) -> void:
-	anim_tree["parameters/conditions/fight_started"] = true
-	hp_bar.visible = true
+	if body.is_in_group("player"):
+		anim_tree["parameters/conditions/fight_started"] = true
+		hp_bar.visible = true

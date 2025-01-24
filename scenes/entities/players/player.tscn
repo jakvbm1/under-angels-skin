@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=22 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
@@ -30,17 +30,20 @@ font_size = 13
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dhqbf"]
+font_size = 14
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 physics_interpolation_mode = 1
 collision_mask = 15
 script = ExtResource("1_pueir")
 
-[node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "bullet_raycast", "view_model", "weapon_slot") instance=ExtResource("2_11ur4")]
+[node name="WeaponManager" parent="." node_paths=PackedStringArray("player", "view_model", "weapon_slot", "weapon_slot_label") instance=ExtResource("2_11ur4")]
 current_weapon = ExtResource("3_luo4c")
 player = NodePath("..")
-bullet_raycast = NodePath("../Neck/Camera3D/BulletRayCast3D")
 view_model = NodePath("../Neck/Camera3D/WeaponView")
-weapon_slot = NodePath("../PlayersUi/WeaponSlot")
+weapon_slot = NodePath("../PlayersUi/ColorRect/WeaponSlot")
+weapon_slot_label = NodePath("../PlayersUi/ColorRect/Label")
 
 [node name="PlayerHurtbox" type="Area3D" parent="."]
 script = ExtResource("2_e75ks")
@@ -58,9 +61,6 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.722329)
 
 [node name="WeaponView" type="Node3D" parent="Neck/Camera3D"]
-
-[node name="BulletRayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
-target_position = Vector3(0, 0, -999)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615297, -0.195678)
@@ -135,15 +135,33 @@ offset_right = 125.0
 offset_bottom = 2.0
 label_settings = SubResource("LabelSettings_rrxde")
 
-[node name="WeaponSlot" type="TextureRect" parent="PlayersUi"]
+[node name="ColorRect" type="ColorRect" parent="PlayersUi"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -94.0
-offset_right = 513.0
-offset_bottom = 418.0
-scale = Vector2(0.12, 0.12)
+offset_left = 4.0
+offset_top = -102.0
+offset_right = 38.0
+offset_bottom = -60.0
+scale = Vector2(1.7, 1.7)
+color = Color(0, 0, 0, 1)
+
+[node name="WeaponSlot" type="TextureRect" parent="PlayersUi/ColorRect"]
+layout_mode = 0
+offset_left = -3.52941
+offset_top = 2.35294
+offset_right = 508.471
+offset_bottom = 514.353
+scale = Vector2(0.07, 0.07)
 mouse_filter = 2
 texture = ExtResource("9_3ljgg")
+
+[node name="Label" type="Label" parent="PlayersUi/ColorRect"]
+layout_mode = 0
+offset_left = 23.5294
+offset_top = 23.5294
+offset_right = 35.5294
+offset_bottom = 46.5294
+text = "1"
+label_settings = SubResource("LabelSettings_dhqbf")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("5_bhu0l")
