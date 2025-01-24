@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://n0lck0rnw77k"]
+
+[ext_resource type="PackedScene" uid="uid://bjyovg0unln3s" path="res://textures/texture_catcher.tscn" id="1_hp6wd"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TextureCatcher" parent="." instance=ExtResource("1_hp6wd")]
+snapshot_name = "crowbar"
