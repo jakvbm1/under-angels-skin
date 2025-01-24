@@ -11,5 +11,10 @@ func _process(delta: float) -> void:
 		var collider = ray.get_collider()
 		if collider.is_in_group("player"):
 			if collider.has_method("take_damage"):
-				collider.take_damage(10)
-		queue_free()
+				if (get_node("..").name == "DungeonLevelOne"):
+					collider.take_damage(10)
+				if (get_node("..").name == "DungeonLevelTwo"):
+					collider.take_damage(15)
+				if (get_node("..").name == "FinalLevel"):
+					collider.take_damage(23)
+			queue_free()
