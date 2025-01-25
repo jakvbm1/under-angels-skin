@@ -26,6 +26,8 @@ func _process(delta: float):
 	
 	# Check if player is within range and presses "F" key
 	if distance_to_player <= open_distance:
+		
+		
 		activateLabel.visible = true
 		if Input.is_action_just_pressed("interact"):
 			activate_statue()
@@ -35,6 +37,11 @@ func activate_statue():
 	if(!unlocked):
 		unlocked = true
 		light.visible = true
+		if (get_node("..").name=="DungeonLevelTwo" and get_node(".").name == "AngelStatue2"):
+			Global.player_stats["second_level_finished"]=true
+		
+		
+			
 	
 	menu.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

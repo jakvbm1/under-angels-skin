@@ -49,3 +49,4 @@ func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_i
 
 func _on_button_pressed() -> void:
 	visible=false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

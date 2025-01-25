@@ -108,7 +108,7 @@ func open_teleport():
 	Global.player_stats["weapons"] = player.weapons
 	Global.player_stats["current_weapon_index"] = player.current_weapon_index
 	
-	print("level: " +str(player.level) )
+	
 	
 func close_teleport():
 	save_game.visible = true

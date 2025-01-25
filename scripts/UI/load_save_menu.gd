@@ -29,7 +29,7 @@ func load_from_slot(slot: int):
 			Global.player_stats = file.get_var()
 			Global.current_scene = file.get_var()
 			Global.statue_node = file.get_var()
-			print("im here")
+			
 			file.close()
 		else:
 			print("Failed to open file for loading:", file_path)
