@@ -6,8 +6,32 @@ extends PlayerMovementState
 @export var DECELERATION: float = 0.25
 @export var TOP_ANIM_SPEED: float = 2.2
 
+@onready var audio: AudioStreamPlayer3D = $"../../WalkingSound"
+@onready var tavern_sound = load("res://assets/soundEffects/walking/woodWalk.wav")
+@onready var level1_sound = load("res://assets/soundEffects/walking/brickWalk.wav")
+@onready var level2_sound = load("res://assets/soundEffects/walking/brickWalk.wav")
+@onready var level3_sound = load("res://assets/soundEffects/walking/metalWalk.wav")
+@onready var level4_sound = load("res://assets/soundEffects/walking/fleshWalk.wav")
+
 func enter():
-	pass
+	var level = get_node("../../..").name
+	print(level)
+	match level:
+		"Tavern":
+			audio.stream = tavern_sound
+			audio.play()
+		"DungeonLevelOne":
+			audio.stream = level1_sound
+			audio.play()
+		"DungeonLevelTwo":
+			audio.stream = level2_sound
+			audio.play()
+		"DungeonLevelThree":
+			audio.stream = level3_sound
+			audio.play()
+		"FinalLevel":
+			audio.stream = level4_sound
+			audio.play()
 
 func update(delta):
 	PLAYER.update_gravity(delta)
@@ -31,3 +55,6 @@ func update(delta):
 func set_animation_speed(spd):
 	var alpha = remap(spd, 0.0, SPEED, 0.0, 1.0)
 	ANIMATION.speed_scale = lerp(0.0, TOP_ANIM_SPEED, alpha)
+
+func exit():
+	audio.stop()
