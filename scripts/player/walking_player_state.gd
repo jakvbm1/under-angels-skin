@@ -15,7 +15,6 @@ extends PlayerMovementState
 
 func enter():
 	var level = get_node("../../..").name
-	print(level)
 	match level:
 		"Tavern":
 			audio.stream = tavern_sound

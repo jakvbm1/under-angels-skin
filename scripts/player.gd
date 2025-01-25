@@ -39,6 +39,10 @@ var current_weapon_index: int = 0
 @onready var hit_rect = $PlayersUi/HitScreen
 @onready var esc_screen = $EscScreen
 
+@onready var background_music = $BackgroundMusic
+@onready var track1 = load("res://assets/music/track01.wav")
+@onready var track2 = load("res://assets/music/track02.wav")
+
 
 func _ready() -> void:
 	
@@ -55,6 +59,23 @@ func _ready() -> void:
 	current_weapon_index = Global.player_stats["current_weapon_index"]
 	esc_screen.visible = false
 	
+	var level = get_node("..").name
+	match level:
+		"Tavern":
+			background_music.stream = track1
+			background_music.play()
+		"DungeonLevelOne":
+			background_music.stream = track1
+			background_music.play()
+		"DungeonLevelTwo":
+			background_music.stream = track1
+			background_music.play()
+		"DungeonLevelThree":
+			background_music.stream = track1
+			background_music.play()
+		"FinalLevel":
+			background_music.stream = track2
+			background_music.play()
 	
 
 func _unhandled_input(event: InputEvent) -> void:

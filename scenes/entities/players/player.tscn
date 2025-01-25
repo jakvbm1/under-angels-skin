@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bu530m5tf1sxf"]
+[gd_scene load_steps=23 format=3 uid="uid://bu530m5tf1sxf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pueir"]
 [ext_resource type="PackedScene" uid="uid://c7575w4vhrutm" path="res://weaponManager/weapon_manager.tscn" id="2_11ur4"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/player/dash_player_state.gd" id="12_ejfmq"]
 [ext_resource type="PackedScene" uid="uid://ift2jgt0n483" path="res://scenes/UI elements/esc_screen.tscn" id="15_u43ep"]
 [ext_resource type="AudioStream" uid="uid://cvuk44objp5yn" path="res://assets/soundEffects/walking/brickWalk.wav" id="16_enxwf"]
+[ext_resource type="AudioStream" uid="uid://bet4me15g7f4y" path="res://assets/music/track01.wav" id="17_p7c5i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hhcsc"]
 radius = 0.372213
@@ -187,5 +188,9 @@ visible = false
 
 [node name="WalkingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("16_enxwf")
-volume_db = -5.0
-max_db = -5.0
+volume_db = -2.0
+max_db = -2.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_p7c5i")
+volume_db = -30.0
