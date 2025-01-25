@@ -57,11 +57,10 @@ func update_weapon_model() -> void:
 	if current_weapon_view_model != null and is_instance_valid(current_weapon_view_model):
 		current_weapon_view_model.queue_free()
 		current_weapon_view_model.get_parent().remove_child(current_weapon_view_model)
+	current_weapon.weapon_manager = self
 	if current_weapon == null:
-		if player.weapons.size() > 0:
-			update_weapon_ui()
+		update_weapon_ui()
 	else:
-		current_weapon.weapon_manager = self
 		if view_model and current_weapon.view_model:
 			current_weapon_view_model = current_weapon.view_model.instantiate()
 			view_model.add_child(current_weapon_view_model)
@@ -111,7 +110,7 @@ func _unhandled_input(event):
 			current_weapon.trigger_down = true
 
 func _ready() -> void:
-	update_weapon_model()
+	update_weapon_ui()
 
 func _process(delta: float) -> void:
 	if current_weapon.trigger_down:
