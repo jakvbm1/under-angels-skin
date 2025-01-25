@@ -24,7 +24,7 @@ func _process(delta: float):
 			
 			if get_node("..").name == "DungeonLevelOne":
 				
-				Global.player_stats["current_position"] = Vector3(-1, 2, 1)		
+				Global.player_stats["current_position"] = Vector3(-1, 2, 1)
 			else:
 				Global.player_stats["current_position"] = Vector3(1,2, -214)
 			get_tree().change_scene_to_file("res://scenes/places/dungeon/dungeon_level_two.tscn")
