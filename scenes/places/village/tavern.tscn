@@ -2,13 +2,13 @@
 
 [ext_resource type="MeshLibrary" uid="uid://b6ql7moh32f0l" path="res://assets/tiles/wood_tiles_fixed.tres" id="1_7i51v"]
 [ext_resource type="PackedScene" uid="uid://bu530m5tf1sxf" path="res://scenes/entities/players/player.tscn" id="2_6c0f0"]
-[ext_resource type="PackedScene" uid="uid://dtcpn0li1u0kt" path="res://scenes/entities/npces/innkeep.tscn" id="4_a4pix"]
 [ext_resource type="PackedScene" uid="uid://mdbf3vku3ttq" path="res://scenes/objects/torch.tscn" id="5_1srlv"]
 [ext_resource type="PackedScene" uid="uid://br84xxn1bvjwa" path="res://scenes/objects/game_start.tscn" id="6_2nfcq"]
 [ext_resource type="PackedScene" uid="uid://lcwh1v0uqc1f" path="res://scenes/objects/door.tscn" id="6_a0p44"]
 [ext_resource type="PackedScene" uid="uid://cao4suc7gxafe" path="res://scenes/objects/save_statue.tscn" id="7_e4o6h"]
 [ext_resource type="PackedScene" uid="uid://b7fnpjra1mwao" path="res://weaponManager/crowbar/sketchfab_scene.glb" id="8_80mht"]
 [ext_resource type="Script" path="res://scripts/weapons/weapon_pickup.gd" id="9_46rqj"]
+[ext_resource type="PackedScene" uid="uid://dixdf7xth0yag" path="res://scenes/entities/npces/knight.tscn" id="9_oij1f"]
 
 [node name="Tavern" type="Node3D"]
 
@@ -33,9 +33,6 @@ metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_6c0f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5691, 1.85202, 0)
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_a4pix")]
-transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -2, 0, -4.9)
 
 [node name="Torches" type="Node" parent="."]
 
@@ -146,3 +143,6 @@ offset_top = 266.0
 offset_right = 313.0
 offset_bottom = 289.0
 text = "Press f to pick up"
+
+[node name="Knight" parent="." instance=ExtResource("9_oij1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25504, 1.11003, -5.14274)
