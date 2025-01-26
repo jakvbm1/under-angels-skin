@@ -167,6 +167,13 @@ offset_right = 313.0
 offset_bottom = 289.0
 text = "Press f to pick up"
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.390038, 61.7119)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 20.0
+
 [connection signal="boss_death" from="FirstBoss" to="AreaBossStart" method="_on_first_boss_boss_death"]
 [connection signal="body_entered" from="AreaBossStart" to="FirstBoss" method="_on_area_boss_start_body_entered"]
 [connection signal="body_entered" from="AreaBossStart" to="AreaBossStart" method="_on_body_entered"]

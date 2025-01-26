@@ -4,6 +4,7 @@ extends Area3D
 @onready var front_wall_collision: CollisionShape3D = $"../bossFrontFog/CollisionShape3D"
 @onready var back_wall: StaticBody3D = $"../bossBackFog"
 @onready var back_wall_collision: CollisionShape3D = $"../bossBackFog/CollisionShape3D"
+@onready var light: OmniLight3D = $"../OmniLight3D"
 
 @onready var child_collision: CollisionShape3D = $CollisionShape3D
 
@@ -11,6 +12,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		back_wall.visible = true
 		front_wall.visible = true
+		light.visible = true
 		front_wall_collision.disabled = false
 		back_wall_collision.disabled = false
 		child_collision.disabled = true
