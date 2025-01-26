@@ -11,8 +11,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	list_node.add_item("HP bonus            +10%     " + str(hp_price) + " gold")
-	list_node.add_item("Attack bonus     +10%     "+str(speed_price)+ "gold")
-	list_node.add_item("Speed bonus      +10%     " + str(dmg_price)+ "gold")
+	list_node.add_item("Attack bonus     +10%     "+str(dmg_price )+ "gold")
+	list_node.add_item("Speed bonus      +10%     " + str(speed_price)+ "gold")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
