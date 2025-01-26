@@ -16,8 +16,8 @@ const DASH_COOLDOWN: float = 3.0
 @export var level: int
 
 # weapon swapping logic
-var weapons: Array = ["sword"]
-var current_weapon_index: int = 0
+var weapons: Array = Global.player_stats["weapons"]
+var current_weapon_index: int = Global.player_stats["current_weapon_index"]
 
 @export var exp_points: float :
 	set(value):
