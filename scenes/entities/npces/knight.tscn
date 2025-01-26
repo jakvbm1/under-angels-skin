@@ -6,7 +6,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvbn7"]
 resource_name = "Knight"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_ncbht")
 metallic = 0.4
 roughness = 0.272166
@@ -191,7 +190,7 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(0.928622, -0.370859, -0.0111466, 0.37059, 0.928568, -0.0205952, 0.0179883, 0.0149944, 0.999726, -1.73866e-09, 0.00682464, 1.86265e-11)
 bones/7/enabled = true
 bones/7/position = Vector3(-1.73866e-09, 0.00682464, 1.86265e-11)
-bones/7/rotation = Quaternion(0.00906094, -0.0074176, 0.188769, 0.981952)
+bones/7/rotation = Quaternion(0.011475, 0.000474975, -0.461525, 0.887475)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "LowerArm.L"
 bones/8/parent = 7
@@ -233,7 +232,7 @@ bones/13/parent = 12
 bones/13/rest = Transform3D(0.928622, 0.370859, 0.0111465, -0.37059, 0.928568, -0.0205953, -0.0179882, 0.0149944, 0.999726, -1.72935e-10, 0.00682465, 3.72529e-11)
 bones/13/enabled = true
 bones/13/position = Vector3(-1.72935e-10, 0.00682465, 3.72529e-11)
-bones/13/rotation = Quaternion(0.00906096, 0.00741756, -0.188769, 0.981952)
+bones/13/rotation = Quaternion(0.011475, -0.000525026, 0.461475, 0.887475)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/name = "LowerArm.R"
 bones/14/parent = 13
