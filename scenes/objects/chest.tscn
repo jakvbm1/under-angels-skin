@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://fevyvf4in2ae"]
+[gd_scene load_steps=9 format=3 uid="uid://fevyvf4in2ae"]
 
 [ext_resource type="PackedScene" uid="uid://w2sswppp441y" path="res://assets/models/Chest.glb" id="1_kq1ko"]
 [ext_resource type="Script" path="res://scenes/objects/chest.gd" id="2_eata0"]
+[ext_resource type="AudioStream" uid="uid://urdgrr7jj63b" path="res://assets/soundEffects/objects/door-close-79921.mp3" id="3_gqgfi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yb0y3"]
 size = Vector3(1.3833, 1, 1)
@@ -96,3 +97,6 @@ offset_left = 3.0
 offset_top = 30.0
 offset_right = 43.0
 offset_bottom = 53.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("3_gqgfi")

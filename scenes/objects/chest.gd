@@ -8,6 +8,7 @@ var is_open: bool = false
 @onready var goldLabel: Label = $"GoldLabel"
 @export var open_distance:float = 2.0
 @onready var animation_player: AnimationPlayer = $"AnimationPlayer"
+@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,6 +41,7 @@ func toggle_chest():
 	if not animation_player.is_playing():
 		if !is_open:
 			animation_player.play("open")
+			audio.play()
 			if chest_number not in empty_chests:
 				goldLabel.add_theme_color_override("font_color", Color(1, 1, 0))
 
@@ -52,6 +54,7 @@ func toggle_chest():
 				empty_chests.append(chest_number)
 		else: 
 			animation_player.play("close")
+			audio.play()
 			
 		is_open = not is_open
 func get_gold():
