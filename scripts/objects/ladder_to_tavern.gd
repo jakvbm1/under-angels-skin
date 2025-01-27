@@ -20,7 +20,7 @@ func _process(delta: float):
 			Global.player_stats["exp_points"] = player.exp_points 
 			Global.player_stats["weapons"] = player.weapons
 			Global.player_stats["current_weapon_index"] = player.current_weapon_index
-			get_tree().change_scene_to_file("res://scenes/places/village/tavern.tscn")
+			Global.tel_tav()
 		
 	else:
 		label.visible = false
